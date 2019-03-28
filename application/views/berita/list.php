@@ -23,7 +23,7 @@
           </a>
         </li>
         <li class="btn btn2">
-          <a href="shop.html">Berita</a>
+          <a href="<?php echo base_url('berita') ?>">Berita</a>
         </li>
       </ul>
     </div>
