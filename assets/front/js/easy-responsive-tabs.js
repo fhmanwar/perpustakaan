@@ -47,16 +47,16 @@
                     }
                 }
 
-                //Assigning the h2 markup to accordion title
-                var $tabItemh2;
-                $respTabs.find('.resp-tab-content').before("<h2 class='resp-accordion' role='tab'><span class='resp-arrow'></span></h2>");
+                //Assigning the h5 markup to accordion title
+                var $tabItemh5;
+                $respTabs.find('.resp-tab-content').before("<h5 class='resp-accordion' role='tab'><span class='resp-arrow'></span></h5>");
 
                 var itemCount = 0;
                 $respTabs.find('.resp-accordion').each(function () {
-                    $tabItemh2 = $(this);
+                    $tabItemh5 = $(this);
                     var innertext = $respTabs.find('.resp-tab-item:eq(' + itemCount + ')').html();
                     $respTabs.find('.resp-accordion:eq(' + itemCount + ')').append(innertext);
-                    $tabItemh2.attr('aria-controls', 'tab_item-' + (itemCount));
+                    $tabItemh5.attr('aria-controls', 'tab_item-' + (itemCount));
                     itemCount++;
                 });
 

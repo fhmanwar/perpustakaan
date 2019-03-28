@@ -1,58 +1,109 @@
-<div class="slider">
-    <div class="callbacks_container">
-      <ul class="rslides" >
-        <li>
-          <div style="background-image: url(<?php echo base_url()?>assets/front/images/b2.jpg);">
-            <div class="container">
-              <div class="slider-info text-left">
-                <div class="text-center" style="padding-bottom:100px; margin-top:-100px; margin-bottom: 1px;">
-                  <h5 style=" color: white;" >News</h5>
-                  <h4>
-                    <a href="<?php echo base_url() ?>">Home</a>
-                    <a href="<?php echo base_url('berita') ?>">News</a>
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
+<!-- banner -->
+<div class="banner-bg-inner">
+  <!-- banner-text -->
+  <div class="banner-text-inner">
+    <div class="container">
+      <h2 class="title-inner">
+        <?php echo $judul ?>
+      </h2>
+
+    </div>
+  </div>
+  <!-- //banner-text -->
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="crumbs text-center">
+  <div class="container">
+    <div class="row">
+      <ul class="btn-group btn-breadcrumb bc-list">
+        <li class="btn btn1">
+          <a href="<?php echo base_url() ?>">
+            <i class="glyphicon glyphicon-home"></i>
+          </a>
+        </li>
+        <li class="btn btn2">
+          <a href="<?php echo base_url('berita') ?>">Berita</a>
+        </li>
+        <li class="btn btn3">
+          <a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>"><?php echo $berita->judul_berita ?></a>
         </li>
       </ul>
     </div>
   </div>
-    <div class="clearfix"></div>
+</div>
+<!--//breadcrumbs ends here-->
+<!-- Single -->
+<div class="innerf-pages section">
+  <div class="container">
+    <div class="col-md-4 single-right-left ">
+      <div class="grid images_3_of_2">
+        <div class="flexslider1">
+          <ul class="slides">
+            <li data-thumb="<?php echo base_url('assets/upload/berita/'.$berita->gambar)?>">
+              <div class="thumb-image"><img src="<?php echo base_url('assets/upload/berita/'.$berita->gambar) ?>" data-imagezoom="true" alt=" " class="img-responsive"> </div>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+      </div>
 
-<section class="about" id="about">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <!--Horizontal Tab-->
-        <div id="horizontalTab">
-          <div class="container">
-            <div class="tab4">
-              <div class="row mt-lg-4 mt-3">
-                <div class="col-md-5 about-txt-img">
-                  <img src="<?php echo base_url('assets/upload/buku/'.$berita->gambar)?>" class="img-thumbnail" alt="">
-                </div>
-                <div class="col-md-7 latest-list">
-                  <div class="about-jewel-agile-left">
-                    <h4 class="mb-3" data-blast="color"><?php echo $berita->judul_berita ?></h4>
-                    <p><?php echo $berita->isi ?></p>
-                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    </div>
+    <div class="col-md-8 single-right-left simpleCart_shelfItem">
 
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.</p>
-
-                    <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                    <!-- <h5 data-blast="color">What Our Mission</h5> -->
-                  </div>
-                </div>
-              </div>
+      <div class="clearfix"></div>
+      <div class="desc_single">
+        <h5>Description</h5>
+        <p><?php echo $berita->isi ?></p>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<!-- /new_arrivals -->
+<div class="singlep_btm">
+  <div class="container">
+    <div class="new_arrivals">
+      <h4 class="rad-txt text-center">
+        <span class="abtxt1">Berita</span>
+        <span class="abtext"> Terbaru</span>
+      </h4>
+      <!-- row3 -->
+      <?php $i=1; foreach ($berita_lain as $berita) {?>
+      <div class="col-md-3 product-men">
+        <div class="product-chr-info chr">
+          <div class="thumbnail">
+            <a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>">
+              <img src="<?php echo base_url('assets/upload/berita/'.$berita->gambar) ?>" alt="">
+            </a>
+          </div>
+          <div class="caption">
+            <h4><?php echo $berita->judul_berita ?></h4>
+            <!-- <p><?php echo $berita->penulis ?></p> -->
+            <div class="matrlf-mid">
+              <ul class="">
+                <li><a href="#"><span class="fa fa-calendar-check-o" aria-hidden="true"></span> <?php echo $berita->tanggal ?></a></li>
+              </ul>
+              <div class="clearfix"> </div>
+              <p><?php echo $berita->isi ?></p>
             </div>
+            <form action="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>" method="post">
+              <button type="submit" class="chr-cart pchr-cart">Read More
+                <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </section>
-    <!--//about-->
+      <?php } ?>
+
+      <!-- //row3 -->
+      <div class="clearfix"></div>
+    </div>
+    <!--//new_arrivals-->
+    <div class="clearfix"></div>
+
+  </div>
+</div>
+<!--// Single -->

@@ -1,31 +1,106 @@
-    <div class="header-outs" id="header">
-      <div class="header-w3layouts">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="hedder-up">
-            <h1 ><a href="<?php echo base_url() ?>" class="navbar-brand" data-blast="color">Classwork</a></h1>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="headdser-nav-color" data-blast="bgColor">
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <ul class="navbar-nav ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo base_url('katalog') ?>">Katalog Buku <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item"><a href="<?php echo base_url('buku') ?>" class="nav-link scroll" >Buku Baru</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('usulan') ?>" class="nav-link scroll" >Usulan Buku</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('kontak') ?>" class="nav-link scroll">Contact</a></li>
-                <!-- <li class="nav-item"><a href="#about" class="nav-link scroll" >About</a></li>
-                <li class="nav-item"><a href="#blog" class="nav-link scroll">Blog</a></li>
-                <li class="nav-item"><a href="#team" class="nav-link scroll">Team</a></li>
-                <li class="nav-item"><a href="#stats" class="nav-link scroll">Stats</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link scroll">Contact</a></li> -->
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!--//navigation section -->
-        <!-- <div class="clearfix"> </div> -->
-      </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="main-nav">
+    <div class="container">
+
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Chronicle</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <h1>
+        <a class="navbar-brand" href="<?php echo base_url() ?>">Chronicle</a>
+      </h1>
     </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse nav-right">
+        <ul class="nav navbar-nav navbar-left cl-effect-15">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden">
+          <a class="page-scroll" href="#page-top"></a>
+          </li>
+          <li>
+          <a href="<?php echo base_url()?>">Home</a>
+          </li>
+          <li>
+          <a href="<?php echo base_url()?>assets/front/about.html">about us</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="<?php echo base_url()?>assets/front/shop.html">product catalog</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url()?>assets/front/single_product.html">single product</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url()?>assets/front/checkout.html">checkout</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url()?>assets/front/payment.html">Payment</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">footers
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="footer1.html">Default</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html">Contact us</a>
+          </li>
+          <li>
+            <a href="<?php echo base_url('home/login') ?>" title="SignIn & SignUp">
+            <span class="fa fa-user nav-icon" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+        <!-- search-bar -->
+        <div class="search-bar-agileits">
+          <div class="cd-main-header">
+          <ul class="cd-header-buttons">
+            <li>
+              <a class="cd-search-trigger" href="#cd-search">
+                <span></span>
+              </a>
+            </li>
+          </ul>
+          <!-- cd-header-buttons -->
+          </div>
+          <div id="cd-search" class="cd-search">
+            <form action="#" method="post">
+              <input name="Search" type="search" placeholder="Type and Hit Enter...">
+            </form>
+          </div>
+        </div>
+        <!-- //search-bar ends here -->
+        <!-- shopping cart -->
+        <div class="cart-mainf">
+          <div class="chrcart chrcart2 cart cart box_1">
+            <form action="#" method="post" class="last">
+              <input type="hidden" name="cmd" value="_cart">
+              <input type="hidden" name="display" value="1">
+              <button class="top_chr_cart" type="submit" name="submit" value="">
+                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- //shopping cart ends here -->
+      </div>
+      <!-- /.navbar-collapse -->
+    <div class="clearfix"></div>
+    </div>
+    <!-- /.container -->
+  </div>
+</nav>
+<!-- //navbar ends here -->

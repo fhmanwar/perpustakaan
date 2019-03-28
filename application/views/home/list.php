@@ -1,348 +1,513 @@
-<!--banner -->
-      <!-- Slideshow 4 -->
-      <div class="slider">
-        <div class="callbacks_container">
-          <ul class="rslides" id="slider4">
-            <?php $i=1; foreach($slide as $slide) { ?>
-            <li>
-              <div style="background-image: url(<?php echo base_url('assets/upload/berita/'.$slide->gambar)?>);"class="slider-img <?php if($i==1){ echo 'active'; } ?>">
-                <div class="container">
-                  <div class="slider-info text-left">
-                    <h5><?php echo $slide->judul_berita ?></h5>
-                    <p><?php echo character_limiter($slide->isi,50) ?>
-                    </p>
-                    <div class="outs_more-buttn" >
-                      <a href="<?php echo base_url('berita/read/'.$slide->slug_berita) ?>" data-blast="bgColor">More</a>
+<!-- banner -->
+<div class="banner-bg-agileits">
+    <!-- banner-text -->
+    <div class="banner-text">
+        <div class="container">
+            <p class="b-txt">the</p>
+            <h2 class="title">
+                Library
+            </h2>
+            <ul class="banner-txt">
+                <li>share.</li>
+                <li> explore. </li>
+                <li>amplify.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+<!-- //banner -->
+<!-- about -->
+<div class="about-sec section" id="about">
+    <div class="container">
+        <!-- about-left-grid -->
+        <div class="col-md-7 about-left-grid">
+            <div class="inner-about2">
+                <h4>the splendid Central Library</h4>
+                <p>Billed as the largest in the world,and the library's collection holds more than 3 million items.</p>
+                <h5>the library catalogue</h5>
+                <ul class="about-list">
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>International Collections</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>ebooks</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>Manuscripts</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>scientific and Technical Information</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>Comic Books</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>Cartography</li>
+                    <li>
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>Journals</li>
+
+                </ul>
+                <a href="#">view more</a>
+            </div>
+            <!-- about left bottom - services -->
+            <div class="principles-grids principles-grids1">
+                <div class="abt-btm agileits w3layouts aos-init aos-animate">
+                    <div class="col-md-6 col-sm-6 agileits elite-services1 w3layouts bottom-gds" data-aos="fade-up">
+                        <div class="bott-img agileits w3layouts">
+                            <div class="icon-holder agileits w3layouts">
+                                <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
+                            </div>
+                            <h4 class="mission agileits w3layouts">law library</h4>
+                            <div class="description agileits w3layouts">
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div class="col-md-6 col-sm-6 agileits elite-services2 w3layouts bottom-gds" data-aos="fade-down">
+                        <div class="bott-img bott-img1 agileits w3layouts">
+                            <div class="icon-holder agileits w3layouts">
+                                <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
+                            </div>
+                            <h4 class="mission agileits w3layouts">asian materials</h4>
+                            <div class="description agileits w3layouts">
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-              </div>
-            </li>
-            <?php $i++; } ?>
-          </ul>
+            </div>
+            <!-- //about left bottom - services ends here -->
         </div>
+        <!-- //about-left-grid ends here-->
+        <!-- about-right-grid -->
+        <div class="col-md-5 about-right-grid"></div>
+        <!-- //about-right-grid ends here -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //about ends here -->
+<!-- about bottom -->
+<div class="about-bottom section">
+    <div class="container-fluid">
+        <h4 class="rad-txt">
+            <span class="abtxt1">wonderful</span>
+            <span class="abtext"> world of reading</span>
+        </h4>
+        <!-- about-bottom grid1 -->
+        <div class="col-md-6 about-bottom-right">
+            <p class="abt-p">Etiam massa quam, efficitur eu ante vestibulum, convallis molestie arcu. Morbi dapibus suscipit ante,
+                sit efficitur eu ante vestibulum, convallis molestie arcu. Morbi dapibus suscipit an amet pulvinar
+                risus.
+            </p>
+            <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>e-books</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>magazines</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>Fiction</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>audio books</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls service2">
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>Journals</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>e-library</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>magazines</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>Comic Books</h5>
+                        <p>loremipsum is a dummy text</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //about-bottom grid1 ends here -->
+        <div class="col-md-6 home-about2">
+        <!-- about-bottom grid2 -->
+        <div class="col-md-6 col-sm-6 col-xs-6 bg-right"></div>
+        <!-- //about-bottom grid2 ends here -->
+        <!-- about-bottom grid3 -->
+        <div class="col-md-6 col-sm-6 col-xs-6 w3ls-section  stats">
+            <div class="stats-aboutinfo services-main">
+                <div class="agileits_w3layouts-stats-grids text-center">
+                    <div class="stats-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="stats-right">
+                        <h6>volumes</h6>
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='221073' data-delay='.5' data-increment="300">221073</div>
 
-        <!-- This is here just to demonstrate the callbacks -->
-        <!-- <ul class="events">
-          <li>Example 4 callback events</li>
-          </ul>-->
-          <div class="clearfix"></div>
-      </div>
-    <!-- </div> -->
-    <!-- //banner -->
+                    </div>
+                    <div class="clearfix"></div>
 
-    <!--model-->
-    <!-- <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="exampleModalLiveLabel" data-blast="color"><?php echo $slide->judul_berita ?></h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img src="<?php echo base_url('assets/front/images/'.$slide->gambar) ?>" alt="" class="img-fluid">
-            <p><?php echo $slide->isi ?></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--//model-->
+                </div>
+                <div class="agileits_w3layouts-stats-grids text-center">
+                    <div class="stats-icon">
+                        <span class="fa fa-university" aria-hidden="true"></span>
+                    </div>
+                    <div class="stats-right">
+                        <h6>branches</h6>
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='780' data-delay='.5' data-increment="50">980</div>
 
-    <!--about-->
-    <section class="pt-md-5 pt-sm-4 pt-3">
-      <div class="container-fluid ">
-        <div class="main row ">
-          <!-- TENTH EXAMPLE -->
-          <div class="col-lg-4 view view-tenth">
-            <img src="<?php echo base_url()?>assets/front/images/ab1.jpg" alt="" class="img-fluid">
-            <div class="mask">
-              <h3 data-blast="bgColor">Success</h3>
-              <p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>
-              <a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>
-            </div>
-          </div>
-          <div class="col-lg-4 view view-tenth">
-            <img src="<?php echo base_url()?>assets/front/images/ab2.jpg" alt="" class="img-fluid">
-            <div class="mask">
-              <h3 data-blast="bgColor">Hard Work</h3>
-              <p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>
-              <a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>
-            </div>
-          </div>
-          <div class="col-lg-4 view view-tenth">
-            <img src="<?php echo base_url()?>assets/front/images/ab3.jpg" alt="" class="img-fluid">
-            <div class="mask">
-              <h3 data-blast="bgColor">Admission</h3>
-              <p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>
-              <a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Keyword-->
-    <section class="py-md-5 py-sm-4 py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 subscrib-w3layouts text-center">
-            <h2 data-blast="color">Pencarian Buku</h2>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="newsletter">
-              <form action="<?php echo base_url('katalog') ?>" method="post" class="d-flex">
-                <input type="text" name="cari" class="form-control" placeholder="Keyword" required >
-                <!-- <input type="submit" name="submit" class="btn btn-danger" value="Search" > -->
-                <button class="btn1" >
-                <span class="fa fa-search" data-blast="bgcolor"></span>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--//about-->
-    <!--service-->
-    <section class="service py-lg-4 py-md-3 py-sm-3 py-3" id="service">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <h3 class="title clr text-center mb-lg-5 mb-md-4  mb-sm-4 mb-3">services</h3>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fas fa-book banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fas fa-pencil-alt banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fas fa-bookmark banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fas fa-address-book banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fas fa-graduation-cap banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">
-            <div class="white-shadow">
-              <div class="text-wls-ser-bake">
-                <span class="fab fa-cloudscale banner-icon" data-blast="color"></span>
-              </div>
-              <div class="ser-inner-info">
-                <h4 class="my-3">Lorem ipsum</h4>
-                <p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--//service-->
+                    </div>
+                    <div class="clearfix"></div>
 
-    <!--Book-->
-    <section class="team py-lg-4 py-md-3 py-sm-3 py-3" id="team">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Book</h3>
-        <div class="row">
-          <?php $i; foreach ($buku as $buku) {?>
-          <div class="col-lg-3 col-md-6 col-sm-6 profile">
-            <div class="team-shadow">
-              <div class="img-box">
-                <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="<?php echo $buku->judul_buku ?>">
-                <!-- <div class="list-social-icons">
-                  <ul>
-                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
-                  </ul>
-                </div> -->
-              </div>
-              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2"> <a href="<?php echo base_url('katalog/read/'.$buku->id_buku) ?>"><?php echo $buku->judul_buku ?></a> </h4>
-                <span class="wls-client-title text-black"><?php echo $buku->penulis_buku ?></span>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="clearfix"></div> -->
-        <?php } ?>
-        </div>
-      </div>
-    </section>
-    <!--//Buku-->
 
-    <!--stats-->
-    <section class="stats py-lg-4 py-md-3 py-sm-3 py-3" id="stats">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Our Stats </h3>
-        <div class="jst-must-info text-center">
-          <div class="row stats-info">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-1">
-              <div class="stats-grid" data-blast="bgColor">
-                <div class="counter">2045</div>
-                <div class="stat-info">
-                  <h5 class="pt-2">Experience </h5>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-2">
-              <div class=" stats-grid" data-blast="bgColor">
-                <div class="counter">350</div>
-                <div class="stat-info">
-                  <h5 class="pt-2"> Staff</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-3">
-              <div class=" stats-grid" data-blast="bgColor">
-                <div class="counter">1000</div>
-                <div class="stat-info">
-                  <h5 class="pt-2"> Coffee</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-4">
-              <div class=" stats-grid" data-blast="bgColor">
-                <div class="counter">650</div>
-                <div class="stat-info">
-                  <h5 class="pt-2"> Projects </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--//stats-->
+                <div class="agileits_w3layouts-stats-grids text-center">
+                    <div class="stats-icon">
+                        <span class="fa fa-laptop" aria-hidden="true"></span>
+                    </div>
+                    <div class="stats-right">
+                        <h6>e-books</h6>
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='9800' data-delay='.5' data-increment="50">9800</div>
 
-    <!--News -->
-    <section class="blog py-lg-4 py-md-3 py-sm-3 py-3" id="blog">
-      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">News</h3>
-        <div class="row">
-          <?php $i=1; foreach ($berita as $berita) {?>
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">
-            <div class="clients-color">
-              <img src="<?php echo base_url('assets/upload/berita/'.$berita->gambar) ?>" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>" data-blast="color"><?php echo $berita->judul_berita ?> </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" ><?php echo $berita->tanggal ?></a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
-                  </ul>
-                </div>
-                <p><?php echo $berita->isi ?></p>
-                <div class="outs_more-buttn" >
-                  <a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>"  data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } ?>
-        </div>
-      </div>
-    </section>
-    <!--//News -->
+                    </div>
+                    <div class="clearfix"></div>
 
-    <!--contact -->
-    <section class="contact py-lg-4 py-md-3 py-sm-3 py-3" id="contact">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Contact Us</h3>
-        <div class="row">
-          <div class="col-md-5 address-grid">
-            <div class="addres-office-hour text-center" >
-              <ul>
-                <li class="mb-2">
-                  <h6 data-blast="color">Address</h6>
-                </li>
-                <li>
-                  <p>Melbourne,south Brisbane,<br>QLD 4101,Aurstralia.</p>
-                </li>
-              </ul>
-              <ul>
-                <li class="mt-lg-4 mt-3">
-                  <h6 data-blast="color">Phone</h6>
-                </li>
-                <li class="mt-2">
-                  <p>+ 1 (234) 567 8901</p>
-                </li>
-                <li class="mt-lg-4 mt-3">
-                  <h6 data-blast="color">Email</h6>
-                </li>
-                <li class="mt-2">
-                  <p><a href="mailto:info@example.com">info@example.com</a></p>
-                </li>
-              </ul>
+                </div>
+                <div class="agileits_w3layouts-stats-grids text-center">
+                    <div class="stats-icon">
+                        <span class="fa fa-users" aria-hidden="true"></span>
+                    </div>
+                    <div class="stats-right">
+                        <h6>visitors</h6>
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='123623' data-delay='.5' data-increment="300">123623</div>
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="clearfix"></div>
             </div>
-          </div>
-          <div class="col-md-7 contact-form">
-            <form action="#" method="post">
-              <div class="row text-center contact-wls-detail">
-                <div class="col-md-6 form-group contact-forms">
-                  <input type="text" class="form-control" placeholder="Your Name" required="">
-                </div>
-                <div class="col-md-6 form-group contact-forms">
-                  <input type="email" class="form-control" placeholder="Your Email" required="">
-                </div>
-              </div>
-              <div class="form-group contact-forms">
-                <input type="text" class="form-control" placeholder="Subject" required="">
-              </div>
-              <div class="form-group contact-forms">
-                <textarea class="form-control" rows="3" placeholder="Your Message" required=""></textarea>
-              </div>
-              <div class="sent-butnn text-center">
-                <button type="submit" class="btn btn-block" data-blast="bgColor">Send</button>
-              </div>
-            </form>
-          </div>
         </div>
-      </div>
-    </section>
-    <!--//contact -->
+        <div class="clearfix"></div>
+       </div>
+        <!-- //about-bottom grid3 ends here -->
+        <!-- //Numscroller -->
+        <div class="clearfix"></div>
+    </div>
+    <!-- //about container ends here-->
+</div>
+<!--//about bottom ends here-->
+<!-- team -->
+<div id="team" class="team section">
+    <div class="team-container">
+        <div class="team-row">
+            <!-- team grid1 -->
+            <div class="col-md-5 team-grid-left">
+                <!-- team individual grid -->
+                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                    <div class="team-effect">
+                        <img src="images/t3.jpg" alt="img" class="img-responsive">
+                        <div class="social-icon">
+                            <a href="#" class="social-button twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-button facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-button google">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="team-text">
+                        <h4>John Smith</h4>
+                        <span>Designation</span>
+                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+
+                    </div>
+                </div>
+                <!-- //team individual grid -->
+                <!-- team individual grid -->
+                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                    <div class="team-text">
+                        <h4>Thomson Doe</h4>
+                        <span>Designation</span>
+                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                    </div>
+                    <div class="team-effect">
+                        <img src="images/t1.jpg" alt="img" class="img-responsive">
+                        <div class="social-icon">
+                            <a href="#" class="social-button twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-button facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-button google">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- //team individual grid -->
+                </div>
+            </div>
+            <!-- //team-grid1 ends here-->
+            <!--team-grid2 -->
+            <div class="col-md-2 col-sm-2 team-mid-txt text-center">
+                <span>our</span>
+                <h5>t</h5>
+                <h5>e</h5>
+                <h5>a</h5>
+                <h5>m</h5>
+            </div>
+            <!--//team-grid2 ends here-->
+            <!-- team grid3 -->
+            <!-- team individual grid -->
+            <div class="col-md-5 team-grid-right">
+                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                    <div class="team-text">
+                        <h4>Smith Kevin</h4>
+                        <span>Designation</span>
+                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                    </div>
+                    <div class="team-effect">
+                        <img src="images/t2.jpg" alt="img" class="img-responsive">
+                        <div class="social-icon">
+                            <a href="#" class="social-button twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-button facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-button google">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- //team individual grid -->
+                <!-- team individual grid -->
+                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                    <div class="team-effect">
+                        <img src="images/t4.jpg" alt="img" class="img-responsive">
+                        <div class="social-icon">
+                            <a href="#" class="social-button twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-button facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-button google">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="team-text">
+                        <h4>Laura Hill</h4>
+                        <span>Designation</span>
+                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                    </div>
+                </div>
+                <!-- //team individual grid -->
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //team grid3 -->
+            <div class="clearfix"> </div>
+        </div>
+        <!-- //team-row ends here -->
+    </div>
+    <!-- // team container ends here -->
+</div>
+<!-- //team -->
+<!--testimonials -->
+<div class="reviews section" id="testimonials">
+    <div class="container">
+        <h4 class="rad-txt">
+            <span class="abtxt1">visitors</span>
+            <span class="abtext">testimonials</span>
+        </h4>
+        <div id="Carousel" class="slide carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids">
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>convallis felis</h6>
+                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non mattis.</p>
+                                    <h5>Davidson</h5>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3  img-testi">
+                                    <img class="img-responsive" src="images/c3.jpg" alt="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids t2">
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c2.jpg" alt="">
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>Cras rutrum</h6>
+                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
+                                    <h5>Clifford</h5>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids">
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>felis mattis</h6>
+                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non yallis.</p>
+                                    <h5>Mercurio</h5>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c4.jpg" alt="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids t2">
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c1.jpg" alt="">
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>Cras rutrum</h6>
+                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
+                                    <h5>Clifford</h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--.row-->
+                </div>
+                <!--.item-->
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids">
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>convallis felis</h6>
+                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non mattis.</p>
+                                    <h5>Davidson</h5>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c3.jpg" alt="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 testi-main">
+                            <div class="testi-grids t2">
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c2.jpg" alt="">
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>Cras rutrum</h6>
+                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
+                                    <h5>Clifford</h5>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids">
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>felis mattis</h6>
+                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non yallis.</p>
+                                    <h5>Mercurio</h5>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c4.jpg" alt="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  testi-main">
+                            <div class="testi-grids t2">
+                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
+                                    <img class="img-responsive" src="images/c1.jpg" alt="">
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
+                                    <h6>Cras rutrum</h6>
+                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
+                                    <h5>Clifford</h5>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--.row-->
+                </div>
+            </div>
+            <!--.carousel-inner-->
+            <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+        </div>
+        <!--.Carousel-->
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //testimonials-->

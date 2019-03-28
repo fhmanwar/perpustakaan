@@ -64,10 +64,10 @@ class Katalog extends CI_Controller {
     $this->load->view('layout/file',$data,FALSE);
 	}
 
-  public function read($id_buku)
+  public function detail($id_buku)
 	{
     // $keywords = str_replace(' ','-',strip_tags($keywords));
-    $buku	= $this->buku_model->read($id_buku);
+    $buku	= $this->buku_model->detaill($id_buku);
     $file_buku	= $this->buku_model->buku($id_buku);
 
     $data = array('title'  			=> $buku->judul_buku,//$site['namaweb'].' | '.$site['tagline']
@@ -79,7 +79,7 @@ class Katalog extends CI_Controller {
 									// 'berita'  		=> $berita,
 									// 'slide'  			=> $slide,
                   'judul'       => 'Detail Buku',
-                  'isi'    			=> 'katalog/read');
+                  'isi'    			=> 'katalog/detail');
 
     $this->load->view('layout/file',$data,FALSE);
 	}
