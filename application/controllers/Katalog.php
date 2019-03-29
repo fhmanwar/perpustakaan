@@ -67,6 +67,7 @@ class Katalog extends CI_Controller {
   public function detail($id_buku)
 	{
     // $keywords = str_replace(' ','-',strip_tags($keywords));
+    $bukus	= $this->buku_model->buku_baru();
     $buku	= $this->buku_model->detaill($id_buku);
     $file_buku	= $this->buku_model->buku($id_buku);
 
@@ -74,6 +75,7 @@ class Katalog extends CI_Controller {
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,
+                  'bukus'  		  => $bukus,
                   'file_buku'  		  => $file_buku,
                   // 'keywords'  	=> $keywords,
 									// 'berita'  		=> $berita,

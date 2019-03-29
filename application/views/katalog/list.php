@@ -23,7 +23,7 @@
           </a>
         </li>
         <li class="btn btn2">
-          <a href="<?php echo base_url('buku') ?>">Buku</a>
+          <a href="<?php echo base_url('katalog') ?>"> Katalog Buku</a>
         </li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
             <div class="product-chr-info chr">
               <div class="thumbnail">
                 <?php if($buku->cover_buku != ""){ ?>
-                <a href="<?php echo base_url('katalog/read/'.$buku->id_buku) ?>">
+                <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
                   <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
                 </a>
                 <?php }else{ echo 'Tidak ada';} ?>
@@ -55,27 +55,21 @@
                 <div class="matrlf-mid">
                   <ul class="rating">
                     <li>
-                      <a href="#">
-                        <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                      </a>
-                    </li>
+                      <span class="" aria-hidden="true"></span><?php echo $buku->penulis_buku ?><a href="#"></a></li>
                   </ul>
                   <div class="clearfix"> </div>
                 </div>
-                <p><?php $buku->ringkasan ?></p>
-                <form action="#" method="post">
-                  <input type="hidden" name="cmd" value="_cart">
-                  <input type="hidden" name="add" value="1">
-                  <input type="hidden" name="chr_item" value="Book1">
-                  <input type="hidden" name="amount" value="100.00">
-                  <button type="submit" class="chr-cart pchr-cart">Add to cart
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+                <form action="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>" method="post">
+                  <button type="submit" class="chr-cart pchr-cart">Read More
+                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                   </button>
-                  <a href="#" data-toggle="modal" data-target="#myModal1"></a>
                 </form>
               </div>
             </div>
           </div>
+          <!-- //row1 -->
           <?php } ?>
           <div class="clearfix"></div>
 

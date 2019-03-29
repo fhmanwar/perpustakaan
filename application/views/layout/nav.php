@@ -24,7 +24,7 @@
           <a href="<?php echo base_url()?>">Home</a>
           </li>
           <li>
-          <a href="<?php echo base_url()?>assets/front/about.html">about us</a>
+          <a href="<?php echo base_url('katalog')?>">Katalog Buku</a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
@@ -77,8 +77,8 @@
           <!-- cd-header-buttons -->
           </div>
           <div id="cd-search" class="cd-search">
-            <form action="#" method="post">
-              <input name="Search" type="search" placeholder="Type and Hit Enter...">
+            <form action="<?php echo base_url('katalog') ?>" method="post">
+              <input name="cari" type="search" placeholder="Type and Hit Enter...">
             </form>
           </div>
         </div>

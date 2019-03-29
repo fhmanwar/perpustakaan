@@ -67,8 +67,8 @@ class Buku_model extends CI_Model {
     $this->db->join('user','user.id_user = buku.id_user','LEFT');
     //end join
 		$this->db->where(array(	'buku.status_buku' => 'Publish'));
-    $this->db->order_by('id_buku','ASC');
-		// $this->db->limit(4);
+    $this->db->order_by('id_buku','DESC');
+		$this->db->limit(4);
     $query = $this->db->get();
     return $query->result();
   }
