@@ -115,22 +115,22 @@
 </div>
 
 <!-- /new_arrivals -->
-<div class="section singlep_btm">
+<div class="section singlep_btm" style="margin-bottom: 50px;">
   <div class="container">
     <div class="new_arrivals">
       <h4 class="rad-txt">
-        <span class="abtxt1">Konten</span>
+        <span class="abtxt1" style="background-color: #03a645; color:#fff;">Konten</span>
         <span class="abtext"> Digital</span>
       </h4>
       <?php if(count($file) < 1 ){ ?>
-        <p class="alert alert-success text-center"><i class="glyphicon glyphicon-warning-sign"></i>File Not Found</p>
+        <p class="alert alert-success text-center"><i class="glyphicon glyphicon-warning-sign"></i> File Not Found</p>
       <?php }else { ?>
       <!-- row3 -->
       <?php $i=1; foreach($file as $file) {?>
       <div class="col-md-3 product-men">
         <div class="product-chr-info chr">
           <div class="thumbnail">
-            <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
+            <a href="<?php echo base_url('katalog/read/'.$file->id_file) ?>">
               <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
             </a>
           </div>

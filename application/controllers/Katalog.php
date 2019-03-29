@@ -85,4 +85,27 @@ class Katalog extends CI_Controller {
 
     $this->load->view('layout/file',$data,FALSE);
 	}
+
+  public function read($id_file)
+	{
+    // $keywords = str_replace(' ','-',strip_tags($keywords));
+    $bukus	= $this->buku_model->buku_baru();
+    $file	= $this->file_model->detail($id_file);
+    $id_buku = $file->id_buku;
+    $buku	= $this->buku_model->detaill($id_buku);
+
+    $data = array('title'  			=> 'Read/'.$buku->judul_buku.' - '.$file->judul_file,
+									// 'produk'			=> $produk,
+									// 'new'					=> $new,
+                  'buku'  		  => $buku,
+                  'bukus'  		  => $bukus,
+                  'file'  		  => $file,
+                  // 'keywords'  	=> $keywords,
+									// 'berita'  		=> $berita,
+									// 'slide'  			=> $slide,
+                  'judul'       => 'Detail Buku',
+                  'isi'    			=> 'katalog/read');
+
+    $this->load->view('layout/file',$data,FALSE);
+	}
 }

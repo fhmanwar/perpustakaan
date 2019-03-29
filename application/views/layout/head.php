@@ -26,6 +26,7 @@
     <!-- font-awesome icons -->
     <link href="<?php echo base_url()?>assets/front/css/font-awesome.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="<?php echo base_url()?>assets/viewerjs/ViewerJS/pdf.js" type="text/javascript"></script>
     <!-- online-fonts -->
     <!-- logo -->
     <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
