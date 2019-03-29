@@ -84,11 +84,6 @@
           <td class="col-lg-8"><?php echo $buku->subjek_buku ?></td>
         </tr>
         <tr>
-          <th class="col-lg-4">Kolasi </th>
-          <td class="col-sm-1">:</td>
-          <td class="col-lg-8"><?php echo $buku->kolasi ?></td>
-        </tr>
-        <tr>
           <th class="col-lg-4">Penerbit Buku </th>
           <td class="col-sm-1">:</td>
           <td class="col-lg-8"><?php echo $buku->penerbit ?></td>
@@ -118,6 +113,45 @@
   <div class="clearfix"> </div>
   </div>
 </div>
+
+<!-- /new_arrivals -->
+<div class="section singlep_btm">
+  <div class="container">
+    <div class="new_arrivals">
+      <h4 class="rad-txt">
+        <span class="abtxt1">Konten</span>
+        <span class="abtext"> Digital</span>
+      </h4>
+      <?php if(count($file) < 1 ){ ?>
+        <p class="alert alert-success text-center"><i class="glyphicon glyphicon-warning-sign"></i>File Not Found</p>
+      <?php }else { ?>
+      <!-- row3 -->
+      <?php $i=1; foreach($file as $file) {?>
+      <div class="col-md-3 product-men">
+        <div class="product-chr-info chr">
+          <div class="thumbnail">
+            <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
+              <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
+            </a>
+          </div>
+          <div class="caption">
+            <h4><?php echo $file->nama_file ?></h4>
+          </div>
+        </div>
+      </div>
+      <?php $i++; } ?>
+
+      <!-- //row3 -->
+      <div class="clearfix"></div>
+      <?php } ?>
+    </div>
+    <!--//new_arrivals-->
+    <div class="clearfix"></div>
+
+  </div>
+</div>
+<!--// Single -->
+<div class="clearfix"></div>
 <!-- /new_arrivals -->
 <div class="singlep_btm">
   <div class="container">
