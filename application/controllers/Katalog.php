@@ -94,7 +94,7 @@ class Katalog extends CI_Controller {
     $id_buku = $file->id_buku;
     $buku	= $this->buku_model->detaill($id_buku);
 
-    $data = array('title'  			=> 'Read/'.$buku->judul_buku.' - '.$file->judul_file,
+    $data = array('title'  			=> $buku->judul_buku.' - '.$file->judul_file,
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,

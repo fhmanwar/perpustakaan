@@ -26,6 +26,10 @@
           <li>
           <a href="<?php echo base_url('katalog')?>">Katalog Buku</a>
           </li>
+          <!-- <li>
+          <a href="<?php echo base_url('katalog')?>">Katalog Buku</a>
+          </li> -->
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
               <b class="caret"></b>
@@ -45,18 +49,9 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">footers
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="footer1.html">Default</a>
-              </li>
-            </ul>
-          </li>
+
           <li>
-            <a href="contact.html">Contact us</a>
+            <a href="<?php echo base_url('usulan') ?>">Usulan</a>
           </li>
           <li>
             <a href="<?php echo base_url('home/login') ?>" title="SignIn & SignUp">

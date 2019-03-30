@@ -34,4 +34,8 @@
 </div>
 <!--//breadcrumbs ends here-->
 
- <iframe src = "<?php echo base_url('assets/upload/files'.$file->nama_file) ?>" width="100%" height="800" allowfullscreen webkitallowfullscreen></iframe> 
+<div class="innerf-pages text-center" style="margin-top:50px;">
+  <h2><?php echo $title ?> </h2> 
+  <br>
+  <iframe src="<?php echo base_url('./assets/upload/files/'.$file->nama_file) ?>" width="60%" height="1100" allowfullscreen webkitallowfullscreen></iframe>
+</div>
