@@ -35,6 +35,15 @@
 </ul>
 </li>
 
+<!-- Tabel usulan  -->
+<li>
+<a href="#"><i class="fa fa-upload "></i>  Usulan Buku<span class="fa arrow"></span></a>
+<ul class="nav nav-second-level">
+  <li><a href="<?php echo base_url('admin/usulan') ?>">Data Usulan Buku</a></li>
+  <li><a href="<?php echo base_url('admin/usulan/tambah') ?>">Tambah Usulan Buku</a></li>
+</ul>
+</li>
+
 <!-- Tabel Referensi  -->
 <li>
 <a href="#"><i class="fa fa-tags "></i> Tabel Referensi<span class="fa arrow"></span></a>
