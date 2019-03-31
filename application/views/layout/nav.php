@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
       </button>
       <h1>
-        <a class="navbar-brand" href="<?php echo base_url() ?>">Chronicle</a>
+        <a class="navbar-brand" href="<?php echo base_url() ?> "><?php echo $konfigurasi->namaweb ?></a>
       </h1>
     </div>
       <!-- Collect the nav links, forms, and other content for toggling -->

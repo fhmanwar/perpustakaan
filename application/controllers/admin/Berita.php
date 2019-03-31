@@ -50,8 +50,8 @@ class Berita extends CI_Controller
                 $config['quality']        	= "100%";
                 $config['maintain_ratio']   = true;
                 $config['width']       		  = 360; // Pixel
-           $config['height']       	  = 360; // Pixel
-           $config['x_axis']         	= 0;
+               $config['height']       	  = 360; // Pixel
+               $config['x_axis']         	= 0;
                 $config['y_axis']         	= 0;
                 $config['thumb_marker']   	= '';
                 $this->load->library('image_lib', $config);
@@ -124,7 +124,7 @@ class Berita extends CI_Controller
                     // Hapus berita lama
                     if ($berita->gambar != "") {
                         unlink('./assets/upload/berita/'.$berita->gambar);
-                        unlink('./assets/upload/berita//thumbs'.$berita->gambar);
+                        unlink('./assets/upload/berita/thumbs/'.$berita->gambar);
                     }// end hapus
                     $i = $this->input;
                     $slug_berita = url_title($this->input->post('judul_berita'), 'dash', true);
@@ -178,7 +178,7 @@ class Berita extends CI_Controller
         if ($berita->gambar != "") {
             // Hapus berita lama
             unlink('./assets/upload/berita/'.$berita->gambar);
-            unlink('./assets/upload/berita//thumbs'.$berita->gambar);
+            unlink('./assets/upload/berita//thumbs/'.$berita->gambar);
             // end hapus
         }
 

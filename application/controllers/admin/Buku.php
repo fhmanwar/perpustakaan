@@ -167,7 +167,7 @@ class Buku extends CI_Controller
 
       if($buku->cover_buku != ""){
         unlink('./assets/upload/buku/'.$buku->cover_buku);
-        unlink('./assets/upload/buku/thumbs'.$buku->cover_buku);
+        unlink('./assets/upload/buku/thumbs/'.$buku->cover_buku);
       }
 
       $i = $this->input;
@@ -238,7 +238,7 @@ class Buku extends CI_Controller
 
     if($buku->cover_buku != ""){
       unlink('./assets/upload/buku/'.$buku->cover_buku);
-      unlink('./assets/upload/buku/thumbs'.$buku->cover_buku);
+      unlink('./assets/upload/buku/thumbs/'.$buku->cover_buku);
     }
 
 		$data = array('id_buku'=> $id_buku);

@@ -25,10 +25,10 @@
   <h3>Contact</h3>
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
   <ul class="address">
-    <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1185 Burlington
+    <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><?php echo $konfigurasi->alamat ?>
                  <span>Canada.</span></li>
-    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-    <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com"><?php echo $konfigurasi->email ?></a></li>
+    <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><?php echo $konfigurasi->phone ?></li>
   </ul>
 </div>
 <div class="col-md-3 col-sm-6 col-xs-6  w3_footerv1_grid">
@@ -60,10 +60,10 @@
   <h4>Follow Us</h4>
   <div class="agileits_social_button">
     <ul>
+      <li><a href="#" class="google"> </a></li>
       <li><a href="#" class="facebook"> </a></li>
       <li><a href="#" class="twitter"> </a></li>
-      <li><a href="#" class="google"> </a></li>
-      <li><a href="#" class="pinterest"> </a></li>
+      <li><a href="#" class="instagram"> <i class="fa fa-instagram"></i> </a> </li>
     </ul>
   </div>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <!-- //footer -->
 <div class="cpy-right">
-    <p>© 2018 Chronicle. All rights reserved | Design by
+    <p>© 2018 <?php echo $konfigurasi->namaweb ?> | Design by
         <a href="http://w3layouts.com"> W3layouts.</a>
     </p>
 </div>

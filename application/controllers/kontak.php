@@ -16,21 +16,20 @@ class Kontak extends CI_Controller {
 
 	public function index()
 	{
-		// $site = $this->home_model->listing();
+		$konfigurasi = $this->konfigurasi_model->listing();
 		$buku	= $this->buku_model->buku();
 
 		// $new	= $this->produk_model->new();
 		// $berita = $this->berita_model->berita();
 		// $slide = $this->berita_model->slide();
 
-    $data = array('title'  			=> 'Kontak US',//$site['namaweb'].' | '.$site['tagline']
+    $data = array('title'  			=> 'Kontak Kami '.$site->namaweb,
                   // 'produk'			=> $produk,
-                  // 'new'					=> $new,
+                  'konfigurasi'	=> $konfigurasi,
                   // 'buku'  		  => $buku,
-
                   // 'berita'  		=> $berita,
                   // 'slide'  			=> $slide,
-                  'isi'    			=> 'buku/list');
+                  'isi'    			=> 'kontak/list');
 
 
     $this->load->view('layout/file',$data,FALSE);

@@ -53,14 +53,22 @@
 </ul>
 </li>
 
-
-
 <!-- Menu User  -->
 <li>
 <a href="#"><i class="fa fa-user "></i> User/Admin<span class="fa arrow"></span></a>
 <ul class="nav nav-second-level">
   <li><a href="<?php echo base_url('admin/user') ?>">Data User</a></li>
   <li><a href="<?php echo base_url('admin/user/tambah') ?>">Tambah User</a></li>
+</ul>
+</li>
+
+<!-- Menu Konfigurasi  -->
+<li>
+<a href="#"><i class="fa fa-wrench "></i> Konfigurasi Website<span class="fa arrow"></span></a>
+<ul class="nav nav-second-level">
+  <li><a href="<?php echo base_url('admin/konfigurasi') ?>">Konfigurasi Umum</a></li>
+  <li><a href="<?php echo base_url('admin/konfigurasi/logo') ?>">Konfigurasi Logo</a></li>
+  <li><a href="<?php echo base_url('admin/konfigurasi/icon') ?>">Konfigurasi Icon</a></li>
 </ul>
 </li>
 </ul>

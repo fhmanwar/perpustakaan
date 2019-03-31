@@ -19,9 +19,10 @@ class Home extends CI_Controller {
 		$buku	= $this->buku_model->buku();
 		// $new	= $this->produk_model->new();
 		$berita = $this->berita_model->berita();
-		$slide = $this->berita_model->slide();
+    $slide = $this->berita_model->slide();
+		$site = $this->konfigurasi_model->listing();
 
-    $data = array('title'  			=> 'Sistem Informasi Katalog Buku Online',//$site['namaweb'].' | '.$site['tagline']
+    $data = array('title'  			=> $site->namaweb.' | '.$site->tagline,
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,

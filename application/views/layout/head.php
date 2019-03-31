@@ -1,12 +1,17 @@
+<?php
+$konfigurasi = $this->konfigurasi_model->listing();
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <title>Chronicle Education Category Bootstrap Responsive website Template | Home :: w3layouts</title>
+    <title><?php echo $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Chronicle Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <meta name="keywords" content="<?php echo $title.' | '.$konfigurasi->keywords ?>" />
+    <meta name="description" content="<?php echo $title.' | '.$konfigurasi->deskripsi ?>" />
+    <meta name="author" content="<?php echo $konfigurasi->namaweb.' - '.$konfigurasi->tagline ?>" />
+    <link rel="shortcut icon" href="<?php echo base_url('assets/upload/image/'.$konfigurasi->icon) ?>">
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
