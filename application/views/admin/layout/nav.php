@@ -16,6 +16,15 @@
 </ul>
 </li>
 
+<!-- Menu Buku  -->
+<li>
+<a href="#"><i class="fa fa-calendar "></i> Peminjaman Buku <span class="fa arrow"></span></a>
+<ul class="nav nav-second-level">
+  <li><a href="<?php echo base_url('admin/peminjaman') ?>">Data Peminjaman Buku</a></li>
+  <li><a href="<?php echo base_url('admin/peminjaman/tambah') ?>">Tambah Peminjaman buku</a></li>
+</ul>
+</li>
+
 <!-- Menu Berita  -->
 <li>
 <a href="#"><i class="fa fa-newspaper-o "></i> Berita<span class="fa arrow"></span></a>
