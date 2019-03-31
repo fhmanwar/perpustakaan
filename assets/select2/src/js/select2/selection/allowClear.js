@@ -97,10 +97,8 @@ define([
       return;
     }
 
-    var removeAll = this.options.get('translations').get('removeAllItems');   
-
     var $remove = $(
-      '<span class="select2-selection__clear" title="' + removeAll() +'">' +
+      '<span class="select2-selection__clear">' +
         '&times;' +
       '</span>'
     );

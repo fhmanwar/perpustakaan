@@ -276,10 +276,7 @@ define([
       }
 
       self.setClasses();
-
-      if (self.options.get('scrollAfterSelect')) {
-        self.highlightFirstItem();
-      }
+      self.highlightFirstItem();
     });
 
     container.on('unselect', function () {
@@ -288,10 +285,7 @@ define([
       }
 
       self.setClasses();
-
-      if (self.options.get('scrollAfterSelect')) {
-        self.highlightFirstItem();
-      }
+      self.highlightFirstItem();
     });
 
     container.on('open', function () {
@@ -345,7 +339,7 @@ define([
 
       var currentIndex = $options.index($highlighted);
 
-      // If we are already at the top, don't move further
+      // If we are already at te top, don't move further
       // If no options, currentIndex will be -1
       if (currentIndex <= 0) {
         return;
