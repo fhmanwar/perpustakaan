@@ -7,23 +7,23 @@ class Kontak extends CI_Controller {
 		parent::__construct();
     // $this->load->model('berita_model');
     // $this->load->model('buku_model');
-
     // $this->load->model('jenis_model');
     // $this->load->model('bahasa_model');
-		// $this->load->model('file_model');
+    // $this->load->model('file_model');
+		$this->load->model('konfigurasi_model');
 
 	}
 
 	public function index()
 	{
 		$konfigurasi = $this->konfigurasi_model->listing();
-		$buku	= $this->buku_model->buku();
+		// $buku	= $this->buku_model->buku();
 
 		// $new	= $this->produk_model->new();
 		// $berita = $this->berita_model->berita();
 		// $slide = $this->berita_model->slide();
 
-    $data = array('title'  			=> 'Kontak Kami '.$site->namaweb,
+    $data = array('title'  			=> 'Kontak Kami '.$konfigurasi->namaweb,
                   // 'produk'			=> $produk,
                   'konfigurasi'	=> $konfigurasi,
                   // 'buku'  		  => $buku,

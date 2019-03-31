@@ -26,7 +26,7 @@ $konfigurasi = $this->konfigurasi_model->listing();
     <!-- shop css -->
     <link href="<?php echo base_url()?>assets/front/css/shop.css" type="text/css" rel="stylesheet" media="all">
     <!-- footer stylesheet -->
-    <link href="<?php echo base_url()?>assets/front/css/footer1.css" type="text/css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url()?>assets/front/css/footer3.css" type="text/css" rel="stylesheet" media="all">
     <link href="<?php echo base_url()?>assets/front/css/style.css" type="text/css" rel="stylesheet" media="all">
     <!-- font-awesome icons -->
     <link href="<?php echo base_url()?>assets/front/css/font-awesome.css" rel="stylesheet">

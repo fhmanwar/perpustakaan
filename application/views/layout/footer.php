@@ -1,77 +1,61 @@
-<!-- newsletter -->
-<div class="footerv1-start">
-<div class="newsletter">
-<div class="container">
-<div class="col-md-6 w3agile_newsletter_left">
-<h3>Newsletter</h3>
-<p>subscribe to our email list.We"ll keep you informed of new releases and updates</p>
-</div>
-<div class="col-md-6 w3agile_newsletter_right">
-<form action="#" method="post">
-  <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-  <input type="submit" value="" />
-</form>
-</div>
-<div class="clearfix"> </div>
-</div>
-</div>
-</div>
-<!-- //newsletter -->
-<!-- footer -->
-<div class="w3_footerv1 section">
-<div class="container">
-<div class="w3_footerv1_grids">
-<div class="col-md-3 col-sm-6 col-xs-6 w3_footerv1_grid">
-  <h3>Contact</h3>
-  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-  <ul class="address">
-    <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><?php echo $konfigurasi->alamat ?>
-                 <span>Canada.</span></li>
-    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com"><?php echo $konfigurasi->email ?></a></li>
-    <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><?php echo $konfigurasi->phone ?></li>
-  </ul>
-</div>
-<div class="col-md-3 col-sm-6 col-xs-6  w3_footerv1_grid">
-  <h3>Information</h3>
-  <ul class="info">
-    <li><a href="<?php echo base_url()?>assets/front/about.html">About Us</a></li>
-                <li><a href="<?php echo base_url()?>assets/front/about.html">management team</a></li>
-                <li><a href="<?php echo base_url()?>assets/front/index.html">self publish</a></li>
-    <li><a href="#">free app's</a></li>
-    <li><a href="<?php echo base_url()?>assets/front/contact.html">get help</a></li>
-  </ul>
-</div>
-<div class="col-md-3 col-sm-6 col-xs-6  w3_footerv1_grid">
-  <h3>Category</h3>
-  <ul class="info">
-    <li><a href="<?php echo base_url()?>assets/front/shop.html">Biography</a></li>
-    <li><a href="<?php echo base_url()?>assets/front/shop.html">Fiction </a></li>
-    <li><a href="<?php echo base_url()?>assets/front/shop.html">Literature</a></li>
-    <li><a href="<?php echo base_url()?>assets/front/shop.html">Business</a></li>
-    <li><a href="<?php echo base_url()?>assets/front/shop.html">Finance</a></li>
-  </ul>
-</div>
-<div class="col-md-3 col-sm-6 col-xs-6 w3_footerv1_grid">
-  <h3>trending now</h3>
-  <ul class="info">
-    <li><a href="shop.html">audio books</a></li>
-    <li><a href="shop.html">e-books</a></li>
-  </ul>
-  <h4>Follow Us</h4>
-  <div class="agileits_social_button">
-    <ul>
-      <li><a href="#" class="google"> </a></li>
-      <li><a href="#" class="facebook"> </a></li>
-      <li><a href="#" class="twitter"> </a></li>
-      <li><a href="#" class="instagram"> <i class="fa fa-instagram"></i> </a> </li>
-    </ul>
+<!--/footer-bottom-->
+<div class="footerv3-w3ls">
+<!-- footerv3-top -->
+<div class="footerv3-top">
+  <div class="container">
+    <div class="col-md-3 col-sm-6 footv3-left">
+      <h3>About Us</h3>
+      <h4>
+          <a href="<?php echo base_url() ?>">chronicle</a>
+      </h4>
+      <p><?php echo $konfigurasi->deskripsi ?></p>
+    </div>
+    <div class="col-md-3 col-sm-6 footv3-left">
+      <h3><?php echo $konfigurasi->namaweb ?></h3>
+      <p><?php echo $konfigurasi->tagline ?></p>
+
+      <div class="fv3-contact">
+          <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+          <p> <?php echo $konfigurasi->alamat ?></p>
+      </div>
+      <div class="fv3-contact">
+        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+        <p><?php echo $konfigurasi->phone ?></p>
+        <div class="fv3-contact"></div>
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        <p>
+            <a href="mailto:example@email.com"><?php echo $konfigurasi->email ?></a>
+        </p>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+    <div class="col-md-3 col-sm-6 footv3-left">
+      <h3>Latest releases</h3>
+      <ul class="info">
+        <li><a href="<?php echo base_url()?>assets/front/shop.html">Biography</a></li>
+        <li><a href="<?php echo base_url()?>assets/front/shop.html">Fiction </a></li>
+        <li><a href="<?php echo base_url()?>assets/front/shop.html">Literature</a></li>
+        <li><a href="<?php echo base_url()?>assets/front/shop.html">Business</a></li>
+        <li><a href="<?php echo base_url()?>assets/front/shop.html">Finance</a></li>
+        <li><a href="shop.html">audio books</a></li>
+        <li><a href="shop.html">e-books</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 col-sm-6 footv3-left">
+      <h3>Subscribe</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has </p>
+      <form action="#" method="post">
+          <input type="text" value="Your Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+          <input type="submit" value="Subscribe">
+      </form>
+    </div>
+    <div class="clearfix"></div>
   </div>
 </div>
-<div class="clearfix"> </div>
+<!-- /footerv3-top -->
 </div>
-</div>
-</div>
-<!-- //footer -->
+
 <div class="cpy-right">
     <p>© 2018 <?php echo $konfigurasi->namaweb ?> | Design by
         <a href="http://w3layouts.com"> W3layouts.</a>

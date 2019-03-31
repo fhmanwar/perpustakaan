@@ -23,7 +23,7 @@
           </a>
         </li>
         <li class="btn btn2">
-          <a href="<?php echo base_url('usulan') ?>"><?php echo $title ?></a>
+          <a href="<?php echo base_url('kontak') ?>"><?php echo $title ?></a>
         </li>
       </ul>
     </div>
@@ -32,45 +32,38 @@
 <!--//breadcrumbs ends here-->
 
 <!-- contact -->
-<div class="section contact" id="contact" style="margin-top: 50px;">
+<div class="section contact" id="contact">
     <div class="container">
         <h4 class="rad-txt text-center">
-            <span class="abtxt1">usulan</span>
-            <span class="abtext">Buku</span>
+            <span class="abtxt1">contact</span>
+            <span class="abtext">us</span>
         </h4>
-        <?php
-        if($this->session->flashdata('success')){
-          echo '<div class="alert alert-success"><i class="fa fa-check"></i>';
-          echo $this->session->flashdata('success');
-          echo '</div>';
-        }else {
-          echo validation_errors('<div class="alert alert-warning">','</div>');
-
-          echo form_open(base_url('usulan'));
-        ?>
         <div class="contact-form">
-            <div class="col-md-12">
-              <!-- contact form grid -->
-              <div class="contact-top1 form_w3layouts">
-                <h5 class="text-center"><?php echo $title ?></h5>
-                <input type="text" name="judul" placeholder="Judul Buku" value="<?php echo set_value('judul') ?>" required>
-                <input type="text" name="penulis" placeholder="Nama Penulis" value="<?php echo set_value('penulis') ?>" required>
-                <input type="text" name="penerbit" placeholder="Nama Penerbit" value="<?php echo set_value('penerbit') ?>" required>
-                <input type="text" name="nama_pengusul" placeholder="Nama Pengusul" value="<?php echo set_value('nama_pengusul') ?>" required>
-                <input class="email" type="email" name="email_pengusul" placeholder="Email Pengusul" value="<?php echo set_value('email_pengusul') ?>" required>
-                <textarea name="judul" placeholder="Keterangan"><?php echo set_value('keterangan') ?></textarea>
-                <div class="text-center">
-                  <input type="submit" name="Submit" value="Submit">
+            <div class="col-md-7">
+                <!-- contact form grid -->
+                <div class="contact-top1">
+                    <h5>send us a note</h5>
+                    <form action="#" class="form_w3layouts" method="post">
+                        <input type="text" placeholder="First Name" required="">
+                        <input type="text" placeholder="Last Name" required="">
+
+                        <input class="email" type="email" placeholder="Email" required="">
+                        <textarea placeholder="Message" required=""></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
-              </div>
-              <!--  //contact form grid ends here -->
+                <!--  //contact form grid ends here -->
             </div>
+            <!-- contact map grid -->
+            <div class="col-md-5 map contact-right">
+                <div class="contact-top1">
+                    <h5>get directions</h5>
+                    <?php echo $konfigurasi->map ?>
+                </div>
+            </div>
+            <!--//contact map grid ends here-->
             <div class="clearfix"></div>
         </div>
-        <?php
-          echo form_close();
-        }
-        ?>
         <!-- contact details -->
         <div class="contact-bottom">
             <h6>contact info</h6>
@@ -80,17 +73,15 @@
                     <div class="address">
                         <h5>Address:</h5>
                         <p>
-                            1185 Maria St
+                            <?php echo $konfigurasi->alamat ?>
                             <br> Burlington Canada.</p>
                     </div>
                     <div class="address address-mdl">
                         <h5>phone:</h5>
                         <p>
-                            +1 234 5678</p>
-                        <p>
-                            +11 222 333</p>
+                            <?php echo $konfigurasi->phone ?></p>
                     </div>
-                </div>A
+                </div>
             </div>
             <!-- //contact details left -->
             <!-- contact details right -->
@@ -99,10 +90,7 @@
                     <div class="address">
                         <h5>Email:</h5>
                         <p>
-                            <a href="mailto:info@example.com">mail@library.com</a>
-                        </p>
-                        <p>
-                            <a href="mailto:info@example.com">mail@chronicle.com</a>
+                            <a href="mailto:info@example.com"><?php echo $konfigurasi->email ?></a>
                         </p>
                     </div>
                     <div class="footer-social address  address-mdl">

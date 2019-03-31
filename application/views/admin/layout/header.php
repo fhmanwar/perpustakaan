@@ -3,7 +3,11 @@
 $id_user	= $this->session->userdata('id_user');
 $user_aktif	= $this->user_model->detail($id_user);
 ?>
-
+<style type="type/css" media="screen">
+  .navbar-brand{
+    font-size: 16px !important;
+  }
+</style>
 <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -12,7 +16,7 @@ $user_aktif	= $this->user_model->detail($id_user);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('admin/Dashboard') ?>">SI Perpus</a>
+                <a class="navbar-brand" href="<?php echo base_url('admin/Dashboard') ?>"><?php echo $konfigurasi->namaweb ?></a>
             </div>
   <div style="color: white;
     padding: 15px 50px 5px 50px;

@@ -90,7 +90,7 @@
                         <p>
                             +11 222 333</p>
                     </div>
-                </div>A
+                </div>
             </div>
             <!-- //contact details left -->
             <!-- contact details right -->

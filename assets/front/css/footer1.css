@@ -138,29 +138,6 @@ ul.address li a {
     transition: .5s all;
 }
 
-/* new */
- .agileits_social_button ul li a i.fa {
-	font-size: 18px;
-	line-height: 41px;
-	width: 42px;
-	height: 42px;
-	text-align: center;
-	background-color: transparent;
-	transition: all 0.5s ease-in-out;
-}
-
-.agileits_social_button ul li a i.fa {
-    background: #bd08a0;
-    /* display: block; */
-    width: 35px;
-    height: 35px;
-}
-
-.agileits_social_button ul li a i.fa:hover {
-    background: #34c663;
-    /* display: block; */
-}
-/* //new */
 .agileits_social_button ul li a.facebook {
     background: url(../images/img-sp.png) no-repeat -1px -130px #3b5998;
     display: block;
