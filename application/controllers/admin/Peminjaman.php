@@ -35,10 +35,13 @@ class Peminjaman extends CI_Controller{
     $anggota = $this->anggota_model->detail($id_anggota);
     $peminjaman = $this->peminjaman_model->anggota($id_anggota);
     $buku = $this->buku_model->listing();
+    $konfigurasi = $this->->konfigurasi_model->listing();
+
     $data = array('title' => 'Peminjaman Buku atas nama: '.$anggota->nama_anggota,
                   'anggota' => $anggota,
                   'peminjaman' => $peminjaman,
                   'buku' => $buku,
+                  'konfigurasi' => $konfigurasi,
                   'isi' => 'admin/peminjaman/tambah'
             );
     $this->load->view('admin/layout/file', $data, false);

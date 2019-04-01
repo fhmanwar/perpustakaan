@@ -72,6 +72,23 @@ echo form_open(base_url('admin/konfigurasi'));
      <input type="url" name="instagram" placeholder="http://instagram.com/akun" value="<?php echo $konfigurasi->instagram ?>" class="form-control">
    </div>
 
+ <div class="alert alert-success">
+   <br><h3>Setting Peminjaman Buku</h3><hr>
+   <div class="form-group">
+     <label>Durasi Maksimal Peminjaman</label>
+     <input type="number" name="max_pinjam" placeholder="Maksimal hari peminjaman" value="<?php echo $konfigurasi->max_pinjam ?>" class="form-control">
+   </div>
+
+   <div class="form-group">
+     <label>Jumlah Maksimal Peminjaman</label>
+     <input type="number" name="max_jumlah" placeholder="Maksimal Jumlah peminjaman" value="<?php echo $konfigurasi->max_jumlah ?>" class="form-control">
+   </div>
+
+   <div class="form-group">
+     <label>Denda Keterlambatan Perhari</label>
+     <input type="number" name="denda_perhari" placeholder="Maksimal Jumlah peminjaman" value="<?php echo $konfigurasi->denda_perhari ?>" class="form-control">
+   </div>
+  </div>
 </div>
 
 <div class="col-md-6">

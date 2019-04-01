@@ -39,7 +39,22 @@ $konfigurasi = $this->konfigurasi_model->listing();
         ]
       });
     </script>
+    <!-- JQUERY SCRIPTS -->
+    <script src="<?php echo base_url() ?>assets/admin/assets/js/jquery-1.10.2.js"></script>
 
+    <!-- JQUERY UI -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/jquery/jquery-ui.min.css">
+    <script src="<?php echo base_url() ?>assets/jquery/jquery-ui.min.js"></script>
+
+    <!-- select2 -->
+    <link href="<?php echo base_url() ?>assets/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="<?php echo base_url() ?>assets/select2/dist/js/select2.min.js"></script>
+
+    <style type="text/css" media="screen">
+      select{
+        color: #000 !important;
+      }
+    </style>
 </head>
 <body>
     <div id="wrapper">

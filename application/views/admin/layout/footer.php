@@ -13,8 +13,7 @@
          <!-- /. PAGE WRAPPER  -->
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="<?php echo base_url() ?>assets/admin/assets/js/jquery-1.10.2.js"></script>
+    
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="<?php echo base_url() ?>assets/admin/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->

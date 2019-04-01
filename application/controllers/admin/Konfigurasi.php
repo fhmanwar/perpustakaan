@@ -50,6 +50,9 @@ class Konfigurasi extends CI_Controller
                       'map'               => $i->post('map'),
                       'metatext'          => $i->post('metatext'),
                       'phone'             => $i->post('phone'),
+                      'max_pinjam'             => $i->post('max_pinjam'),
+                      'max_jumlah'             => $i->post('max_jumlah'),
+                      'denda_perhari'             => $i->post('denda_perhari'),
                       'alamat'            => $i->post('alamat')
                     );
         $this->konfigurasi_model->edit($data);
