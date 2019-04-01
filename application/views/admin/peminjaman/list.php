@@ -29,7 +29,7 @@
           <td><?php echo $i ?></td>
           <td>
             <a href="<?php echo base_url('admin/peminjaman/add/'.$peminjaman->id_anggota) ?>">
-              <?php echo $peminjaman->nama_nama_anggota ?> <sup><i class="fa fa-link"></i> </sup>
+              <?php echo $peminjaman->nama_anggota ?> <sup><i class="fa fa-link"></i> </sup>
             </a>
           </td>
           <td><?php echo $peminjaman->judul_buku ?> - <?php echo $peminjaman->kode_buku ?></td>

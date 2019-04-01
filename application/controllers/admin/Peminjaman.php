@@ -87,6 +87,7 @@ class Peminjaman extends CI_Controller{
                     'peminjaman' => $peminjaman,
                     'buku' => $buku,
                     'konfigurasi' => $konfigurasi,
+                    'limit' => $limit,
                     'isi' => 'admin/peminjaman/tambah'
               );
       $this->load->view('admin/layout/file', $data, false);
