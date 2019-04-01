@@ -5,11 +5,12 @@ class Buku extends CI_Controller {
 
   public function __construct(){
 		parent::__construct();
-    // $this->load->model('berita_model');
+    $this->load->model('berita_model');
     $this->load->model('buku_model');
-    // $this->load->model('jenis_model');
-    // $this->load->model('bahasa_model');
-		$this->load->model('file_model');
+    $this->load->model('jenis_model');
+    $this->load->model('bahasa_model');
+    $this->load->model('file_model');
+		$this->load->model('link_model');
 
 	}
 

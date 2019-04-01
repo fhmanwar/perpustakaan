@@ -9,7 +9,8 @@ class Berita extends CI_Controller {
     $this->load->model('buku_model');
     $this->load->model('jenis_model');
     $this->load->model('bahasa_model');
-		$this->load->model('file_model');
+    $this->load->model('file_model');
+		$this->load->model('link_model');
 
 	}
 

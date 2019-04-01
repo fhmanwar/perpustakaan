@@ -1,5 +1,6 @@
 <?php
 $konfigurasi = $this->konfigurasi_model->listing();
+$link = $this->link_model->listing();
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
