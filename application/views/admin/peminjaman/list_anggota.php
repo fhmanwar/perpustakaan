@@ -26,7 +26,7 @@
         <a href="<?php echo base_url('admin/peminjaman/add/'.$anggota->id_anggota) ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Peminjaman Buku</a>
         <?php
           //Delete
-          include('delete.php')
+          // include('delete.php')
         ?>
         </td>
     </tr>
