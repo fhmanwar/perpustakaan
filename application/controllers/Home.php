@@ -9,7 +9,8 @@ class Home extends CI_Controller {
     $this->load->model('buku_model');
     $this->load->model('jenis_model');
     $this->load->model('bahasa_model');
-		$this->load->model('file_model');
+    $this->load->model('file_model');
+		$this->load->model('link_model');
 
 	}
 
@@ -20,14 +21,16 @@ class Home extends CI_Controller {
 		// $new	= $this->produk_model->new();
 		$berita = $this->berita_model->berita();
     $slide = $this->berita_model->slide();
-		$site = $this->konfigurasi_model->listing();
+    $site = $this->konfigurasi_model->listing();
+		$link = $this->link_model->listing();
 
     $data = array('title'  			=> $site->namaweb.' | '.$site->tagline,
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,
 									'berita'  		=> $berita,
-									'slide'  			=> $slide,
+                  'slide'  			=> $slide,
+									'link'  			=> $link,
                   'isi'    			=> 'home/list');
 
     $this->load->view('layout/file',$data,FALSE);

@@ -59,6 +59,7 @@
 <ul class="nav nav-second-level">
   <li><a href="<?php echo base_url('admin/jenis') ?>">Data Jenis Buku</a></li>
   <li><a href="<?php echo base_url('admin/bahasa') ?>">Data Bahasa Buku</a></li>
+  <li><a href="<?php echo base_url('admin/link') ?>">Data Link</a></li>
 </ul>
 </li>
 

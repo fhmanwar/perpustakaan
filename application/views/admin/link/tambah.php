@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Tambah Data Jenis</h4>
+                <h4 class="modal-title" id="myModalLabel">Tambah Data Link</h4>
             </div>
             <div class="modal-body">
 
@@ -23,33 +23,32 @@ if($this->session->flashdata('success')) {
 // cetak error kalau ada salah input
 echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
 
-echo form_open(base_url('admin/jenis'));
+echo form_open(base_url('admin/link'));
 ?>
 
-<div class="col-lg-6">
+<div class="col-lg-12">
 	<div class="form-group form-group-lg">
-		<label>Nama Jenis Buku</label>
-		<input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Buku" value="<?php echo set_value('nama_jenis') ?>" required>
+		<label>Nama Link</label>
+		<input type="text" name="nama_link" class="form-control" placeholder="Nama Link" value="<?php echo set_value('nama_link') ?>" required>
 	</div>
 	<div class="form-group form-group-lg">
-		<label>Kode Jenis Buku</label>
-		<input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Buku" value="<?php echo set_value('kode_jenis') ?>" required>
+		<label>URL/Website</label>
+		<input type="url" name="url" class="form-control" placeholder="<?php echo base_url() ?>" value="<?php echo set_value('url') ?>" required>
 	</div>
 	<div class="form-group form-group-lg">
-		<label>Urutan Tampil </label>
-		<input type="number" name="urutan"  class="form-control" placeholder="Nomor Urut Tampil" value="<?php echo set_value('urutan') ?>">
+		<label>Target</label>
+		<select class="form-control" name="target">
+			<option value="_blank">_blank</option>
+			<option value="_self">_self</option>
+			<option value="_parent">_parent</option>
+			<option value="_top">_top</option>
+		</select>
 	</div>
-  </div>
-  <div class="col-lg-6">
-    <div class="form-group form-group-lg">
-      <label>Keterangan Lain</label>
-      <textarea name="keterangan" class="form-control" placeholder="keterangan"> <?php echo set_value('keterangan') ?> </textarea>
-    </div>
-    <div class="form-group form-group-lg">
-  		<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Save Data">
-  		<input type="reset" name="reset" class="btn btn-default btn-lg" value="Reset">
-  	</div>
-  </div>
+  <div class="form-group form-group-lg">
+		<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Save Data">
+		<input type="reset" name="reset" class="btn btn-default btn-lg" value="Reset">
+	</div>
+</div>
 
 
 
