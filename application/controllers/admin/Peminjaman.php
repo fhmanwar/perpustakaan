@@ -70,8 +70,8 @@ class Peminjaman extends CI_Controller{
   }
 
   public function edit($id_peminjaman){
-    $id_anggota = $peminjaman->id_anggota;
     $peminjaman = $this->peminjaman_model->detail($id_peminjaman);
+    $id_anggota = $peminjaman->id_anggota;
     $anggota = $this->anggota_model->detail($id_anggota);
     $buku = $this->buku_model->listing();
     $konfigurasi = $this->konfigurasi_model->listing();
@@ -87,8 +87,7 @@ class Peminjaman extends CI_Controller{
                     'peminjaman' => $peminjaman,
                     'buku' => $buku,
                     'konfigurasi' => $konfigurasi,
-                    'limit' => $limit,
-                    'isi' => 'admin/peminjaman/tambah'
+                    'isi' => 'admin/peminjaman/edit'
               );
       $this->load->view('admin/layout/file', $data, false);
     }else {

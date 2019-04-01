@@ -92,7 +92,7 @@ if($this->session->flashdata('success')) {
 // cetak error kalau ada salah input
 echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
 
-echo form_open(base_url('admin/peminjaman/add/'.$peminjaman->id_peminjaman));
+echo form_open(base_url('admin/peminjaman/edit/'.$peminjaman->id_peminjaman));
 ?>
 
 <div class="row">
