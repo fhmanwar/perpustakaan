@@ -40,7 +40,7 @@ echo form_open(base_url('admin/user/edit/'.$user->id_user));
   	</div>
     <div class="form-group form-group-lg">
       <label>Keterangan Lain</label>
-      <textarea name="keterangan" class="form-control" placeholder="keterangan"> <?php echo $user->keterangan ?> </textarea>
+      <textarea name="keterangan" class="form-control" placeholder="keterangan"><?php echo $user->keterangan ?></textarea>
     </div>
     <div class="form-group form-group-lg">
   		<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Save Data">
