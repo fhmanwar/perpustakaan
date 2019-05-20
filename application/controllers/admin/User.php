@@ -111,7 +111,7 @@ class User extends CI_Controller
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }
-    
+
 		$data = array('id_user'=> $id_user);
 		$this->user_model->delete($data);
 		$this->session->set_flashdata('Success','User/Administrator Deleted successfully');
