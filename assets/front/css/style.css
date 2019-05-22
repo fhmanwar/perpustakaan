@@ -1253,15 +1253,15 @@ h4.title-about.about.text-center span {
   /* top right bottom left  */
   padding: 3em 0 0 0em;
   /* width: 100%; */
-
-
 }
+
 .imgtxt h5 {
 	font-size: 1.8em;
 	color: #00bcd4;
 	font-weight: 600;
 	letter-spacing: 2px;
   font-family: 'Poiret One', cursive;
+  background: #0074fb;
 }
 .imgtxt p{
 	font-size: 1.3em;
