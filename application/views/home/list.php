@@ -251,263 +251,55 @@
     <!-- //about container ends here-->
 </div>
 <!--//about bottom ends here-->
-<!-- team -->
-<div id="team" class="team section">
-    <div class="team-container">
-        <div class="team-row">
-            <!-- team grid1 -->
-            <div class="col-md-5 team-grid-left">
-                <!-- team individual grid -->
-                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
-                    <div class="team-effect">
-                        <img src="images/t3.jpg" alt="img" class="img-responsive">
-                        <div class="social-icon">
-                            <a href="#" class="social-button twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-button facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-button google">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-text">
-                        <h4>John Smith</h4>
-                        <span>Designation</span>
-                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
-
-                    </div>
-                </div>
-                <!-- //team individual grid -->
-                <!-- team individual grid -->
-                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
-                    <div class="team-text">
-                        <h4>Thomson Doe</h4>
-                        <span>Designation</span>
-                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
-                    </div>
-                    <div class="team-effect">
-                        <img src="images/t1.jpg" alt="img" class="img-responsive">
-                        <div class="social-icon">
-                            <a href="#" class="social-button twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-button facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-button google">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- //team individual grid -->
-                </div>
+<!-- footer-layouts -->
+<div class="addon-sec section">
+  <div class="container">
+      <h4 class="rad-txt text-center">
+          <span class="abtxt1">Our</span>
+          <span class="abtext">Team</span>
+      </h4>
+      <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
+        <div class="imgefct">
+          <img src="assets/images/fahmi.png" class="img-responsive imgtst" alt="" >
+          <div class="imgtxt">
+            <h5>Fahmi Anwar</h5>
+            <p>Project Manager</p>
+            <div class="social-icon">
+              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
             </div>
-            <!-- //team-grid1 ends here-->
-            <!--team-grid2 -->
-            <div class="col-md-2 col-sm-2 team-mid-txt text-center">
-                <span>our</span>
-                <h5>t</h5>
-                <h5>e</h5>
-                <h5>a</h5>
-                <h5>m</h5>
-            </div>
-            <!--//team-grid2 ends here-->
-            <!-- team grid3 -->
-            <!-- team individual grid -->
-            <div class="col-md-5 team-grid-right">
-                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
-                    <div class="team-text">
-                        <h4>Smith Kevin</h4>
-                        <span>Designation</span>
-                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
-                    </div>
-                    <div class="team-effect">
-                        <img src="images/t2.jpg" alt="img" class="img-responsive">
-                        <div class="social-icon">
-                            <a href="#" class="social-button twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-button facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-button google">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- //team individual grid -->
-                <!-- team individual grid -->
-                <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
-                    <div class="team-effect">
-                        <img src="images/t4.jpg" alt="img" class="img-responsive">
-                        <div class="social-icon">
-                            <a href="#" class="social-button twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-button facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-button google">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-text">
-                        <h4>Laura Hill</h4>
-                        <span>Designation</span>
-                        <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
-                    </div>
-                </div>
-                <!-- //team individual grid -->
-                <div class="clearfix"> </div>
-            </div>
-            <!-- //team grid3 -->
-            <div class="clearfix"> </div>
+          </div>
         </div>
-        <!-- //team-row ends here -->
-    </div>
-    <!-- // team container ends here -->
-</div>
-<!-- //team -->
-<!--testimonials -->
-<div class="reviews section" id="testimonials">
-    <div class="container">
-        <h4 class="rad-txt">
-            <span class="abtxt1">visitors</span>
-            <span class="abtext">testimonials</span>
-        </h4>
-        <div id="Carousel" class="slide carousel">
-            <!-- Carousel items -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="row">
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids">
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>convallis felis</h6>
-                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non mattis.</p>
-                                    <h5>Davidson</h5>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3  img-testi">
-                                    <img class="img-responsive" src="images/c3.jpg" alt="">
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids t2">
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c2.jpg" alt="">
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>Cras rutrum</h6>
-                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
-                                    <h5>Clifford</h5>
-                                </div>
-
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids">
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>felis mattis</h6>
-                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non yallis.</p>
-                                    <h5>Mercurio</h5>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c4.jpg" alt="">
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids t2">
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c1.jpg" alt="">
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>Cras rutrum</h6>
-                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
-                                    <h5>Clifford</h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--.row-->
-                </div>
-                <!--.item-->
-                <div class="item">
-                    <div class="row">
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids">
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>convallis felis</h6>
-                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non mattis.</p>
-                                    <h5>Davidson</h5>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c3.jpg" alt="">
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 testi-main">
-                            <div class="testi-grids t2">
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c2.jpg" alt="">
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>Cras rutrum</h6>
-                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
-                                    <h5>Clifford</h5>
-                                </div>
-
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids">
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>felis mattis</h6>
-                                    <p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non yallis.</p>
-                                    <h5>Mercurio</h5>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c4.jpg" alt="">
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  testi-main">
-                            <div class="testi-grids t2">
-                                <div class="col-md-3 col-sm-3 col-xs-3 img-testi">
-                                    <img class="img-responsive" src="images/c1.jpg" alt="">
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-9 team-w3ls-txt">
-                                    <h6>Cras rutrum</h6>
-                                    <p>Lorem ipsum dolor sit amet. enim, non convallis felis mattis.</p>
-                                    <h5>Clifford</h5>
-                                </div>
-
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--.row-->
-                </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
+        <div class="imgefct">
+          <img src="assets/images/ira.png" class="img-responsive imgtst" alt="" >
+          <div class="imgtxt">
+            <h5>Rika Wulandari</h5>
+            <p>Database</p>
+            <div class="social-icon">
+              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
             </div>
-            <!--.carousel-inner-->
-            <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
-            <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+          </div>
         </div>
-        <!--.Carousel-->
-        <div class="clearfix"> </div>
-    </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
+        <div class="imgefct">
+          <img src="assets/images/fandi.png" class="img-responsive imgtst" alt="" >
+          <div class="imgtxt">
+            <h5>Muhammad Alif Azzumardi</h5>
+            <p>Project Manager</p>
+            <div class="social-icon">
+              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+  </div>
 </div>
-<!-- //testimonials-->

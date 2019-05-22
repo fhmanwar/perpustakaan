@@ -17,20 +17,12 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse nav-right">
         <ul class="nav navbar-nav navbar-left cl-effect-15">
           <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-          <li class="hidden">
-          <a class="page-scroll" href="#page-top"></a>
-          </li>
-          <li>
-          <a href="<?php echo base_url()?>">Home</a>
-          </li>
-          <li>
-          <a href="<?php echo base_url('katalog')?>">Katalog Buku</a>
-          </li>
-          <!-- <li>
-          <a href="<?php echo base_url('katalog')?>">Katalog Buku</a>
-          </li> -->
+          <li class="hidden"><a class="page-scroll" href="#page-top"></a></li>
 
-          <li class="dropdown">
+          <li><a href="<?php echo base_url()?>">Home</a></li>
+          <li><a href="<?php echo base_url('katalog')?>">Katalog Buku</a></li>
+
+          <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
               <b class="caret"></b>
             </a>
@@ -48,15 +40,22 @@
                 <a href="<?php echo base_url()?>assets/front/payment.html">Payment</a>
               </li>
             </ul>
-          </li>
+          </li> -->
 
           <li>
             <a href="<?php echo base_url('usulan') ?>">Usulan</a>
           </li>
-          <li>
-            <a href="<?php echo base_url('home/login') ?>" title="SignIn & SignUp">
+
+          <li class="dropdown">
+            <a href="<?php echo base_url('home/login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
             <span class="fa fa-user nav-icon" aria-hidden="true"></span>
+            <!-- <span class="fa fa-user"></span> -->
             </a>
+            <!-- <ul class="dropdown-menu">
+              <li>
+                <a href="<?php echo base_url()?>assets/front/shop.html">register</a>
+              </li>
+            </ul> -->
           </li>
         </ul>
         <!-- search-bar -->
@@ -65,6 +64,7 @@
           <ul class="cd-header-buttons">
             <li>
               <a class="cd-search-trigger" href="#cd-search">
+              <!-- <a class="fa fa-search nav-icon" href="#cd-search"> -->
                 <span></span>
               </a>
             </li>

@@ -4,7 +4,7 @@
     <div class="banner-text-inner">
         <div class="container">
             <h2 class="title-inner">
-                world of reading
+            <?php echo $title ?>
             </h2>
 
         </div>
@@ -18,7 +18,7 @@
         <div class="row">
             <ul class="btn-group btn-breadcrumb bc-list">
                 <li class="btn btn1">
-                    <a href="index.html">
+                    <a href="<?php echo base_url() ?>">
                         <i class="glyphicon glyphicon-home"></i>
                     </a>
                 </li>
@@ -47,7 +47,18 @@
                 </div>
                 <div style="padding-top:30px" class="panel-body">
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                    <form id="loginform" class="form-horizontal" action="#" method="post">
+                    <?php
+                    // cetak error
+                    if($this->session->flashdata('sukses')) {
+                      echo '<div class="alert alert-success">';
+                      echo $this->session->flashdata('sukses');
+                      echo '</div>';
+                    }
+
+                    // Cetak validasi error
+                    echo validation_errors('<div class="alert alert-success">','</div>');
+                    ?>
+                    <form id="loginform" class="form-horizontal" action="<?php echo base_url('home/login') ?>" method="post">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
@@ -61,6 +72,7 @@
                             </span>
                             <input id="login-password" type="password" class="form-control" name="password" placeholder="password" required="">
                         </div>
+                        
                         <div class="input-group">
                             <div class="checkbox">
                                 <label>
@@ -68,13 +80,16 @@
                                 </label>
                             </div>
                         </div>
+
                         <div style="margin-top:10px" class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">
-                                <a id="btn-login" href="#" class="btn btn-success">Login </a>
+                                <!-- <a id="btn-login" href="#" class="btn btn-success">Login </a> -->
+                                <input type="submit" value="Login" class="btn btn-success">
                                 <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-md-12 control">
                                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
@@ -85,6 +100,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -98,10 +114,16 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form id="signupform" class="form-horizontal" action="#" method="post">
+                    <form id="signupform" class="form-horizontal" action="<?php echo base_url('home/register') ?>" method="post">
                         <div id="signupalert" style="display:none" class="alert alert-danger">
                             <p>Error:</p>
                             <span></span>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 col-sm-3 col-xs-3 control-label">Nama</label>
+                          <div class="col-md-9 col-sm-9 col-xs-9">
+                            <input type="text" class="form-control" name="nama" placeholder="Nama" required="">
+                          </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-3 control-label">Email</label>
@@ -110,35 +132,41 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">First Name</label>
+                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">Username</label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="text" class="form-control" name="firstname" placeholder="First Name" required="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">Last Name</label>
-                            <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-3 control-label">Password</label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="password" class="form-control" name="passwd" placeholder="Password" required="">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required="">
+                                <input type="hidden" name="akses_level" value="User" class="form-control" required>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">Foto</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="file" class="form-control" name="Foto" placeholder="Foto" required="">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <!-- Button -->
                             <div class="signup-btn">
-                                <button id="btn-signup" type="button" class="btn btn-info">
-                                    <i class="icon-hand-right"></i> &nbsp; Sign Up</button>
+                                <!-- <button id="btn-signup" type="button" class="btn btn-info">
+                                    <i class="icon-hand-right"></i> &nbsp; Sign Up
+                                </button> -->
+                                <input type="submit" value="Register" class="btn btn-info">
                             </div>
                         </div>
                         <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
 
                             <div class="f-btn">
                                 <button id="btn-fbsignup" type="button" class="btn btn-primary">
-                                    <i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                                    <i class="icon-facebook"></i>   Sign Up with Facebook
+                                </button>
                             </div>
                         </div>
                     </form>
