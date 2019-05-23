@@ -264,11 +264,9 @@
           <div class="imgtxt">
             <h5>Fahmi Anwar</h5>
             <p>Project Manager</p>
-            <div class="social-icon">
-              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
-            </div>
+            <a href="#" class="hovicon effect-1 twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="hovicon effect-1 facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="hovicon effect-1 google"><i class="fa fa-google-plus"></i></a>
           </div>
         </div>
       </div>
@@ -278,11 +276,9 @@
           <div class="imgtxt">
             <h5>Rika Wulandari</h5>
             <p>Database</p>
-            <div class="social-icon">
-              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
-            </div>
+            <a href="#" class="hovicon effect-1 twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="hovicon effect-1 facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="hovicon effect-1 google"><i class="fa fa-google-plus"></i></a>
           </div>
         </div>
       </div>
@@ -292,11 +288,9 @@
           <div class="imgtxt">
             <h5>Muhammad Alif Azzumardi</h5>
             <p>Project Manager</p>
-            <div class="social-icon">
-              <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
-            </div>
+            <a href="#" class="hovicon effect-1 twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="hovicon effect-1 facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="hovicon effect-1 google"><i class="fa fa-google-plus"></i></a>
           </div>
         </div>
       </div>
