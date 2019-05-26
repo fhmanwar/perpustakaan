@@ -62,7 +62,7 @@ class Home extends CI_Controller {
       //compare dengan database
 			$cek_login = $this->user_model->login($username,$password);
 			// jika cocok maka create session
-			 if(count($cek_login) === 1){
+			 if(count($cek_login) == 1){
 				 // $this->session->set_userdata('id',$cek_login->id);
 				 $this->session->set_userdata('username',$username);
          $this->session->set_userdata('akses_level',$cek_login->akses_level);
