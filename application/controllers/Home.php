@@ -27,7 +27,7 @@ class Home extends CI_Controller {
 		$link = $this->link_model->listing();
 
     $data = array('title'  			=> $site->namaweb.' | '.$site->tagline,
-									// 'produk'			=> $produk,
+									// 'produk'			=> $produk,,,,,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,
 									'berita'  		=> $berita,
