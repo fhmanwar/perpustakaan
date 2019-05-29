@@ -3,15 +3,15 @@
     <!-- banner-text -->
     <div class="banner-text">
         <div class="container">
-            <p class="b-txt">the</p>
+            <!-- <p class="b-txt">the</p> -->
             <h2 class="title">
-                Library
+                <?php echo $site->namaweb?>
             </h2>
-            <ul class="banner-txt">
+            <!-- <ul class="banner-txt">
                 <li>share.</li>
                 <li> explore. </li>
                 <li>amplify.</li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <!-- //banner-text -->

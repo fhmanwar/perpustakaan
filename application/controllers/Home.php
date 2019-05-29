@@ -28,7 +28,7 @@ class Home extends CI_Controller {
 
     $data = array('title'  			=> $site->namaweb.' | '.$site->tagline,
 									// 'produk'			=> $produk,,,,,
-									// 'new'					=> $new,
+									'site'					=> $site,
                   'buku'  		  => $buku,
 									'berita'  		=> $berita,
                   'slide'  			=> $slide,

@@ -78,6 +78,8 @@
           </div>
         </div>
         <!-- //search-bar ends here -->
+
+        <?php //if(!$_SESSION['username'] == ''){?>
         <!-- shopping cart -->
         <div class="cart-mainf">
           <div class="chrcart chrcart2 cart cart box_1">
@@ -91,6 +93,8 @@
           </div>
         </div>
         <!-- //shopping cart ends here -->
+        <?php //}?>
+        
       </div>
       <!-- /.navbar-collapse -->
     <div class="clearfix"></div>

@@ -4,7 +4,7 @@
   <div class="banner-text-inner">
     <div class="container">
       <h2 class="title-inner">
-        world of reading
+        <?php echo $title?>
       </h2>
 
     </div>
