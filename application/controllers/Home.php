@@ -40,33 +40,33 @@ class Home extends CI_Controller {
 
 	public function Login()
 	{
-		$site = $this->konfigurasi_model->listing();
+		// $site = $this->konfigurasi_model->listing();
 		// // Validasi
 		// $valid = $this->form_validation;
-    // $valid->set_rules('username','Username','required', array(	'required'	=> 'Username harus diisi'));
-    // $valid->set_rules('password','Password','required|min_length[6]',
-    //             array(	'required'	=> 'Password harus diisi',
-    //                     'min_length'		=> 'password min 6 character'
-    //             ));
+		// $valid->set_rules('username','Username','required', array(	'required'	=> 'Username harus diisi'));
+		// $valid->set_rules('password','Password','required|min_length[6]',
+		//             array(	'required'	=> 'Password harus diisi',
+		//                     'min_length'		=> 'password min 6 character'
+		//             ));
 
-    // if($valid->run()===FALSE) {
+		// if($valid->run()===FALSE) {
 
-			$data = array('title' => 'Sign In',
-										'isi' => 'home/loginRegis'
-										);
-      $this->load->view('layout/file',$data,False);
-    // }else {
-    //   $username	= $this->input->post('username');
-    //   $password	= $this->input->post('password');
+			// $data = array('title' => 'Sign In',
+			// 							'isi' => 'home/loginRegis'
+			// 							);
+			// $this->load->view('layout/file',$data,False);
+		// }else {
+		//   $username	= $this->input->post('username');
+		//   $password	= $this->input->post('password');
 
-    //   //compare dengan database
+		//   //compare dengan database
 		// 	$cek_login = $this->user_model->login($username,$password);
 		// 	// jika cocok maka create session
 		// 	 if(count($cek_login) == 1){
 		// 		 // $this->session->set_userdata('id',$cek_login->id);
 		// 		 $this->session->set_userdata('username',$username);
-    //      $this->session->set_userdata('akses_level',$cek_login->akses_level);
-    //      $this->session->set_userdata('id_user',$cek_login->id_user);
+		//      $this->session->set_userdata('akses_level',$cek_login->akses_level);
+		//      $this->session->set_userdata('id_user',$cek_login->id_user);
 		// 		 $this->session->set_userdata('nama',$cek_login->nama);
 		// 		 if ($this->session->userdata('akses_level')=='User') {
 		// 			redirect(base_url('home'),'refresh');
@@ -75,11 +75,12 @@ class Home extends CI_Controller {
 		// 			redirect(base_url('home/login'),'refresh');
 		// 		}
 		// 	 }else {
-    //      $this->session->set_flashdata('Success','Username or Password is wrong');
-    //      redirect(base_url('home/login'),'refresh');
-    //    }
-    // }
-    // // End validasi
+		//      $this->session->set_flashdata('Success','Username or Password is wrong');
+		//      redirect(base_url('home/login'),'refresh');
+		//    }
+		// }
+		// // End validasi
+		
 	}
 
   //register

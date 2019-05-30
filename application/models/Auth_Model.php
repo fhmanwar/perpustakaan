@@ -9,6 +9,10 @@ class Auth_Model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }
+
+    function cek_login($table,$where){		
+		return $this->db->get_where($table,$where);
+	}	
     
     public function cekUser($user)
     {
@@ -16,6 +20,7 @@ class Auth_Model extends CI_Model {
         $this->db->from('user');
         $this->db->where('username', $user);
         return $this->db->get();
+        // return $this->db->get()->row();
     }
     
     

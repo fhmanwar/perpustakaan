@@ -47,7 +47,7 @@
           </li>
 
           <li class="dropdown">
-            <a href="<?php echo base_url('home/login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
+            <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
             <span class="fa fa-user nav-icon" aria-hidden="true"></span>
             <!-- <span class="fa fa-user"></span> -->
             </a>

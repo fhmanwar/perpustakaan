@@ -63,7 +63,7 @@ class Auth extends CI_Controller {
                         {
                             $data = array(
                                 'username' => $data['username'],
-                                // 'email' => $data['email'],
+                                'email' => $data['email'],
                                 'level' => 'Admin',
                             );
                             

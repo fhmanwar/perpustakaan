@@ -5,7 +5,10 @@ class Login extends CI_Controller {
 
   public function __construct(){
 		parent::__construct();
-		$this->load->model('user_model');
+    $this->load->model('user_model');
+    $this->load->model('link_model');
+    $this->load->model('konfigurasi_model');
+    $this->load->model('auth_model');
 	}
 
   public function index(){
@@ -20,8 +23,8 @@ class Login extends CI_Controller {
 
     // if($valid->run()===FALSE) {
 
-      $data = array('title' => 'Login Administrator' );
-      $this->load->view('admin/login_view',$data,False);
+      // $data = array('title' => 'Login Administrator' );
+      // $this->load->view('admin/login_view',$data,False);
     // }else {
     //   $username	= $this->input->post('username');
     //   $password	= $this->input->post('password');
@@ -42,6 +45,112 @@ class Login extends CI_Controller {
     //    }
     // }
     // // End validasi
+    
+		$valid = $this->form_validation;
+		$valid->set_rules('username', 'Username', 'trim|required|xss_clean');
+		$valid->set_rules('password', 'Password', 'trim|required|xss_clean');
+		
+		$valid->set_message('required', 'Maaf! <b>%s</b> Tidak Boleh Kosong!');
+		
+		if ($valid->run() === FALSE) {
+				$data = array('title' => 'Sign In',
+												'isi' => 'home/loginRegis'
+										);
+				$this->load->view('layout/file',$data,False);
+		} else {
+        $user = $this->input->post('username');
+        $pass = $this->input->post('password');
+        $cek = $this->auth_model->cekUser($user);
+        // $where = array(
+        //   'username' => $user,
+        //   'password' => password_verify($pass, $data->password)
+        //   );
+        // $cek = $this->m_login->cek_login("user",$where)->num_rows();
+				if($cek->num_rows() > 0)
+				{
+						// $data = $cek->row_array();
+						$data = $cek->row();
+						if(password_verify($pass, $data['password']))
+						// if(password_verify($pass, $data->password))
+						{
+								/**
+								 * STATUS
+								 * 1 = AKTIF
+								 * 2 = TIDAK AKTIF
+								 * 3 = BANNED
+								 */
+								if($data['id_status'] == '1')
+								// if($data->id_status == '1')
+								{
+										/**
+										 * LEVEL
+										 * 1 = ADMIN
+										 * 2 = ANGGOTA
+										 */
+										if($data['id_level'] == '1')
+										// if($data->id_level == '1')
+										{
+												$data = array(
+														'username' => $data['username'],
+														'email' => $data['email'],
+														'level' => 'Admin',
+                        );
+                        
+                        // $data = array(
+                        //   'id_user' => $id_user, 
+                        //   'id_level' => $id_level,
+                        //   'username' => $user,
+                        //   'nama' => $nama,
+                        //   'level' => 'Admin'
+                        // );
+                        
+												$this->session->set_userdata($data);
+												redirect(base_url('admin/dasbor'),'refresh');
+										}
+										// if($data['id_level'] === '2')
+										elseif($data->id_level == '2')
+										{
+												// $session = array(
+												// 		'username' => $data['username'],
+												// 		'email' => $data['email'],
+												// 		'level' => 'Anggota',
+                        // );
+                        $session = array(
+                          'id_user' => $data->id_user, 
+                          'id_level' => $data->id_level,
+                          'username' => $user,
+                          'email' => $data->email,
+                          // 'level' => 'Anggota'
+                        );
+												$this->session->set_userdata($session);
+												redirect(base_url('home'),'refresh');
+										}
+								}
+								// elseif($data['id_status'] == '2')
+								elseif($data->id_status === '2')
+								{
+										$this->session->set_flashdata('Success', 'Maaf! Akun Anda Belum Aktif.');
+										redirect(base_url('login'),'refresh');
+								}
+								// elseif($data['id_status'] == '3')
+								elseif($data->id_status === '3')
+								{
+										$this->session->set_flashdata('Success', 'Maaf! Akun Anda Dinonaktifkan, Silahkan Hubungi Customer Service.');
+										redirect(base_url('login'),'refresh');
+								}
+						}
+						else
+						{
+								$this->session->set_flashdata('Success', 'Maaf! Password Anda Salah');
+								redirect(base_url('login'),'refresh');
+						}
+				}
+				else
+				{
+						$this->session->set_flashdata('Success', 'Maaf! Akun Tidak Ditemukan');
+						redirect(base_url('login'));
+				}
+		}
   }
 
   // Logout

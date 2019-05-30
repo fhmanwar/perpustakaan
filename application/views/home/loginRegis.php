@@ -57,10 +57,10 @@
 
                     // Cetak validasi error
                     echo validation_errors('<div class="alert alert-success">','</div>');
-                    echo form_open(base_url('auth/login'));
+                    // echo form_open(base_url('auth/login'));
                     
                     ?>
-                    <!-- <form id="loginform" class="form-horizontal" action="<?php //echo base_url('Auth/login') ?>" method="post"> -->
+                    <form id="loginform" class="form-horizontal" action="<?php echo base_url('login') ?>" method="post">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
