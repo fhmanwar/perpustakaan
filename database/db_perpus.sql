@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `bahasa` (
   UNIQUE KEY `nama_bhs` (`nama_bahasa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.bahasa: ~0 rows (approximately)
+-- Dumping data for table db_perpus.bahasa: ~1 rows (approximately)
 /*!40000 ALTER TABLE `bahasa` DISABLE KEYS */;
 INSERT INTO `bahasa` (`id_bahasa`, `kode_bahasa`, `nama_bahasa`, `keterangan`, `urutan`, `tanggal`) VALUES
 	(1, 'K01', 'Bahasa Kalbu', '  ', 1, '2019-03-22 18:44:01');
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `konfigurasi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.konfigurasi: ~0 rows (approximately)
+-- Dumping data for table db_perpus.konfigurasi: ~1 rows (approximately)
 /*!40000 ALTER TABLE `konfigurasi` DISABLE KEYS */;
 INSERT INTO `konfigurasi` (`id`, `id_user`, `namaweb`, `tagline`, `deskripsi`, `keywords`, `email`, `website`, `logo`, `icon`, `facebook`, `twitter`, `instagram`, `map`, `metatext`, `phone`, `alamat`, `max_pinjam`, `max_jumlah`, `denda_perhari`, `tanggal`) VALUES
 	(1, 4, 'Perpustakaan ', 'Dimana Anda dapat belajar dengan mudah', 'JSquad adalah perusahaan yang bergerak dibidang web dan aplikasi', 'education, top education, education in indonesia, world education, education and training, education system, education system in indonesia, top education countries, academic, academy asia, top academic journals, best academic colleges, best academic colleges in the world, top academic countries, top academic universities in the world, top academic universities, research, international research, research in indonesia, international research university, collaboration, international collaboration, ', 'jon@mail.net', 'https://github.com', 'banner.jpg', 'b2.jpg', '', '', '', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.226032535767!2d110.40701211477327!3d-6.982631694955702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4ec52229d7%3A0xc791d6abc9236c7!2sUniversitas+Dian+Nuswantoro!5e0!3m2!1sid!2sid!4v1553968334242!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>', '', '+628123456789', '207 Imam Bonjol Street', 14, 5, 1000, '2019-04-01 00:32:30');
@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `status` (
   UNIQUE KEY `kode_status` (`kode_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.status: ~2 rows (approximately)
+-- Dumping data for table db_perpus.status: ~3 rows (approximately)
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
 INSERT INTO `status` (`id_status`, `kode_status`, `status`, `timestamp`) VALUES
 	(1, 1, 'Actived', '2019-05-30 12:32:41'),
@@ -289,8 +289,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, `token`, `nama`, `email`, `avatar`, `keterangan`, `tanggal`) VALUES
 	(4, 1, 1, 'fhmanwar', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'fahmi', 'fafa@gmail.com', NULL, '          asdasdasd        ', '2019-05-30 08:34:46'),
 	(5, 3, 1, 'jon', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Jhon', 'jhonmub@gmail.com', NULL, 'asdqwe', '2019-05-30 08:35:56'),
-	(6, 1, 1, 'admin', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Admin', 'admin@gmail.com', NULL, '', '2019-05-30 08:34:59'),
-	(15, 1, 1, 'admin1', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Super Admin', '0qalvp@theskymail.com', NULL, '', '2019-05-30 12:10:47');
+	(6, 1, 1, 'admin', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Admin', 'admin@gmail.com', NULL, '', '2019-05-30 12:51:51'),
+	(15, 2, 1, 'admin1', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Super Admin', '0qalvp@theskymail.com', NULL, '', '2019-05-30 13:27:44');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.usulan

@@ -50,29 +50,30 @@ $konfigurasi = $this->konfigurasi_model->listing();
           						// Cetak validasi error
           						echo validation_errors('<div class="alert alert-success">','</div>');
           						?>
-                        <form role="form" method="post" action="<?php echo base_url('login') ?>">
+                        <!-- <form role="form" method="post" action="<?php echo base_url('login') ?>"> -->
+                        <form role="form" method="post" action="<?php echo base_url('auth/login') ?>">
                                <br />
                              <div class="form-group input-group">
                                     <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                    <input type="text" class="form-control" placeholder="Your Username " name="username" />
+                                    <input type="text" class="form-control" placeholder="Username " name="username" />
                                 </div>
-                                                                      <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                    <input type="password" class="form-control"  placeholder="Your Password" name="password"/>
-                                </div>
+                              <div class="form-group input-group">
+                                  <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                  <input type="password" class="form-control"  placeholder="Password" name="password"/>
+                              </div>
                             <div class="form-group">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" /> Remember me
-                                    </label>
-                                    <span class="pull-right">
-                                           <a href="#" >Forget password ? </a>
-                                    </span>
-                                </div>
-                              <input type="submit" name="submit" class="btn btn-primary btn-md" value="Login">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" /> Remember me
+                                </label>
+                                <span class="pull-right">
+                                        <a href="#" >Forget password ? </a>
+                                </span>
+                            </div>
+                            <input type="submit" name="submit" class="btn btn-primary btn-md" value="Login">
 
-                            <hr />
-                            Homepage ? <a href="<?php echo base_url() ?>" >click here </a>
-                            </form>
+                          <hr />
+                          Homepage ? <a href="<?php echo base_url() ?>" >click here </a>
+                        </form> 
                     </div>
 
                 </div>

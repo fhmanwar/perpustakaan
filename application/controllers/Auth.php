@@ -40,7 +40,9 @@ class Auth extends CI_Controller {
             if($cek->num_rows() > 0)
             {
                 $data = $cek->row_array();
+                // $data = $cek->row();
                 if(password_verify($pass, $data['password']))
+                // if(password_verify($pass, $data->password))
                 {
                     /**
                      * STATUS
@@ -49,23 +51,27 @@ class Auth extends CI_Controller {
                      * 3 = BANNED
                      */
                     if($data['id_status'] == '1')
+                    // if($data->id_status == '1')
                     {
                         /**
                          * LEVEL
                          * 1 = ADMIN
                          * 2 = ANGGOTA
                          */
-                        if($data['id_level'] == '1')
+                        if($data['id_level'] === '1')
+                        // if($data->id_level == '1')
                         {
-                            $session = array(
+                            $data = array(
                                 'username' => $data['username'],
-                                'email' => $data['email'],
+                                // 'email' => $data['email'],
                                 'level' => 'Admin',
                             );
-                            $this->session->set_userdata($session);
+                            
+                            $this->session->set_userdata($data);
                             redirect(base_url('admin/dasbor'),'refresh');
                         }
-                        elseif($data['id_level'] == '2')
+                        if($data['id_level'] === '2')
+                        // elseif($data->id_level === '2')
                         {
                             $session = array(
                                 'username' => $data['username'],
@@ -77,11 +83,13 @@ class Auth extends CI_Controller {
                         }
                     }
                     elseif($data['id_status'] == '2')
+                    // elseif($data->id_status == '2')
                     {
                         $this->session->set_flashdata('Success', 'Maaf! Akun Anda Belum Aktif.');
                         redirect(base_url('home/login'),'refresh');
                     }
                     elseif($data['id_status'] == '3')
+                    // elseif($data->id_status == '3')
                     {
                         $this->session->set_flashdata('Success', 'Maaf! Akun Anda Dinonaktifkan, Silahkan Hubungi Customer Service.');
                         redirect(base_url('home/login'),'refresh');
@@ -99,7 +107,6 @@ class Auth extends CI_Controller {
                 redirect(base_url('home/login'));
             }
         }
-        
     }
 
     public function test()
