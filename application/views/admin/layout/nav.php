@@ -4,7 +4,7 @@
 
 
 <li>
-<a  href="<?php echo base_url('admin/dashboard') ?>"><i class="fa fa-dashboard "></i> Dashboard</a>
+<a  href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard "></i> Dashboard</a>
 </li>
 
 <!-- Menu Anggota  -->

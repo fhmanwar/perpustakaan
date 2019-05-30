@@ -49,28 +49,30 @@
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                     <?php
                     // cetak error
-                    if($this->session->flashdata('sukses')) {
-                      echo '<div class="alert alert-success">';
-                      echo $this->session->flashdata('sukses');
+                    if($this->session->flashdata('Success')) {
+                      echo '<div class="alert alert-danger">';
+                      echo $this->session->flashdata('Success');
                       echo '</div>';
                     }
 
                     // Cetak validasi error
                     echo validation_errors('<div class="alert alert-success">','</div>');
+                    echo form_open(base_url('auth/login'));
+                    
                     ?>
-                    <form id="loginform" class="form-horizontal" action="<?php echo base_url('home/login') ?>" method="post">
+                    <!-- <form id="loginform" class="form-horizontal" action="<?php //echo base_url('Auth/login') ?>" method="post"> -->
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
-                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" required="">
+                            <input id="login-username" type="text" class="form-control <?php echo form_error('user_kode') ? 'is-invalid' : '' ?>" name="username" value="<?php echo set_value('user_kode'); ?>" placeholder="Username" required>
                         </div>
 
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-lock"></i>
                             </span>
-                            <input id="login-password" type="password" class="form-control" name="password" placeholder="password" required="">
+                            <input id="login-password" type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
                         
                         <div class="input-group">
@@ -100,8 +102,8 @@
                                 </div>
                             </div>
                         </div>
-
-                    </form>
+                    <!-- </form> -->
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>

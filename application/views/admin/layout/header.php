@@ -16,7 +16,7 @@ $user_aktif	= $this->user_model->detail($id_user);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('admin/Dashboard') ?>"><?php echo $konfigurasi->namaweb ?></a>
+                <a class="navbar-brand" href="<?php echo base_url('admin/dasbor') ?>"><?php echo $konfigurasi->namaweb ?></a>
             </div>
   <div style="color: white;
     padding: 15px 50px 5px 50px;

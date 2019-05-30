@@ -26,7 +26,7 @@
           <td><?php echo $i ?></td>
           <td><?php echo $user->nama ?><br><small><!--Site : <?php echo $user->namaweb ?>--></small></td>
           <td><?php echo $user->email ?></td>
-          <td><?php echo $user->username ?> - <?php echo $user->akses_level ?></td>
+          <td><?php echo $user->username ?> - <?php echo $user->level ?></td>
           <td><?php echo $user->keterangan ?></td>
           <td>
           <a href="<?php echo base_url('admin/user/edit/'.$user->id_user) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>

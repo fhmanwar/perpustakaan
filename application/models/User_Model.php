@@ -9,14 +9,33 @@ class User_model extends CI_Model {
 		$this->load->database();
 	}
 
-  //Listing
-  public function listing() {
-    $this->db->select('*');
-    $this->db->from('user');
+	public function listing()
+	{
+		$this->db->select('
+			user.*,
+			level.kode_level,
+			level.level,
+			status.kode_status,
+			status.status,
+		');
+		$this->db->from('user');
+
+		$this->db->join('level','level.id_level = user.id_level','LEFT');
+		$this->db->join('status','status.id_status = user.id_status','LEFT');
+		
     $this->db->order_by('id_user','ASC');
     $query = $this->db->get();
     return $query->result();
-  }
+	}
+
+  // //Listing
+  // public function listing() {
+  //   $this->db->select('*');
+  //   $this->db->from('user');
+  //   $this->db->order_by('id_user','ASC');
+  //   $query = $this->db->get();
+  //   return $query->result();
+  // }
 
 	// Tambah
 	public function tambah ($data) {
