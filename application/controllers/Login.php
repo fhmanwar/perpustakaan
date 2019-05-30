@@ -68,8 +68,8 @@ class Login extends CI_Controller {
         // $cek = $this->m_login->cek_login("user",$where)->num_rows();
 				if($cek->num_rows() > 0)
 				{
-						// $data = $cek->row_array();
-						$data = $cek->row();
+						$data = $cek->row_array();
+						// $data = $cek->row();
 						if(password_verify($pass, $data['password']))
 						// if(password_verify($pass, $data->password))
 						{

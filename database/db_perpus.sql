@@ -290,7 +290,7 @@ INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, 
 	(4, 1, 1, 'fhmanwar', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'fahmi', 'fafa@gmail.com', NULL, '          asdasdasd        ', '2019-05-30 08:34:46'),
 	(5, 3, 1, 'jon', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Jhon', 'jhonmub@gmail.com', NULL, 'asdqwe', '2019-05-30 08:35:56'),
 	(6, 1, 1, 'admin', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Admin', 'admin@gmail.com', NULL, '', '2019-05-30 12:51:51'),
-	(15, 2, 1, 'admin1', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Super Admin', '0qalvp@theskymail.com', NULL, '', '2019-05-30 13:27:44');
+	(15, 2, 1, 'admin1', '$2y$10$XsHpVRXjY1aN.OzhmivxoOC84Xa6hewAFd3rwaytYqON.oUxC4zga', 'zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8zs7o5nZDjCaN2qAhiMGQemgYFvS_WHpTkRuxrdb3cytKfO194LV-E6UlIwX0PJB8', 'Super Admin', '0qalvp@theskymail.com', NULL, '', '2019-05-30 15:42:59');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.usulan
