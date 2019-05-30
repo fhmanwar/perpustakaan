@@ -107,8 +107,8 @@ class Login extends CI_Controller {
 												$this->session->set_userdata($data);
 												redirect(base_url('admin/dasbor'),'refresh');
 										}
-										// if($data['id_level'] === '2')
-										elseif($data->id_level == '2')
+										if($data['id_level'] === '2')
+										// elseif($data->id_level == '2')
 										{
 												// $session = array(
 												// 		'username' => $data['username'],
@@ -126,14 +126,14 @@ class Login extends CI_Controller {
 												redirect(base_url('home'),'refresh');
 										}
 								}
-								// elseif($data['id_status'] == '2')
-								elseif($data->id_status === '2')
+								elseif($data['id_status'] == '2')
+								// elseif($data->id_status === '2')
 								{
 										$this->session->set_flashdata('Success', 'Maaf! Akun Anda Belum Aktif.');
 										redirect(base_url('login'),'refresh');
 								}
-								// elseif($data['id_status'] == '3')
-								elseif($data->id_status === '3')
+								elseif($data['id_status'] == '3')
+								// elseif($data->id_status === '3')
 								{
 										$this->session->set_flashdata('Success', 'Maaf! Akun Anda Dinonaktifkan, Silahkan Hubungi Customer Service.');
 										redirect(base_url('login'),'refresh');
