@@ -9,12 +9,12 @@
           <a href="<?php echo base_url() ?>">chronicle</a>
       </h4>
       <p><?php echo $konfigurasi->deskripsi ?></p>
-      <br><h3>Link Perpustakaan</h3>
+      <!-- <br><h3>Link Perpustakaan</h3>
       <ul class="info">
-        <!-- <?php foreach ($link as $link ) {?>
+        <?php foreach ($link as $link ) {?>
         <li><a href="<?php echo $link->url ?>" title="<?php echo $link->nama_link ?>" target="<?php echo $link->target ?>"><?php echo $link->nama_link ?></a></li>
-      <?php } ?> -->
-      </ul>
+      <?php } ?>
+      </ul> -->
     </div>
     <div class="col-md-3 col-sm-6 footv3-left">
       <h3><?php echo $konfigurasi->namaweb ?></h3>
@@ -67,7 +67,7 @@
         <a href="http://w3layouts.com"> W3layouts.</a>
     </p>
 </div>
-</div>
+<!-- </div> -->
 <!-- //home -->
 <!-- js -->
 <script src="<?php echo base_url()?>assets/front/js/jquery-2.2.3.min.js"></script>

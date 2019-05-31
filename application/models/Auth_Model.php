@@ -1,6 +1,6 @@
 <?php  
 
-if(! defined('BASEPATH')) exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth_Model extends CI_Model {
     
@@ -14,16 +14,18 @@ class Auth_Model extends CI_Model {
 		return $this->db->get_where($table,$where);
 	}	
     
-    public function cekUser($user)
+    // public function cekUser($user)
+    // {
+    //     $this->db->select('id_level,id_status,username,password,nama,email');
+    //     $this->db->from('user');
+    //     $this->db->where('username', $user);
+    //     return $this->db->get();
+    // }
+
+    public function register($data)
     {
-        $this->db->select('id_level,id_status,username,password,nama,email');
-        $this->db->from('user');
-        $this->db->where('username', $user);
-        return $this->db->get();
-        // return $this->db->get()->row();
+        $this->db->insert('user', $data);
     }
-    
-    
 
 }
 
