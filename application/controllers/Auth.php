@@ -23,85 +23,76 @@ class Auth extends CI_Controller {
         } else {
             $user = $this->input->post('username');
             $pass = $this->input->post('password');
-            // $cek = $this->auth_model->cekUser($user);
-            $cek = $this->auth_model->cek_login('user',['username' => $user]);
+            $cek = $this->auth_model->cekLogin('user',['username' => $user]);
+            // var_dump($cek);
             if($cek){
-
+                if(password_verify($pass,$cek['password'])){
+                    /**
+                        STATUS
+                        1 = AKTIF
+                        2 = TIDAK AKTIF
+                        3 = BANNED
+                     */
+                    // echo "masukk status";
+                    if ($cek['id_status'] == 1) {
+                        /**
+                            LEVEL
+                            1 = ADMIN
+                            2 = ANGGOTA
+                        */
+                        if ($cek['id_level'] == 1) {
+                            $data = [
+                                'username' => $cek['username'],
+                                'email' => $cek['email'],
+                                'level' => 'Admin'
+                            ];
+                            $this->session->set_userdata( $data );
+                            redirect(base_url('admin/dasbor'));
+                        }
+                        elseif ($cek['id_level'] == 2) {
+                            $data = [
+                                'username' => $cek['username'],
+                                'email' => $cek['email'],
+                                'level' => 'Admin'
+                            ];
+                            $this->session->set_userdata( $data );
+                            redirect(base_url('home'));
+                        }
+                    }elseif ($cek['id_status'] == 2) {
+                        $this->session->set_flashdata(
+                            'pesan', 
+                            '<div class="alert alert-danger" role-"alert">
+                                Maaf! Akun Anda Belum Aktif.
+                            </div>'
+                        );
+                        redirect(base_url('login'));
+                    }elseif ($cek['id_status'] == 3) {
+                        $this->session->set_flashdata(
+                            'pesan', 
+                            '<div class="alert alert-danger" role-"alert">
+                                Maaf! Akun Anda Dinonaktifkan, Silahkan Hubungi Customer Service.
+                            </div>'
+                        );
+                        redirect(base_url('login'));
+                    }
+                }else {
+                    $this->session->set_flashdata(
+                        'pesan', 
+                        '<div class="alert alert-danger" role-"alert">
+                            Maaf! Password Anda Salah.
+                        </div>'
+                    );
+                    redirect(base_url('login'));
+                }
             }else {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role-"alert">Belum Melakukan Registrasi! Silahkan Registrasi terlebih dahulu. </div>');
+                $this->session->set_flashdata(
+                    'pesan', 
+                    '<div class="alert alert-danger" role-"alert">
+                        Belum Melakukan Registrasi! Silahkan Registrasi terlebih dahulu. 
+                    </div>'
+                );
                 redirect(base_url('login'));
             }
-            // if($cek->num_rows() > 0)
-            // {
-            //     // $data = $cek->row_array();
-            //     $data = $cek->row();
-            //     // if(password_verify($pass, $data['password']))
-            //     if(password_verify($pass, $data->password))
-            //     {
-            //         /**
-            //          * STATUS
-            //          * 1 = AKTIF
-            //          * 2 = TIDAK AKTIF
-            //          * 3 = BANNED
-            //          */
-            //         // if($data['id_status'] == '1')
-            //         if($data->id_status == '1')
-            //         {
-            //             /**
-            //              * LEVEL
-            //              * 1 = ADMIN
-            //              * 2 = ANGGOTA
-            //              */
-            //             echo 'id status = 1';
-            //             // if($data['id_level'] == '1')
-            //             if($data->id_level == '1')
-            //             {
-            //                 echo 'id level = 1';
-            //                 $data = array(
-            //                     'username' => $data['username'],
-            //                     'email' => $data['email'],
-            //                     'level' => 'Admin',
-            //                 );
-
-            //                 $this->session->set_userdata($data);
-            //                 // redirect(base_url('admin/dasbor'),'refresh');
-            //             }
-            //             // if($data['id_level'] === '2')
-            //             elseif($data->id_level == '2')
-            //             {
-            //                 $session = array(
-            //                     'username' => $data['username'],
-            //                     'email' => $data['email'],
-            //                     'level' => 'Anggota',
-            //                 );
-            //                 $this->session->set_userdata($session);
-            //                 redirect(base_url('home'),'refresh');
-            //             }
-            //         }
-            //         // elseif($data['id_status'] == '2')
-            //         elseif($data->id_status == '2')
-            //         {
-            //             $this->session->set_flashdata('Success', 'Maaf! Akun Anda Belum Aktif.');
-            //             redirect(base_url('login'),'refresh');
-            //         }
-            //         // elseif($data['id_status'] == '3')
-            //         elseif($data->id_status == '3')
-            //         {
-            //             $this->session->set_flashdata('Success', 'Maaf! Akun Anda Dinonaktifkan, Silahkan Hubungi Customer Service.');
-            //             redirect(base_url('login'),'refresh');
-            //         }
-            //     }
-            //     else
-            //     {
-            //         $this->session->set_flashdata('Success', 'Maaf! Password Anda Salah');
-            //         redirect(base_url('login'),'refresh');
-            //     }
-            // }
-            // else
-            // {
-            //     $this->session->set_flashdata('Success', 'Maaf! Akun Tidak Ditemukan');
-            //     redirect(base_url('login'));
-            // }
         }
     }
 
@@ -142,7 +133,7 @@ class Auth extends CI_Controller {
                 'id_level' => 1,
                 'id_status' => 1,
                 'username' => htmlspecialchars($this->input->post('username',true)),
-                'password' => password_hash($this->input->post('password'),PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password'),PASSWORD_ARGON2ID),
                 'token' => $random,
                 'nama' => htmlspecialchars($this->input->post('nama',true)),
                 'email' => htmlspecialchars($this->input->post('email',true)),
@@ -155,10 +146,25 @@ class Auth extends CI_Controller {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role-"alert">Berhasil Melakukan Registrasi! Silahkan Cek Email. </div>');
             redirect(base_url('login'));
         }
-        // $data = array('title' => 'Sign Up ',
-        //                 'isi' => 'home/register'
-        //             );
-        // $this->load->view('layout/file',$data,False);
+    }
+
+    public function logout()
+    {
+        
+        $this->session->unset_userdata([
+            'username',
+            'email',
+            'id_level',
+            'id_status'
+        ]);
+        $this->session->set_flashdata(
+            'pesan', 
+            '<div class="alert alert-success" role-"alert">
+            Berhasil Logout 
+            </div>'
+        );
+        redirect(base_url('login'),'refresh');
+        $this->session->sess_destroy();
     }
 
     public function test()

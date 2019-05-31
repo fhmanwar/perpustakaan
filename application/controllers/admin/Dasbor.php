@@ -6,13 +6,7 @@ class Dasbor extends CI_Controller
   // Load database
   public function __construct(){
     parent::__construct();
-    // $this->load->model('home_model');
-    $this->load->model('user_model');
-    // $this->load->model('video_model');
-    // $this->load->model('berita_model');
-    // $this->load->model('produk_model');
-    // $this->load->model('kategori_produk_model');
-    // $this->load->model('kategori_berita_model');
+		$this->load->model('user_model');
   }
 
     public function index()
@@ -28,7 +22,7 @@ class Dasbor extends CI_Controller
     public function profile() {
   		// $home = $this->home_model->listing();
       $id_user = $this->session->userdata('id_user');
-  		$user = $this->user_model->detail($id_user);
+			$user = $this->user_model->detail($id_user);
 
   		// Validasi
   		$valid = $this->form_validation;

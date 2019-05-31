@@ -52,11 +52,11 @@
                     <?php
                     // cetak error
                     echo $this->session->flashdata('pesan');
-                    
-                    // echo form_open(base_url('login'));
+
+                    echo form_open(base_url('login'));
 
                     ?>
-                    <form id="loginform" class="form-horizontal" action="<?php echo base_url('login') ?>" method="post">
+                    <!-- <form id="loginform" class="form-horizontal" action="<?php echo base_url('login') ?>" method="post"> -->
                     <div class="form-group col-lg-12">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
@@ -105,8 +105,8 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <!-- <?php echo form_close(); ?> -->
+                    <!-- </form> -->
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>

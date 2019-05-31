@@ -63,15 +63,8 @@ class User_model extends CI_Model {
 		$this->db->delete('user',$data);
 	}
 
-	public function login($username, $password) {
-		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->where(array('username'		=> $username,
-													 'password'  	=> sha1($password)
-										));
-		$this->db->order_by('id_user','ASC');
-		$query = $this->db->get();
-		return $query->row();
-	}
+	function getUser($table,$where){		
+		return $this->db->get_where($table,$where)->row_array();
+	}	
 
 }

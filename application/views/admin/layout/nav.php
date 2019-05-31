@@ -69,6 +69,8 @@
 <ul class="nav nav-second-level">
   <li><a href="<?php echo base_url('admin/user') ?>">Data User</a></li>
   <li><a href="<?php echo base_url('admin/user/tambah') ?>">Tambah User</a></li>
+  <li><a href="<?php echo base_url('admin/level') ?>">Tambah User</a></li>
+  <li><a href="<?php echo base_url('admin/status') ?>">Tambah User</a></li>
 </ul>
 </li>
 

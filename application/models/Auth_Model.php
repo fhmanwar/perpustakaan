@@ -10,18 +10,10 @@ class Auth_Model extends CI_Model {
         $this->load->database();
     }
 
-    function cek_login($table,$where){		
-		return $this->db->get_where($table,$where);
+    function cekLogin($table,$where){		
+		return $this->db->get_where($table,$where)->row_array();
 	}	
     
-    // public function cekUser($user)
-    // {
-    //     $this->db->select('id_level,id_status,username,password,nama,email');
-    //     $this->db->from('user');
-    //     $this->db->where('username', $user);
-    //     return $this->db->get();
-    // }
-
     public function register($data)
     {
         $this->db->insert('user', $data);
