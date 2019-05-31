@@ -9,17 +9,6 @@ class Auth extends CI_Controller {
         $this->load->model('auth_model');
     }
     
-
-    // public function index($err = NULL){
-    //     $data = array(
-    //         'title' => 'SIGN IN', 
-    //         'error' => $err,
-    //         'action' => site_url('auth/login'),
-    //         'isi' => 'home/loginRegis'
-    //     );
-    //     $this->load->view('layout/file', $data, FALSE);
-    // }
-
     public function login(){
         $user = $this->input->post('username');
         $pass = $this->input->post('password');

@@ -48,7 +48,7 @@ class User_model extends CI_Model {
     $this->db->where('id_user',$id_user);
     $this->db->order_by('id_user','ASC');
     $query = $this->db->get();
-    return $query->row();
+    return $query->row_array();
   }
 
   // Edit

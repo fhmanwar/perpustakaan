@@ -17,10 +17,11 @@ class Dasbor extends CI_Controller
 
     public function index()
     {
-      $data = array('title' => 'Login Administrator',
-                  'isi'   => 'admin/dasbor/list'
-                  );
-        $this->load->view('admin/layout/file', $data, false);
+      $data = array(
+				'title' => 'Login Administrator',
+				'isi'   => 'admin/dasbor/list',
+			);
+			$this->load->view('admin/layout/file', $data, false);
     }
 
     // Profil

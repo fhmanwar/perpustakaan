@@ -36,7 +36,19 @@ class Anggota_model extends CI_Model {
   public function edit ($data) {
     $this->db->where('id_anggota',$data['id_anggota']);
     $this->db->update('anggota',$data);
-  }
+	}
+	
+	public function update()
+	{
+		$this->db->where('id_anggota', $this->input->post('id_anggota'));
+		$this->db->update('anggota', $data);
+	}
+
+	public function hapus()
+	{
+		$this->db->where('id_anggota', $this->input->post('id_anggota'));
+		$this->db->delete('anggota');
+	}
 
   // Delete
 	public function delete ($data){
