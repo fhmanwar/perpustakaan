@@ -47,16 +47,7 @@
                     </div>
                 </div>
                 <div class="panel-body" style="padding-top:30px">
-                <?php
-                // // cetak error
-                // if($this->session->flashdata('Success')) {
-                //   echo '<div class="alert alert-danger">';
-                //   echo $this->session->flashdata('Success');
-                //   echo '</div>';
-                // }
-                echo form_open(base_url('register'));
-
-                ?>
+                <?php echo form_open(base_url('register')); ?>
                     <!-- <form id="signupform" class="form-horizontal" action="<?php echo base_url('register') ?>" method="post"> -->
                         <div id="signupalert" style="display:none" class="alert alert-danger">
                             <p>Error:</p>

@@ -61,4 +61,13 @@ class Status_model extends CI_Model {
         return $this->db->delete('status');
     }
 
+    //Listing
+    public function listing() {
+        $this->db->select('*');
+        $this->db->from('status');
+        $this->db->order_by('id_status','ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

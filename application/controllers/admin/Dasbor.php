@@ -12,7 +12,7 @@ class Dasbor extends CI_Controller
     public function index()
     {
       $data = array(
-				'title' => 'Login Administrator',
+				'title' => 'Dashboard',
 				'isi'   => 'admin/dasbor/list',
 			);
 			$this->load->view('admin/layout/file', $data, false);
@@ -21,7 +21,22 @@ class Dasbor extends CI_Controller
     // Profil
     public function profile() {
   		// $home = $this->home_model->listing();
-      $id_user = $this->session->userdata('id_user');
+      // $id_user = $this->session->userdata('id_user');
+			// $user = $this->user_model->detail($id_user);
+			$user['user']	= $this->user_model->getUser(
+				'user',
+				['username' => $this->session->userdata('username') ]
+			);
+
+			$data = array( 	'title' 	=> 'User Profile',
+											'user'		=> $user['user'],
+											'isi' 		=> 'admin/dasbor/profile');
+			$this->load->view('admin/layout/file',$data);
+		}
+		
+		public function setting()
+		{
+			$id_user = $this->session->userdata('id_user');
 			$user = $this->user_model->detail($id_user);
 
   		// Validasi
@@ -35,9 +50,10 @@ class Dasbor extends CI_Controller
   		if($valid->run()===FALSE) {
   		// End validasi
 
-  			$data = array( 	'title' 	=> 'Update Profile'.$user->nama,
+  			// $data = array( 	'title' 	=> 'Update Profile'.$user->nama,
+  			$data = array( 	'title' 	=> 'Update Profile'.$user['nama'],
   											'user'		=> $user,
-  											'isi' 		=> 'admin/dasbor/profile');
+  											'isi' 		=> 'admin/dasbor/setting');
   			$this->load->view('admin/layout/file',$data);
   		// masuk database
   		}else{
@@ -57,9 +73,14 @@ class Dasbor extends CI_Controller
   												'akses_level'	=>  $i->post('akses_level'));
   			}
   			$this->user_model->edit($data);
-  			$this->session->set_flashdata('success','Profile updated successfully');
+  			$this->session->set_flashdata(
+					'pesan',
+					'<div class="alert alert-danger" role-"alert">
+						Profile updated successfully
+					</div>'
+				);
   			redirect(base_url('admin/dasbor/profile'));
   		}
   		// End masuk database
-  	}
+		}
 }

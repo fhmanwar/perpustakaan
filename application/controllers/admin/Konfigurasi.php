@@ -9,10 +9,10 @@ class Konfigurasi extends CI_Controller
     // $this->load->model('home_model');
     $this->load->model('konfigurasi_model');
 
-    if ($this->session->userdata('akses_level') != "Admin") {
-      $this->session->set_flashdata('success','Oops.. Hak Akses Anda tidak mencukupi');
-      redirect(base_url('login'),'refresh');
-    }
+    // if ($this->session->userdata('akses_level') != "Admin") {
+    //   $this->session->set_flashdata('success','Oops.. Hak Akses Anda tidak mencukupi');
+    //   redirect(base_url('login'),'refresh');
+    // }
     // $this->load->model('video_model');
     // $this->load->model('berita_model');
     // $this->load->model('produk_model');
@@ -29,7 +29,7 @@ class Konfigurasi extends CI_Controller
 
       if($valid->run() === FALSE){
 
-        $data = array('title' => 'Konfigurasi Website : '.$konfigurasi->namaweb,
+        $data = array('title' => 'Konfigurasi Website ',
                     'konfigurasi'   => $konfigurasi,
                     'isi'   => 'admin/konfigurasi/list'
                     );
@@ -56,7 +56,13 @@ class Konfigurasi extends CI_Controller
                       'alamat'            => $i->post('alamat')
                     );
         $this->konfigurasi_model->edit($data);
-        $this->session->set_flashdata('success','Edited is Successfully');
+        $this->session->set_flashdata(
+          'success',
+          '<div class="alert alert-success">
+            <i class="fa fa-check"></i>
+            Edited is Successfully
+          </div>'
+        );
         redirect(base_url('admin/konfigurasi'),'refresh');
       }
 
@@ -75,7 +81,7 @@ class Konfigurasi extends CI_Controller
         $config['max_size']      = '20000'; // KB
         $this->upload->initialize($config);
         if (! $this->upload->do_upload('logo')) {
-          $data = array('title' => 'Konfigurasi logo Website : '.$konfigurasi->namaweb,
+          $data = array('title' => 'Konfigurasi Website ',
                       'konfigurasi'   => $konfigurasi,
                       'error'  => $this->upload->display_errors(),
                       'isi'   => 'admin/konfigurasi/logo'
@@ -114,7 +120,7 @@ class Konfigurasi extends CI_Controller
           $this->session->set_flashdata('success','Edited is Successfully');
           redirect(base_url('admin/konfigurasi/logo'),'refresh');
         }}
-      $data = array('title' => 'Konfigurasi logo Website : '.$konfigurasi->namaweb,
+      $data = array('title' => 'Konfigurasi Website',
                   'konfigurasi'   => $konfigurasi,
                   'isi'   => 'admin/konfigurasi/logo'
                   );
@@ -134,7 +140,7 @@ class Konfigurasi extends CI_Controller
         $config['max_size']      = '20000'; // KB
         $this->upload->initialize($config);
         if (! $this->upload->do_upload('icon')) {
-          $data = array('title' => 'Konfigurasi icon Website : '.$konfigurasi->namaweb,
+          $data = array('title' => 'Konfigurasi Website',
                       'konfigurasi'   => $konfigurasi,
                       'error'  => $this->upload->display_errors(),
                       'isi'   => 'admin/konfigurasi/icon'
@@ -173,7 +179,7 @@ class Konfigurasi extends CI_Controller
           $this->session->set_flashdata('success','Edited is Successfully');
           redirect(base_url('admin/konfigurasi/icon'),'refresh');
         }}
-      $data = array('title' => 'Konfigurasi icon Website : '.$konfigurasi->namaweb,
+      $data = array('title' => 'Konfigurasi Website ',
                   'konfigurasi'   => $konfigurasi,
                   'isi'   => 'admin/konfigurasi/icon'
                   );

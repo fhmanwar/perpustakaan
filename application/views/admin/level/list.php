@@ -8,13 +8,13 @@
 		<i class="flaticon-right-arrow"></i>
 	</li>
 	<li class="nav-item">
-		<a href="#">Konfigurasi</a>
+		<a href="#">User</a>
 		</li>
 		<li class="separator">
 		<i class="flaticon-right-arrow"></i>
 	</li>
 	<li class="nav-item">
-		<a href="#">Link</a>
+		<a href="#">Status</a>
 	</li>
 </ul>
 
@@ -77,8 +77,10 @@ echo $this->session->flashdata('success');
                     <td><?php echo $link->url ?></td>
                     <td><?php echo $link->target ?></td>
                     <td>
-                    <a href="<?php echo base_url('admin/link/edit/'.$link->id_link) ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a>
+                    <!-- <a href="<?php echo base_url('admin/link/edit/'.$link->id_link) ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a> -->
                     <?php
+                      //update
+                      include('update.php')
                       //Delete
                       include('delete.php')
                     ?>

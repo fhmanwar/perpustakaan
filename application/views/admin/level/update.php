@@ -1,4 +1,3 @@
-
 <!-- Button trigger modal -->
 <p>
 	<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add">
@@ -26,15 +25,15 @@
 				
 				<?php echo form_open(base_url('admin/link')); ?>
 				<div class="form-group form-floating-label group-lg">
-					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="nama_link" value="<?php echo set_value('nama_link') ?>" >
-					<label for="inputFloatingLabel" class="placeholder">Nama Link</label>
-					<?php echo form_error('nama_link','<small class="text-danger" >','</small>') ?>
+          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="nama_link" value="<?php echo set_value('nama_link') ?>" >
+          <label for="inputFloatingLabel" class="placeholder">Nama Link</label>
+          <?php echo form_error('nama_link','<small class="text-danger" >','</small>') ?>
 				</div>
 				
 				<div class="form-group form-floating-label">
-					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="url" value="<?php echo set_value('url') ?>">
-					<label for="inputFloatingLabel" class="placeholder">URL/Website</label>
-				</div>
+          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="url" value="<?php echo set_value('url') ?>">
+          <label for="inputFloatingLabel" class="placeholder">URL/Website</label>
+        </div>
 
 				<div class="form-group form-floating-label">
 					<select class="form-control " id="selectFloatingLabel2" name="target" required>

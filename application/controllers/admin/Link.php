@@ -7,7 +7,12 @@ class Link extends CI_Controller
     public function __construct() {
       parent::__construct();
       // $this->load->model('home_model');
-      $this->load->model('link_model');
+			$this->load->model('link_model');
+			//proteksi halaman
+			if($this->session->userdata('username') == ""){
+				$this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+				redirect(base_url('login'),'refresh');
+			}
     }
 
 
@@ -25,7 +30,7 @@ class Link extends CI_Controller
      if($valid->run()===FALSE) {
      // End validasi
 
-     $data = array( 'title' => 'Kelola Link',
+     $data = array( 'title' => 'Konfigurasi Link',
                     'link'	=> 	$link,
                     'isi'  => 'admin/link/list');
      $this->load->view('admin/layout/file',$data,false);
@@ -51,10 +56,10 @@ class Link extends CI_Controller
 		$valid = $this->form_validation;
 		$valid->set_rules('nama_link','Nama Link','required', array( 'required' => 'Nama Link harus diisi'));
 
-		if($valid->run()===FALSE) {
+		if($valid->run()==FALSE) {
 		// End validasi
 
-			$data = array( 	'title' 	=> 'Edit Link '.$link->nama_link,
+			$data = array( 	'title' 	=> 'Konfigurasi Link ',
 											'link'		=> $link,
 											'isi' 		=> 'admin/link/edit');
 			$this->load->view('admin/layout/file',$data);
@@ -75,12 +80,6 @@ class Link extends CI_Controller
 
   // Delete Link
 	public function delete($id_link) {
-    //proteksi halaman
-    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
-      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
-      redirect(base_url('login'),'refresh');
-    }
-
 		$data = array('id_link'=> $id_link);
 		$this->link_model->delete($data);
 		$this->session->set_flashdata('Success','Link Deleted successfully');

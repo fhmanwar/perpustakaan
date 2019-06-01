@@ -7,11 +7,11 @@ if($this->session->userdata('username') == "" && $this->session->userdata('id_le
 
 $data['user']	= $this->user_model->getUser(
   'user',
-  ['username' => $this->session->userdata('username') ] 
+  ['username' => $this->session->userdata('username') ]
 );
 
 require_once('head.php');
-require_once('header.php');
-require_once('nav.php');
+require_once('navbar.php');
+require_once('sidebar.php');
 require_once('content.php');
 require_once('footer.php');

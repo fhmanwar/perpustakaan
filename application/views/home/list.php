@@ -260,7 +260,7 @@
       </h4>
       <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
         <div class="imgefct">
-          <img src="assets/images/fahmi.png" class="img-responsive imgtst" alt="" >
+          <img src="<?php echo base_url() ?>assets/upload/profile/fahmi.png" class="img-responsive imgtst" alt="" >
           <div class="imgtxt">
             <h5>Fahmi Anwar</h5>
             <p>Project Manager</p>
@@ -272,7 +272,7 @@
       </div>
       <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
         <div class="imgefct">
-          <img src="assets/images/ira.png" class="img-responsive imgtst" alt="" >
+          <img src="<?php echo base_url() ?>assets/upload/profile/ira.png" class="img-responsive imgtst" alt="" >
           <div class="imgtxt">
             <h5>Rika Wulandari</h5>
             <p>Database</p>
@@ -284,7 +284,7 @@
       </div>
       <div class="col-md-4 col-sm-4 col-xs-4 fimg1">
         <div class="imgefct">
-          <img src="assets/images/fandi.png" class="img-responsive imgtst" alt="" >
+          <img src="<?php echo base_url() ?>assets/upload/profile/fandi.png" class="img-responsive imgtst" alt="" >
           <div class="imgtxt">
             <h5>Muhammad Alif Azzumardi</h5>
             <p>Project Manager</p>
