@@ -20,8 +20,8 @@
 			<div class="modal-body">
 				
                 <div class="form-group">
-                    <label for="disableinput">Kode Status</label>
-                    <input type="text" class="form-control" id="disableinput" name="kode_status" value="<?php echo $status->kode_status ?>" disabled>
+                    <label >Kode Status</label>
+                    <input type="text" class="form-control" name="kode_status" value="<?php echo $status->kode_status ?>" required readonly disabled>
                     <?php echo form_error('kode_status','<small class="text-danger" >','</small>') ?>
                 </div>
 

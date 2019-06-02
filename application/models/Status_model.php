@@ -43,14 +43,14 @@ class Status_model extends CI_Model {
         return $this->db->insert('status', $data);
     }
 
-    public function update($data)
+    public function update($id)
     {
         $data = array(
-            'nama_status'       => $this->input->post('nama_status')
-            // 'tanggal'           => date('Y-m-d H:i:s'),
+            'id_status' => $id,
+            'status'      => $this->input->post('status')
         );
         $this->db->where('id_status',$data['id_status']);
-        // $this->db->where('kode_status', $data);
+        // $this->db->where('id_status', $id);
         return $this->db->update('status', $data);
     }
 

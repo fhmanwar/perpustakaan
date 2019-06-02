@@ -44,16 +44,14 @@ class Status extends CI_Controller
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $status = $this->status_model->detail();
+        $status = $this->status_model->detail($id);
         $valid = $this->form_validation;
         $valid->set_rules('status', 'Status', 'trim|required|xss_clean');
-        $valid->set_rules('kode_status', 'Kode Status', 'required|is_unique[status.kode_status]');
 
         $valid->set_message([
-            'required' => '%s Harus diisi',
-            'is_unique' => '%s: <strong>'.$this->input->post('kode_jenis').'</strong> sudah digunakan. Buat kode jenis buku baru!'
+            'required' => '%s Harus diisi'
         ]);
 
         if($valid->run() == FALSE){
