@@ -1,129 +1,120 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
 
-class Anggota extends CI_Controller
-{
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-    public function __construct() {
-      parent::__construct();
-      // $this->load->model('home_model');
-      $this->load->model('anggota_model');
+class Anggota extends CI_Controller {
+
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model([
+            'anggota_model',
+            'status_model'
+        ]);
+        
+    }
+    
+    public function test()
+    {
+        $x = $this->anggota_model->getAnggota();
+        var_dump($x);
     }
 
-
-    public function index(){
-      $anggota = $this->anggota_model->listing();
-
-      $data = array('title' => 'Data Anggota('.count($anggota).')',
-                  'anggota'	=> 	$anggota,
-                  'isi'     => 'admin/anggota/list'
-                  );
-        $this->load->view('admin/layout/file', $data, false);
+    public function index()
+    {
+        $anggota = $this->anggota_model->getAnggota();
+        $data = [
+            'title' => 'Data Anggota('.count($anggota).')',
+            'anggota'	=> 	$anggota,
+            'isi'     => 'admin/anggota/list'
+        ];
+        $this->load->view('admin/layout/file', $data, FALSE);   
     }
 
-    public function tambah(){
-      $valid = $this->form_validation;
-      $valid->set_rules('nama_anggota','Nama','required', array( 'required' => 'Nama harus diisi'));
-      $valid->set_rules('email','Email','required|valid_email',
-  		 									array( 'required' 		=> '%s harus diisi',
-  														 'valid_email'	=> '%s tidak valid'));
+    public function create()
+    {
+        $status     = $this->status_model->getStatus()->result();
+        $anggota = $this->anggota_model->getAnggota();
+        $valid = $this->form_validation;
+        $valid->set_rules('nama','Nama','trim|required|xss_clean');
+        $valid->set_rules('email','Email','trim|required|xss_clean|valid_email|valid_emails|is_unique[user.email]');
+        $valid->set_rules('username','Username','required|is_unique[user.username]');
+        $valid->set_rules('password','Password','trim|required|xss_clean|max_length[32]|min_length[6]');
 
-      $valid->set_rules('username','Username','required|is_unique[anggota.username]',
-  											array( 'required' 	=> '%s harus diisi',
-  														 'is_unique'	=> '%s: <strong>'.$this->input->post('username').
-  						   							 '</strong> sudah digunakan. Buat username baru!'));
+        $valid->set_message(array(
+            'required' => 'Maaf! <b>%s</b> Tidak Boleh Kosong!',
+            'is_unique' =>'Maaf! <b>%s</b> Telah Digunakan. Harap Menggunakan Akun lain.',
+            'valid_email' => 'Maaf! <b>%s</b> Tidak Valid',
+            'valid_emails' => 'Maaf! <b>%s</b> Tidak Valid',
+            'min_length' => 'Maaf! <b>%s</b> Minimal <b>%s</b> Karakter.',
+            'max_length' => 'Maaf! <b>%s</b> Minimal <b>%s</b> Karakter.'
+        ));
 
-      $valid->set_rules('password','Password','required|max_length[32]|min_length[6]',
-  											array( 'required' 		=> 'Password harus diisi',
-  														 'min_length'		=> 'password min 6 character',
-  													 	 'max_length'		=> 'password max 32 character'));
-
-     if($valid->run()===FALSE) {
-     // End validasi
-
-     $data = array( 'title' => 'Create Anggota',
-                    // 'home'  => $home,
-                    'isi'  => 'admin/anggota/tambah');
-     $this->load->view('admin/layout/file',$data,false);
-
-     // masuk database
-     }else{
- 			$i = $this->input;
- 			$data = array( 	'id_user'		 		    =>	$this->session->userdata('id_user'),
-                      'status_anggota'	  => $i->post('status_anggota'),
-                      'nama_anggota'	    => 	$i->post('nama_anggota'),
- 											'email'		 		      =>	$i->post('email'),
-                      'tlp'		 		      =>	$i->post('tlp'),
-                      'instansi'	        =>	$i->post('instansi'),
- 											'username'     	    =>	$i->post('username'),
- 											'password'	   	    =>	sha1($i->post('password'))
-                    );
- 			$this->anggota_model->tambah($data);
- 			$this->session->set_flashdata('success','Anggota created successfully');
- 			redirect(base_url('admin/anggota'),'refresh');
- 		}
-  }
-  // Edit Anggota
-	public function edit($id_anggota) {
-		// $home = $this->home_model->listing();
-		$anggota = $this->anggota_model->detail($id_anggota);
-
-		// Validasi
-		$valid = $this->form_validation;
-		$valid->set_rules('nama_anggota','Nama','required', array( 'required' => 'Nama harus diisi'));
-
-	  $valid->set_rules('email','Email','required|valid_email',
- 												array( 'required' 		=> 'email harus diisi',
-	 												 		 'valid_email'	=> 'Email tidak valid'));
-
-		if($valid->run()===FALSE) {
-		// End validasi
-
-			$data = array( 	'title' 	=> 'Edit Anggota'.$anggota->nama_anggota,
-											'anggota'		=> $anggota,
-											'isi' 		=> 'admin/anggota/edit');
-			$this->load->view('admin/layout/file',$data);
-		// masuk database
-		}else{
-			$i = $this->input;
-			if(strlen($i->post('password')) > 6  ){
-				$data = array( 	'id_anggota'			  => 	$id_anggota,
-                        'id_user'		 		    =>	$this->session->userdata('id_user'),
-                        'status_anggota'	  => $i->post('status_anggota'),
-                        'nama_anggota'	    => 	$i->post('nama_anggota'),
-                        'email'		 		      =>	$i->post('email'),
-                        'tlp'		 		        =>	$i->post('tlp'),
-                        'instansi'	        =>	$i->post('instansi'),
-                        'password'	   	    =>	sha1($i->post('password'))
-                      );
-			}else {
-				$data = array( 	'id_anggota'			  => 	$id_anggota,
-                        'id_user'		 		    =>	$this->session->userdata('id_user'),
-                        'status_anggota'	  => $i->post('status_anggota'),
-                        'nama_anggota'	    => 	$i->post('nama_anggota'),
-                        'email'		 		      =>	$i->post('email'),
-                        'tlp'		 		        =>	$i->post('tlp'),
-                        'instansi'	        =>	$i->post('instansi')
-                      );
-			}
-			$this->anggota_model->edit($data);
-			$this->session->set_flashdata('success','Anggota/Administrator updated successfully');
-			redirect(base_url('admin/anggota'));
-		}
-		// End masuk database
-	}
-
-  // Delete Anggota
-	public function delete($id_anggota) {
-    //proteksi halaman
-    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
-      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
-      redirect(base_url('login'),'refresh');
+        if($valid->run() == false){
+            $data = [
+                'title' => 'Data Anggota('.count($anggota).')',
+                'anggota'	=> 	$anggota,
+                'status'	=> 	$status,
+                'isi'     => 'admin/anggota/tambah'
+            ];
+            $this->load->view('admin/layout/file', $data, FALSE);   
+        }else {
+            $this->anggota_model->createAnggota();
+            $this->session->set_flashdata(
+                'pesan', 
+                '<div class="alert alert-success" role="alert">
+                    Berhasil Melakukan Registrasi!
+                </div>'
+            );
+            redirect(base_url('admin/anggota'));
+        }
     }
 
-		$data = array('id_anggota'=> $id_anggota);
-		$this->anggota_model->delete($data);
-		$this->session->set_flashdata('Success','Anggota/Administrator Deleted successfully');
+    public function update($id)
+    {
+        $status     = $this->status_model->getStatus()->result();
+        $anggota = $this->anggota_model->detailAnggota($id);
+        $valid = $this->form_validation;
+        $valid->set_rules('nama','Nama','trim|required|xss_clean');
+        $valid->set_rules('email','Email','trim|required|xss_clean');
+
+        $valid->set_message(array(
+            'required' => 'Maaf! <b>%s</b> Tidak Boleh Kosong!'
+        ));
+
+        if($valid->run() == false){
+            $data = [
+                'title' => 'Edit Anggota'.$anggota->nama,
+                'anggota'	=> 	$anggota,
+                'status'	=> 	$status,
+                'isi'     => 'admin/anggota/edit'
+            ];
+            $this->load->view('admin/layout/file', $data, FALSE);   
+        }else {
+            $this->anggota_model->updateAnggota($id);
+            $this->session->set_flashdata(
+                'pesan', 
+                '<div class="alert alert-success" role="alert">
+                    Berhasil Melakukan Update!
+                </div>'
+            );
+            redirect(base_url('admin/anggota'));
+        }
+    }
+
+    public function delete($id)
+    {
+        $this->anggota_model->deleteAnggota($id);
+		$this->session->set_flashdata(
+			'pesan',
+			'<div class="alert alert-success" role="alert">
+				Anggota Berhasil di Hapus
+			</div>'
+		);
 		redirect (base_url('admin/anggota'),'refresh');
-	}
+    }
+
 }
+
+/* End of file Anggota.php */

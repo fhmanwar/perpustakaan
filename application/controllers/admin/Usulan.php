@@ -6,8 +6,15 @@ class Usulan extends CI_Controller
 
     public function __construct() {
       parent::__construct();
+      //proteksi halaman
+      if($this->session->userdata('username') == "" && $this->session->userdata('id_level') != 1 ){
+        $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+        redirect(base_url('login'),'refresh');
+      }
+
       // $this->load->model('home_model');
       $this->load->model('usulan_model');
+      $this->load->model('user_model');
     }
 
 
@@ -47,13 +54,10 @@ class Usulan extends CI_Controller
                       ));
 
       if($valid->run()===FALSE){
-        $data = array('title'  			=> 'Buat Usulan Baru',//$site['namaweb'].' | '.$site['tagline']
-                      // 'produk'			=> $produk,
-                      // 'new'					=> $new,
-                      // 'usulan'  		  => $usulan,
-                      // 'berita'  		=> $berita,
-                      // 'slide'  			=> $slide,
-                      'isi'    			=> 'admin/usulan/tambah');
+        $data = array(
+          'title'  			=> 'Buat Usulan Baru',
+          'isi'    			=> 'admin/usulan/tambah'
+        );
 
         $this->load->view('admin/layout/file',$data,FALSE);
       }else {
@@ -102,13 +106,10 @@ class Usulan extends CI_Controller
                       ));
 
       if($valid->run()===FALSE){
-        $data = array('title'  			=> 'Edit Usulan',//$site['namaweb'].' | '.$site['tagline']
-                      // 'produk'			=> $produk,
-                      // 'new'					=> $new,
-                      'usulan'  		  => $usulan,
-                      // 'berita'  		=> $berita,
-                      // 'slide'  			=> $slide,
-                      'isi'    			=> 'admin/usulan/edit');
+        $data = array(
+          'title'  			=> 'Edit Usulan',
+          'usulan'  		  => $usulan,
+          'isi'    			=> 'admin/usulan/edit');
 
         $this->load->view('admin/layout/file',$data,FALSE);
       }else {
@@ -131,12 +132,7 @@ class Usulan extends CI_Controller
 
     // Delete Usulan
   	public function delete($id_usulan) {
-        //proteksi halaman
-        if($this->session->userdata('usulanname') == "" && $this->session->userdata('akses_level') == "" ){
-          $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
-          redirect(base_url('login'),'refresh');
-        }
-
+        
     		$data = array('id_usulan'=> $id_usulan);
     		$this->usulan_model->delete($data);
     		$this->session->set_flashdata('Success','Usulan Deleted successfully');

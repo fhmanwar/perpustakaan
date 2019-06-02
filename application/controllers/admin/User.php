@@ -9,7 +9,13 @@ class User extends CI_Controller
       // $this->load->model('home_model');
       $this->load->model('user_model');
       $this->load->model('level_model');
-      $this->load->model('status_model');
+			$this->load->model('status_model');
+
+			//proteksi halaman
+			if($this->session->userdata('username') == "" && $this->session->userdata('id_level') != 1 ){
+				$this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+				redirect(base_url('login'),'refresh');
+			}
     }
 
 
@@ -29,8 +35,8 @@ class User extends CI_Controller
 			$status     = $this->status_model->getStatus()->result();
       $valid = $this->form_validation;
       $valid->set_rules('nama','Nama','trim|required|xss_clean');
-      $valid->set_rules('nama','Nama','trim|required|xss_clean');
-      $valid->set_rules('nama','Nama','trim|required|xss_clean');
+      // $valid->set_rules('nama','Nama','trim|required|xss_clean');
+      // $valid->set_rules('nama','Nama','trim|required|xss_clean');
       $valid->set_rules('email','Email','trim|required|xss_clean|valid_email|valid_emails|is_unique[user.email]');
       $valid->set_rules('username','Username','required|is_unique[user.username]');
       $valid->set_rules('password','Password','trim|required|xss_clean|max_length[32]|min_length[6]');
@@ -93,24 +99,27 @@ class User extends CI_Controller
 				$i = $this->input;
 				$data = array( 	
 					'id_level'      => $i->post('id_level'),
-					'id_status'     => $i->post('id_status'),
+					'id_status'     => 1,
 					'username'		=>	$i->post('username'),
-					'password'		=>	password_hash($pass, PASSWORD_BCRYPT),
+					'password'		=>	password_hash($pass, PASSWORD_ARGON2ID),
 					'token'				=>	$random,
 					'nama'				=> 	$i->post('nama'),
 					'email'				=>	$i->post('email'),
-					// 'akses_level'	=>  $i->post('akses_level'),
-					'keterangan'		=>	$i->post('keterangan')
+					'avatar' => 'default.jpg',
 				);
 				$this->user_model->tambah($data);
-				$this->session->set_flashdata('success','User/Administrator created successfully');
+				$this->session->set_flashdata(
+					'success',
+					'<div class="alert alert-success" role="alert">
+						User/Administrator created successfully
+					</div>'
+				);
 				redirect(base_url('admin/user'),'refresh');
 			}
 			$data = array(
 				'title' => 'Create User/Administrator',
 				'level'         => $level,
 				'status'        => $status,
-				// 'home'  => $home,
 				'isi'  => 'admin/user/tambah'
 			);
 			$this->load->view('admin/layout/file',$data,false);
@@ -118,22 +127,28 @@ class User extends CI_Controller
   // Edit User
 	public function edit($id_user) {
 		// $home = $this->home_model->listing();
+		$level      = $this->level_model->getLevel()->result();
+		$status     = $this->status_model->getStatus()->result();
 		$user = $this->user_model->detail($id_user);
 
 		// Validasi
 		$valid = $this->form_validation;
 		$valid->set_rules('nama','Nama','required', array( 'required' => 'Nama harus diisi'));
 
-	  $valid->set_rules('email','Email','required|valid_email',
- 												array( 'required' 		=> 'email harus diisi',
-	 												 		 'valid_email'	=> 'Email tidak valid'));
+	  $valid->set_rules(
+			'email','Email','required|valid_email',
+			array( 'required' 		=> 'email harus diisi',
+							'valid_email'	=> 'Email tidak valid'));
 
 		if($valid->run()===FALSE) {
 		// End validasi
 
-			$data = array( 	'title' 	=> 'Edit User/Administrator'.$user->nama,
-											'user'		=> $user,
-											'isi' 		=> 'admin/user/edit');
+			$data = array( 	
+				'title' 	=> 'Edit User '.$user->nama,
+				'user'		=> $user,
+				'level'   => $level,
+				'status'  => $status,
+				'isi' 		=> 'admin/user/edit');
 			$this->load->view('admin/layout/file',$data);
 		// masuk database
 		}else{
@@ -142,18 +157,23 @@ class User extends CI_Controller
 				$data = array( 	'id_user'			=> 	$id_user,
 												'nama'				=> 	$i->post('nama'),
 												'email'				=>	$i->post('email'),
-                        'password'		=>	sha1($i->post('password')), //enkripsi md5+
-                        'keterangan'	=>	$i->post('keterangan'),
-												'akses_level'	=> $i->post('akses_level'));
+												'password'		=>	password_hash($i->post('password'),PASSWORD_ARGON2ID),
+												'avatar' => 'default.jpg'
+											);
 			}else {
 				$data = array( 	'id_user'			=> 	$id_user,
 												'nama'				=> 	$i->post('nama'),
 												'email'				=>	$i->post('email'),
-                        'keterangan'  =>	$i->post('keterangan'),
-												'akses_level'	=>  $i->post('akses_level'));
+												'avatar' => 'default.jpg'
+											);
 			}
 			$this->user_model->edit($data);
-			$this->session->set_flashdata('success','User/Administrator updated successfully');
+			$this->session->set_flashdata(
+				'success',
+				'<div class="alert alert-success" role="alert"> 
+					User/Administrator updated successfully 
+				</div>'
+			);
 			redirect(base_url('admin/user'));
 		}
 		// End masuk database
@@ -161,15 +181,14 @@ class User extends CI_Controller
 
   // Delete User
 	public function delete($id_user) {
-    //proteksi halaman
-    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
-      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
-      redirect(base_url('login'),'refresh');
-    }
-
 		$data = array('id_user'=> $id_user);
 		$this->user_model->delete($data);
-		$this->session->set_flashdata('Success','User/Administrator Deleted successfully');
+		$this->session->set_flashdata(
+			'Success',
+			'<div class="alert alert-success" role="alert">
+				User/Administrator Deleted successfully
+			</div>'
+		);
 		redirect (base_url('admin/user'),'refresh');
 	}
 }

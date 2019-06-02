@@ -9,35 +9,15 @@ class Peminjaman_Model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function list()
-	{
-		$this->db->select('
-			peminjaman.*,
-			user.*,
-			buku.judul_buku,
-			buku.penulis_buku,
-			buku.kode_buku,
-			buku.penerbit
-		');
-		$this->db->from('peminjaman');
-		$this->db->join('user','user.id_user = peminjaman.id_user','LEFT');
-        $this->db->join('buku','buku.id_buku = peminjaman.id_buku','LEFT');
-        $this->db->like('user.id_level','2');
-		$this->db->order_by('id_peminjaman','ASC');
-		$query = $this->db->get();
-		return $query->result();
-	}
-
   //Listing
   public function listing() {
-    $this->db->select('
-        peminjaman.*,
-        anggota.nama_anggota,
-        buku.judul_buku,
-        buku.kode_buku,
-        buku.no_seri,
-        buku.penerbit
-    ');
+    $this->db->select('peminjaman.*,
+											anggota.nama_anggota,
+											buku.judul_buku,
+											buku.kode_buku,
+											buku.no_seri,
+											buku.penerbit
+											');
     $this->db->from('peminjaman');
 		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
 		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
@@ -48,14 +28,13 @@ class Peminjaman_Model extends CI_Model {
 
 	//Listing peminjaman anggota
   public function anggota($id_anggota) {
-    $this->db->select('
-        peminjaman.*,
-        anggota.nama_anggota,
-        buku.judul_buku,
-        buku.kode_buku,
-        buku.no_seri,
-        buku.penerbit
-    ');
+    $this->db->select('peminjaman.*,
+											anggota.nama_anggota,
+											buku.judul_buku,
+											buku.kode_buku,
+											buku.no_seri,
+											buku.penerbit
+											');
     $this->db->from('peminjaman');
 		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
 		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
@@ -67,14 +46,13 @@ class Peminjaman_Model extends CI_Model {
 
 	//Listing peminjaman anggota
   public function limit_peminjaman_anggota($id_anggota) {
-    $this->db->select('
-        peminjaman.*,
-        anggota.nama_anggota,
-        buku.judul_buku,
-        buku.kode_buku,
-        buku.no_seri,
-        buku.penerbit
-    ');
+    $this->db->select('peminjaman.*,
+											anggota.nama_anggota,
+											buku.judul_buku,
+											buku.kode_buku,
+											buku.no_seri,
+											buku.penerbit
+											');
     $this->db->from('peminjaman');
 		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
 		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
@@ -112,16 +90,15 @@ class Peminjaman_Model extends CI_Model {
 		$this->db->delete('peminjaman',$data);
 	}
 
-	// public function login($username, $password) {
-	// 	$this->db->select('*');
-	// 	$this->db->from('peminjaman');
-    //     $this->db->where(array('
-    //         username'		=> $username,
-    //         'password'  	=> sha1($password)
-    //     ));
-	// 	$this->db->order_by('id_peminjaman','DESC');
-	// 	$query = $this->db->get();
-	// 	return $query->row();
-	// }
+	public function login($username, $password) {
+		$this->db->select('*');
+		$this->db->from('peminjaman');
+		$this->db->where(array('username'		=> $username,
+													 'password'  	=> sha1($password)
+										));
+		$this->db->order_by('id_peminjaman','DESC');
+		$query = $this->db->get();
+		return $query->row();
+	}
 
 }

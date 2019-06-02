@@ -1,42 +1,44 @@
-<?php
-// Session
-if($this->session->flashdata('success')) {
-	echo '<div class="alert alert-success">';
-	echo $this->session->flashdata('success');
-	echo '</div>';
-}
+<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#update<?php echo $jenis->id_jenis ?>">
+	<i class="fas fa-edit"></i>
+</button>
 
-// cetak error kalau ada salah input
-echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
 
-echo form_open(base_url('admin/jenis/edit/'.$jenis->id_jenis));
-?>
+<div class="modal fade" id="update<?php echo $jenis->id_jenis ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLongTitle" aria-hidden="true">Edit File</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+				</div>
+				<div class="modal-body">
+					<?php echo form_open(base_url('admin/jenis/edit/'.$jenis->id_jenis)); ?>
+					
+						<div class="form-group form-floating-label">
+							<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="nama_jenis" value="<?php echo $jenis->nama_jenis ?>">
+							<label for="inputFloatingLabel" class="placeholder">Nama Jenis Buku</label>
+						</div>
 
-<div class="col-lg-6">
-	<div class="form-group form-group-lg">
-		<label>Nama Jenis Buku</label>
-		<input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Buku" value="<?php echo $jenis->nama_jenis ?>" required>
-	</div>
-	<div class="form-group form-group-lg">
-		<label>Kode Jenis Buku</label>
-		<input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Buku" value="<?php echo $jenis->kode_jenis ?>" required>
-	</div>
-  <div class="form-group form-group-lg">
-    <label>Urutan Tampil</label>
-    <input type="number" name="urutan" class="form-control" placeholder="Urutan" value="<?php echo $jenis->urutan ?>" >
-  </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="form-group form-group-lg">
-      <label>Keterangan Lain</label>
-      <textarea name="keterangan" class="form-control" placeholder="keterangan"> <?php echo $jenis->keterangan ?> </textarea>
+						<div class="form-group form-floating-label">
+							<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="kode_jenis" value="<?php echo $jenis->kode_jenis ?>">
+							<label for="inputFloatingLabel" class="placeholder">Kode Jenis Buku</label>
+						</div>
+
+						<div class="form-group form-floating-label">
+							<input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="urutan" value="<?php echo $jenis->urutan ?>">
+							<label for="inputFloatingLabel" class="placeholder">Urutan Tampil</label>
+						</div>
+
+						<div class="form-group form-floating-label">
+							<textarea id="inputFloatingLabel" class="form-control input-border-bottom" rows="3" name="keterangan"><?php echo $jenis->keterangan ?></textarea>
+							<label for="inputFloatingLabel" class="placeholder">Kerterangan Lain </label>
+						</div>
+
+			</div>
+			<div class="modal-footer">
+					<input type="submit" name="Submit" class="btn btn-success btn-border btn-round" value="Save Data">
+					<button type="button" class="btn btn-danger btn-border btn-round" data-dismiss="modal"><i class="fas fa-times"></i>Close</button>
+			</div>
+			<?php echo form_close() ?>
+			</div>
     </div>
-    <div class="form-group form-group-lg">
-  		<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Save Data">
-  		<input type="reset" name="reset" class="btn btn-default btn-lg" value="Reset">
-  	</div>
-  </div>
-
-
-
-<?php echo form_close() ?>
+</div>

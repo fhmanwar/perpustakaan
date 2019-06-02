@@ -156,7 +156,7 @@ echo form_open(base_url('admin/konfigurasi'));
 
     <div class="form-group form-floating-label">
       <textarea id="inputFloatingLabel" class="form-control input-border-bottom" rows="5" name="map"><?php echo $konfigurasi->map ?></textarea>
-      <label for="inputFloatingLabel" class="placeholder">Metatext </label>
+      <label for="inputFloatingLabel" class="placeholder">iframe map </label>
     </div>
 
     </div>
@@ -181,7 +181,7 @@ echo form_open(base_url('admin/konfigurasi'));
 <div class="col-lg-8 ml-auto mr-auto text-right">
   <!-- <div class="card"> -->
     <!-- <div class="card-action text-right"> -->
-      <button class="btn btn-success btn-border btn-round btn-lg">Submit</button>
+      <button class="btn btn-success btn-border btn-round btn-lg">Save</button>
       <button class="btn btn-danger btn-border btn-round btn-lg">Cancel</button>
     <!-- </div> -->
   <!-- </div> -->

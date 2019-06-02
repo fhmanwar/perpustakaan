@@ -1,65 +1,50 @@
 <p>
-	<button class="btn btn-success" data-toggle="modal" data-target="#Tambah" >
-  <i class="fa fa-plus"></i>Tambah
+	<button class="btn btn-success" data-toggle="modal" data-target="#Add" >
+  <i class="fas fa-plus"></i> Tambah
 </button>
 </p>
-<div class="modal fade" id="Tambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+
+<div class="modal fade" id="Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Tambah Data Buku</h4>
+							<h4 class="modal-title" id="exampleModalLongTitle" aria-hidden="true">Tambah Data Buku</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
 
-<?php
-// Session
-if($this->session->flashdata('success')) {
-	echo '<div class="alert alert-success">';
-	echo $this->session->flashdata('success');
-	echo '</div>';
-}
+<?php echo form_open(base_url('admin/bahasa')); ?>
 
-// cetak error kalau ada salah input
-echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
+<div class="form-group form-floating-label">
+			<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="nama_bahasa" value="<?php echo set_value('nama_bahasa') ?>">
+			<label for="inputFloatingLabel" class="placeholder">Nama Bahasa Buku</label>
+		</div>
 
-echo form_open(base_url('admin/bahasa'));
-?>
+		<div class="form-group form-floating-label">
+			<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="kode_bahasa" value="<?php echo set_value('kode_bahasa') ?>">
+			<label for="inputFloatingLabel" class="placeholder">Kode Bahasa Buku</label>
+		</div>
 
-<div class="col-lg-6">
-	<div class="form-group form-group-lg">
-		<label>Nama Bahasa Buku</label>
-		<input type="text" name="nama_bahasa" class="form-control" placeholder="Nama Bahasa Buku" value="<?php echo set_value('nama_bahasa_bahasa') ?>" required>
+		<div class="form-group form-floating-label">
+			<input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="urutan" value="<?php echo set_value('urutan') ?>">
+			<label for="inputFloatingLabel" class="placeholder">Urutan Tampil</label>
+		</div>
+
+		<div class="form-group form-floating-label">
+			<textarea id="inputFloatingLabel" class="form-control input-border-bottom" rows="3" name="keterangan"><?php echo set_value('keterangan') ?></textarea>
+			<label for="inputFloatingLabel" class="placeholder">Kerterangan Lain </label>
+		</div>
+
 	</div>
-	<div class="form-group form-group-lg">
-		<label>Kode Bahasa Buku</label>
-		<input type="text" name="kode_bahasa" class="form-control" placeholder="Kode Bahasa" value="<?php echo set_value('kode_bahasa') ?>" required>
+	
+	<div class="modal-footer">
+		<input type="submit" name="Submit" class="btn btn-success btn-border btn-round" value="Save Data">
+		<input type="reset" class="btn btn-warning btn-border btn-round" value="Reset">
+		<button type="button" class="btn btn-danger btn-border btn-round" data-dismiss="modal"><i class="fas fa-times"></i>Close</button>
 	</div>
-	<div class="form-group form-group-lg">
-		<label>Urutan Tampil </label>
-		<input type="number" name="urutan"  class="form-control" placeholder="Nomor Urut Tampil" value="<?php echo set_value('urutan') ?>">
+
 	</div>
-  </div>
-  <div class="col-lg-6">
-    <div class="form-group form-group-lg">
-      <label>Keterangan Lain</label>
-      <textarea name="keterangan" class="form-control" placeholder="keterangan"> <?php echo set_value('keterangan') ?> </textarea>
-    </div>
-    <div class="form-group form-group-lg">
-  		<input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Save Data">
-  		<input type="reset" name="reset" class="btn btn-default btn-lg" value="Reset">
-  	</div>
-  </div>
-
-
+	</div>
+</div>
 
 <?php echo form_close() ?>
-
-<div class="clearfix"></div>
-</div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
-</div>
-</div>
-</div>
-</div>

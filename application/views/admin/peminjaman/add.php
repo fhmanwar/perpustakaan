@@ -1,3 +1,39 @@
+<ul class="breadcrumbs">
+	<li class="nav-home">
+		<a href="#">
+			<i class="flaticon-home"></i>
+		</a>
+  </li>
+  <li class="separator">
+		<i class="flaticon-right-arrow"></i>
+	</li>
+	<li class="nav-item">
+		<a href="#">Reservasi</a>
+  </li>
+  <li class="separator">
+		<i class="flaticon-right-arrow"></i>
+	</li>
+	<li class="nav-item">
+		<a href="#">Peminjaman</a>
+  </li>
+</ul>
+
+  <div class="btn-group btn-group-page-header ml-auto">
+    <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-ellipsis-h"></i>
+    </button>
+    <div class="dropdown-menu">
+      <div class="arrow"></div>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+
+</div>
+
 <?php if(count($limit) >= $konfigurasi->max_jumlah) { ?>
   <div class="alert alert-warning text-center">
     <i class="fa fa-warning fa-3x"></i>
@@ -5,15 +41,16 @@
   </div>
 
 <?php }else{ ?>
-<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#Tambah" title="Delete User">
-  <i class="fa fa-plus"></i> Tambah Peminjaman Buku
+<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#Tambah">
+  <i class="fa fa-plus"></i> <b>Tambah Peminjaman Buku</b>
 </button>
-<div class="modal fade" id="Tambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+
+<div class="modal fade" id="Tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Tambah Peminjaman Buku</h4>
+							<h4 class="modal-title" id="exampleModalLongTitle" aria-hidden="true">Tambah Peminjaman Buku</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
 
@@ -38,7 +75,6 @@
               	$('#alt-tanggal_kembali-y').val(depSplit[2]);
               }
 
-
               // Set arrival datepicker options
               $(function() {
               	$('#tanggal_pinjam').datepicker({
@@ -62,7 +98,6 @@
               	});
               });
 
-
               // Set departure datepicker options
               $(function() {
               	$('#tanggal_kembali').datepicker({
@@ -73,10 +108,7 @@
               	});
               });
 
-
               // Prevent selecting departure date before arrival
-
-
               function customRange(a) {
               	var b = new Date();
               	var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
@@ -90,8 +122,6 @@
               	}
               }
 
-
-
               // CREATE REQUEST URL
               $('#fbooking').submit(function() {
               	var baseURL = $('#fbooking').attr("action");
@@ -99,20 +129,9 @@
               	alert(baseURL + checkAvl)
               	return false;
               });
-              </script>
-              <?php
-              // Session
-              if($this->session->flashdata('success')) {
-              	echo '<div class="alert alert-success">';
-              	echo $this->session->flashdata('success');
-              	echo '</div>';
-              }
-
-              // cetak error kalau ada salah input
-              echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
-
-              echo form_open(base_url('admin/peminjaman/add/'.$anggota->id_anggota));
-              ?>
+							</script>
+							
+              <?php echo form_open(base_url('admin/peminjaman/add/'.$anggota->id_anggota)); ?>
 
               <div class="row">
 
@@ -191,6 +210,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.js-example-basic-single').select2();
@@ -198,3 +218,49 @@
 </script>
 
 <?php } ?>
+
+<?php
+//cetak notifikasi
+echo $this->session->flashdata('success');
+?>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Buku yang di Pinjam</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="basic-datatables" class="display table table-striped table-hover" >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Judul Buku - Kode</th>
+                <th>Tgl Pinjam</th>
+                <th>Tgl Harus Kembali</th>
+                <th>Status Kembali</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php $i=1; foreach($peminjaman as $peminjaman) { ?>
+              <tr>
+                <td><?php echo $i ?></td>
+                <td><?php echo $peminjaman->judul_buku ?> - <?php echo $peminjaman->kode_buku ?></td>
+                <td><?php echo date('d-m-Y', strtotime($peminjaman->tanggal_pinjam)) ?></td>
+                <td><?php echo date('d-m-Y', strtotime($peminjaman->tanggal_kembali)) ?></td>
+                <td><?php echo $peminjaman->status_kembali ?></td>
+                <td>
+                <?php include('kembali.php') ?>
+                <a href="<?php echo base_url('admin/peminjaman/edit/'.$peminjaman->id_peminjaman) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                <?php include('delete.php') ?>
+                </td>
+              </tr>
+            <?php $i++; } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

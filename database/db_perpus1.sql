@@ -50,13 +50,12 @@ CREATE TABLE IF NOT EXISTS `bahasa` (
   PRIMARY KEY (`id_bahasa`),
   UNIQUE KEY `kode_bhs` (`kode_bahasa`),
   UNIQUE KEY `nama_bhs` (`nama_bahasa`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.bahasa: ~2 rows (approximately)
+-- Dumping data for table db_perpus.bahasa: ~1 rows (approximately)
 /*!40000 ALTER TABLE `bahasa` DISABLE KEYS */;
 INSERT INTO `bahasa` (`id_bahasa`, `kode_bahasa`, `nama_bahasa`, `keterangan`, `urutan`, `tanggal`) VALUES
-	(1, 'K01', 'Bahasa Kalbu', '  ', 1, '2019-03-23 01:44:01'),
-	(3, 'asd', 'asdasd', 'safdfadf', 23, '2019-06-02 22:20:15');
+	(1, 'K01', 'Bahasa Kalbu', '  ', 1, '2019-03-23 01:44:01');
 /*!40000 ALTER TABLE `bahasa` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.berita
@@ -72,17 +71,16 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_berita`),
   UNIQUE KEY `judul_berita` (`judul_berita`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.berita: ~6 rows (approximately)
+-- Dumping data for table db_perpus.berita: ~5 rows (approximately)
 /*!40000 ALTER TABLE `berita` DISABLE KEYS */;
 INSERT INTO `berita` (`id_berita`, `id_user`, `slug_berita`, `judul_berita`, `isi`, `gambar`, `status_berita`, `jenis_berita`, `tanggal`) VALUES
 	(1, 4, 'iwak-e-nyebur-sumur-tandas', 'iwak e nyebur sumur tandas', '<p>asdasdasd asd</p>', 'kandang-ternak-kenari-siste5.jpg', 'Publish', 'Berita', '2019-03-25 20:24:14'),
 	(4, 4, 'hard-work', 'Hard Work', '<p>Hard work is but one of the ways you can achieve your goals. For those of us who aren&rsquo;t inordinately&nbsp;<a href="https://www.primermagazine.com/2011/learn/the-only-4-reasons-why-your-peers-are-more-successful-than-you">wealthy, smart, or lucky</a>, it&rsquo;s the only way. While each person&rsquo;s path to success will be unique, the anatomy of the hard work that they do often looks very similar.</p>', 'b1.jpg', 'Publish', 'Slide', '2019-03-25 20:31:57'),
 	(5, 4, 'study', 'Study', '<p><span class="ind">The devotion of time and attention to gaining knowledge of an academic subject, especially by means of books.</span></p>', 'b2.jpg', 'Publish', 'Slide', '2019-03-25 20:30:29'),
 	(6, 4, 'class', 'Class', '<p>Learning is the process of acquiring new, or modifying existing, <span style="text-decoration: underline;"><a title="Knowledge" href="https://en.wikipedia.org/wiki/Knowledge">knowledge</a></span>, <span style="text-decoration: underline;"><a title="Behavior" href="https://en.wikipedia.org/wiki/Behavior">behaviors</a>, </span><a title="Skill" href="https://en.wikipedia.org/wiki/Skill">skills</a>, <a class="mw-redirect" title="Value (personal and cultural)" href="https://en.wikipedia.org/wiki/Value_(personal_and_cultural)">values</a>, or <a title="Preference" href="https://en.wikipedia.org/wiki/Preference">preferences</a>.<sup id="cite_ref-1" class="reference"></sup></p>', 'b3.jpg', 'Publish', 'Slide', '2019-03-25 20:34:21'),
-	(7, 4, 'sayur-kol', 'Sayur Kol', '<p>Makan daging teman dengan sayur kol</p>', 'Sabyan_Gambus_Nissa_Sabyan_1548167665.jpeg', 'Publish', 'Berita', '2019-03-25 23:41:34'),
-	(8, 1, 'wikawikwa', 'wikawikwa', 'safgaehg adfgadfg', 'macOS.jpg', 'Draft', 'Berita', '2019-06-02 22:41:00');
+	(7, 4, 'sayur-kol', 'Sayur Kol', '<p>Makan daging teman dengan sayur kol</p>', 'Sabyan_Gambus_Nissa_Sabyan_1548167665.jpeg', 'Publish', 'Berita', '2019-03-25 23:41:34');
 /*!40000 ALTER TABLE `berita` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.buku
@@ -94,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `buku` (
   `judul_buku` varchar(255) NOT NULL,
   `penulis_buku` varchar(255) NOT NULL,
   `subjek_buku` varchar(255) DEFAULT NULL,
+  `letak_buku` varchar(50) DEFAULT NULL,
   `kode_buku` varchar(50) DEFAULT NULL,
   `kolasi` int(11) DEFAULT NULL,
   `penerbit` varchar(255) DEFAULT NULL,
@@ -106,19 +105,19 @@ CREATE TABLE IF NOT EXISTS `buku` (
   `tanggal_entri` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_buku`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_perpus.buku: ~8 rows (approximately)
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
-INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
-	(5, 0, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', 'Sekolah Menengah Kejuruan', 'IPSJD1', 11, 'Buku Sekolah Elektronik (BSE)', '2004', '123xr3', 'Publish', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\r\n\r\nA small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.', 'ips.jpg', 20, '2019-03-22 20:14:19', '2019-03-28 15:58:55'),
-	(6, 0, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 20:33:09'),
-	(7, 0, 3, 1, 'PHP Modul', 'Teguh Wahyono', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212145310.jpg', 0, '2019-03-25 18:10:31', '2019-03-26 00:10:31'),
-	(8, 0, 3, 1, 'Pengantar Teknologi Informasi', 'Eddy Sutanta', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209044244.jpg', 0, '2019-03-25 18:11:29', '2019-03-26 00:11:29'),
-	(9, 0, 3, 1, 'Kamus Istilah Internet', 'wang cun', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212080423.jpg', 0, '2019-03-25 18:12:13', '2019-03-26 00:12:13'),
-	(10, 0, 3, 1, 'Kamus Matematika', 'ario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170207102926.jpg', 0, '2019-03-25 18:12:56', '2019-03-26 00:12:56'),
-	(11, 0, 3, 1, 'E-Learning', 'mario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209050821.jpg', 0, '2019-03-25 18:13:39', '2019-03-26 00:13:39'),
-	(12, 0, 3, 1, 'Algoritma C++', 'niawarti', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209045014.jpg', 0, '2019-03-25 18:14:22', '2019-03-26 00:14:22');
+INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `letak_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
+	(5, 4, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', 'Sekolah Menengah Kejuruan', '', 'IPSJD1', 11, 'Buku Sekolah Elektronik (BSE)', '2004', '123xr3', 'Publish', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\r\n\r\nA small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.', 'ips.jpg', 20, '2019-03-22 20:14:19', '2019-03-28 15:58:55'),
+	(6, 4, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 20:33:09'),
+	(7, 4, 3, 1, 'PHP Modul', 'Teguh Wahyono', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212145310.jpg', 0, '2019-03-25 18:10:31', '2019-03-26 00:10:31'),
+	(8, 4, 3, 1, 'Pengantar Teknologi Informasi', 'Eddy Sutanta', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209044244.jpg', 0, '2019-03-25 18:11:29', '2019-03-26 00:11:29'),
+	(9, 4, 3, 1, 'Kamus Istilah Internet', 'wang cun', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212080423.jpg', 0, '2019-03-25 18:12:13', '2019-03-26 00:12:13'),
+	(10, 4, 3, 1, 'Kamus Matematika', 'ario', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170207102926.jpg', 0, '2019-03-25 18:12:56', '2019-03-26 00:12:56'),
+	(11, 4, 3, 1, 'E-Learning', 'mario', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209050821.jpg', 0, '2019-03-25 18:13:39', '2019-03-26 00:13:39'),
+	(12, 4, 3, 1, 'Algoritma C++', 'niawarti', '', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209045014.jpg', 0, '2019-03-25 18:14:22', '2019-03-26 00:14:22');
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.file
@@ -132,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `file` (
   `urutan` int(11) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_file`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.file: ~2 rows (approximately)
 /*!40000 ALTER TABLE `file` DISABLE KEYS */;
@@ -152,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `jenis` (
   PRIMARY KEY (`id_jenis`),
   UNIQUE KEY `kode_jenis` (`kode_jenis`),
   UNIQUE KEY `nama_jenis` (`nama_jenis`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_perpus.jenis: ~2 rows (approximately)
 /*!40000 ALTER TABLE `jenis` DISABLE KEYS */;
@@ -187,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `konfigurasi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.konfigurasi: ~0 rows (approximately)
+-- Dumping data for table db_perpus.konfigurasi: ~1 rows (approximately)
 /*!40000 ALTER TABLE `konfigurasi` DISABLE KEYS */;
 INSERT INTO `konfigurasi` (`id`, `id_user`, `namaweb`, `tagline`, `deskripsi`, `keywords`, `email`, `website`, `logo`, `icon`, `facebook`, `twitter`, `instagram`, `map`, `metatext`, `phone`, `alamat`, `max_pinjam`, `max_jumlah`, `denda_perhari`, `tanggal`) VALUES
 	(1, 0, 'Perpustakaan ', 'Dimana Anda dapat belajar dengan mudah', 'JSquad adalah perusahaan yang bergerak dibidang web dan aplikasi', 'education, top education, education in indonesia, world education, education and training, education system, education system in indonesia, top education countries, academic, academy asia, top academic journals, best academic colleges, best academic colleges in the world, top academic countries, top academic universities in the world, top academic universities, research, international research, research in indonesia, international research university, collaboration, international collaboration, ', 'jon@mail.net', 'https://github.com', 'banner.jpg', 'b2.jpg', NULL, '', '', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.226032535767!2d110.40701211477327!3d-6.982631694955702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4ec52229d7%3A0xc791d6abc9236c7!2sUniversitas+Dian+Nuswantoro!5e0!3m2!1sid!2sid!4v1553968334242!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>', '', '+628123456789', '207 Imam Bonjol Street', 14, 5, 1000, '2019-06-02 00:24:05');
@@ -202,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `level` (
   PRIMARY KEY (`id_level`),
   UNIQUE KEY `kode_level` (`kode_level`),
   UNIQUE KEY `level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.level: ~3 rows (approximately)
 /*!40000 ALTER TABLE `level` DISABLE KEYS */;
@@ -220,20 +219,20 @@ CREATE TABLE IF NOT EXISTS `link` (
   `target` varchar(20) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_link`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_perpus.link: ~2 rows (approximately)
 /*!40000 ALTER TABLE `link` DISABLE KEYS */;
 INSERT INTO `link` (`id_link`, `nama_link`, `url`, `target`, `tanggal`) VALUES
 	(1, 'java Web Media', 'http://localhost/perpustakaan', '_blank', '2019-04-01 18:20:46'),
-	(2, 'github', 'https://github.com', '_self', '2019-06-02 13:20:51');
+	(2, 'github', 'https://github.com', '_self', '2019-04-01 18:20:46');
 /*!40000 ALTER TABLE `link` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.peminjaman
 CREATE TABLE IF NOT EXISTS `peminjaman` (
   `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT,
   `id_buku` int(11) NOT NULL,
-  `id_anggota` int(11) DEFAULT NULL,
+  `id_anggota` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
@@ -246,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `peminjaman` (
 -- Dumping data for table db_perpus.peminjaman: ~2 rows (approximately)
 /*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
 INSERT INTO `peminjaman` (`id_peminjaman`, `id_buku`, `id_anggota`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `keterangan`, `status_kembali`, `tanggal`) VALUES
-	(2, 7, 0, 3, '2019-04-27', '2019-05-11', 'asdweqwe', 'Belum', '2019-06-03 01:12:19'),
+	(2, 7, 2, 4, '2019-04-27', '2019-05-11', 'asdweqwe', 'Belum', '2019-04-01 18:23:58'),
 	(5, 7, 4, 4, '2019-04-01', '2019-05-02', 'asdweqwe', 'Belum', '2019-04-01 19:45:27');
 /*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
 
@@ -258,14 +257,14 @@ CREATE TABLE IF NOT EXISTS `status` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_status`),
   UNIQUE KEY `kode_status` (`kode_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.status: ~2 rows (approximately)
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
 INSERT INTO `status` (`id_status`, `kode_status`, `status`, `timestamp`) VALUES
-	(1, 1, 'Actived', '2019-06-02 18:52:00'),
-	(2, 2, 'Non_Actived', '2019-06-03 03:56:43'),
-	(7, 3, 'Banned', '2019-06-03 03:56:31');
+	(1, 1, 'Aktif', '2019-05-30 15:32:32'),
+	(2, 2, 'Anggota', '2019-05-30 15:31:20'),
+	(3, 3, 'asdqwe123', '2019-06-02 04:50:52');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.user
@@ -278,24 +277,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `token` varchar(256) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `j_kel` enum('Pria','Wanita') DEFAULT NULL,
-  `tlp` varchar(14) DEFAULT NULL,
-  `alamat` longtext,
   `avatar` varchar(255) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.user: ~6 rows (approximately)
+-- Dumping data for table db_perpus.user: ~3 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, `token`, `nama`, `email`, `j_kel`, `tlp`, `alamat`, `avatar`, `tanggal`) VALUES
-	(1, 1, 1, 'admin', '$argon2id$v=19$m=1024,t=2,p=2$RUgzUXJzcUFwRk5hWmVZdg$sG0ZtGcvH3pLX7BQWtxj8lFlGdAvatJ15rYdfijBoxs', '5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA', 'Admin', 'admin@admin.com', NULL, NULL, NULL, 'default.png', '2019-06-01 19:46:39'),
-	(2, 1, 1, 'fhmanwar', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'fahmi', 'fafa@gmail.com', NULL, NULL, NULL, NULL, '2019-06-01 02:01:44'),
-	(3, 2, 1, 'jon', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Jhon', 'jhonmub@gmail.com', NULL, NULL, NULL, NULL, '2019-06-01 02:01:56'),
-	(4, 2, 1, 'jon1', 'd164b39e9ec43f65376629da9ccf41780775f656', 'asdsafagagq234r5tq3tgqergf7ftafg7aff78taat7sdftg78q2tgfsfd]', 'Jhon1', 'jhonmu1b@gmail.com', NULL, NULL, NULL, NULL, '2019-06-01 02:01:56'),
-	(36, 2, 2, 'jango', '$argon2id$v=19$m=1024,t=2,p=2$MkZQZjl3dHNiTWdHdU8wSA$dk7BBC/BhfY8shfJN3Z7m03+3N59KXK7xJIC+WOGNM4', 'WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3', 'De Jango', 'jonbray@mail.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 02:59:22'),
-	(38, 1, 1, '2', '$argon2id$v=19$m=1024,t=2,p=2$dWJXRGxZUjNUOGZQck1TNg$ccQsqTQ+VGvz+3u4OyR7eyrftZroLZJ2R+8rRcpx/lY', 'favRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjN', 'wik weka', 'mike@example.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 02:36:57');
+INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, `token`, `nama`, `email`, `avatar`, `tanggal`) VALUES
+	(1, 1, 1, 'admin', '$argon2id$v=19$m=1024,t=2,p=2$RUgzUXJzcUFwRk5hWmVZdg$sG0ZtGcvH3pLX7BQWtxj8lFlGdAvatJ15rYdfijBoxs', '5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA', 'Admin', 'admin@admin.com', 'default.png', '2019-06-01 19:46:39'),
+	(2, 1, 1, 'fhmanwar', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'fahmi', 'fafa@gmail.com', NULL, '2019-06-01 02:01:44'),
+	(3, 2, 1, 'jon', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Jhon', 'jhonmub@gmail.com', NULL, '2019-06-01 02:01:56');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.usulan
@@ -312,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `usulan` (
   `tanggal_usulan` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_usulan`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.usulan: ~3 rows (approximately)
 /*!40000 ALTER TABLE `usulan` DISABLE KEYS */;

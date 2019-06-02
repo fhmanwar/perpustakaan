@@ -38,7 +38,7 @@
 include('tambah.php');
 
 //cetak notifikasi
-echo $this->session->flashdata('success');
+echo $this->session->flashdata('pesan');
 ?>
 
   <div class="row">

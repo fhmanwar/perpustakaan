@@ -26,18 +26,18 @@
 				
 				<?php echo form_open(base_url('admin/link')); ?>
 				<div class="form-group form-floating-label group-lg">
-					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="nama_link" value="<?php echo set_value('nama_link') ?>" >
+					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="nama_link" value="<?php echo set_value('nama_link') ?>" >
 					<label for="inputFloatingLabel" class="placeholder">Nama Link</label>
 					<?php echo form_error('nama_link','<small class="text-danger" >','</small>') ?>
 				</div>
 				
 				<div class="form-group form-floating-label">
-					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="url" value="<?php echo set_value('url') ?>">
+					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="url" value="<?php echo set_value('url') ?>">
 					<label for="inputFloatingLabel" class="placeholder">URL/Website</label>
 				</div>
 
 				<div class="form-group form-floating-label">
-					<select class="form-control " id="selectFloatingLabel2" name="target" required>
+					<select class="form-control " id="selectFloatingLabel2" name="target" required="">
 						<option value="">&nbsp;</option>
 						<option value="_blank">_blank</option>
 						<option value="_self">_self</option>

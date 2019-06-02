@@ -43,8 +43,13 @@ class Link extends CI_Controller
                       'target'		    =>	$i->post('target')
                     );
  			$this->link_model->tambah($data);
- 			$this->session->set_flashdata('success','Link created successfully');
- 			redirect(base_url('admin/link'),'refresh');
+ 			$this->session->set_flashdata(
+				'pesan',
+				'<div class="alert alert-success" role="alert"> 
+					Link created successfully
+				</div>'
+			);
+			redirect(base_url('admin/link'),'refresh');
  		}
   }
   // Edit Link
@@ -72,7 +77,12 @@ class Link extends CI_Controller
                       'target'		=>	$i->post('target')
                     );
 			$this->link_model->edit($data);
-			$this->session->set_flashdata('success','Link updated successfully');
+			$this->session->set_flashdata(
+				'pesan',
+				'<div class="alert alert-success" role="alert"> 
+					Link updated successfully
+				</div>'
+			);
 			redirect(base_url('admin/link'));
 		}
 		// End masuk database
@@ -82,7 +92,12 @@ class Link extends CI_Controller
 	public function delete($id_link) {
 		$data = array('id_link'=> $id_link);
 		$this->link_model->delete($data);
-		$this->session->set_flashdata('Success','Link Deleted successfully');
-		redirect (base_url('admin/link'),'refresh');
+		$this->session->set_flashdata(
+			'pesan',
+			'<div class="alert alert-success" role="alert"> 
+				Link Deleted successfully
+			</div>'
+			);
+		redirect(base_url('admin/link'));
 	}
 }

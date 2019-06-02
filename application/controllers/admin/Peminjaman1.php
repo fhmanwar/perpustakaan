@@ -6,11 +6,10 @@ class Peminjaman extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    $this->load->model(array( 
-        'peminjaman_model',
-        'buku_model',
-        'anggota_model'
-    ));
+    $this->load->model(array( 'peminjaman_model',
+                              'buku_model',
+                              'anggota_model'
+                      ));
   }
 
   public function test()
@@ -18,24 +17,12 @@ class Peminjaman extends CI_Controller{
     $x = $this->peminjaman_model->list();
     $peminjaman = $this->peminjaman_model->listing();
     var_dump($x);
-    $y = [
-        $this->uri->segment(1),
-        $this->uri->segment(2),
-        $this->uri->segment(3),
-        $this->uri->segment(4),
-    ];
-    echo '<br><br><br>';
-    echo '<br><b>Use Print_r :</b><pre>'; print_r($y); echo '</pre>';
-    echo '<br><b>Use var_dump :</b><pre>'; var_dump($y); echo '</pre>';
-    echo '<pre>'; print_r($x); echo '</pre>';
-    // echo '<pre>'; var_dump($x); echo '</pre>';
-    
   }
 
   public function index()
   {
-    $peminjaman = $this->peminjaman_model->list();
-
+    $peminjaman = $this->peminjaman_model->listing();
+    
     $data = array('title' => 'Data Peminjaman Buku ('.count($peminjaman).')',
                   'peminjaman' => $peminjaman,
                   'isi' => 'admin/peminjaman/list'
@@ -43,22 +30,21 @@ class Peminjaman extends CI_Controller{
     $this->load->view('admin/layout/file', $data, false);
   }
 
-  public function dataPeminjam(){
-    $anggota = $this->anggota_model->getAnggota();
-    $data = array(
-        'title' => 'Anggota Peminjaman Buku',
-        'anggota' => $anggota,
-        'isi' => 'admin/peminjaman/list_anggota'
-    );
+  public function tambah(){
+    $anggota = $this->anggota_model->listing();
+    $data = array('title' => 'Peminjaman Buku',
+                  'anggota' => $anggota,
+                  'isi' => 'admin/peminjaman/list_anggota'
+            );
     $this->load->view('admin/layout/file', $data, false);
   }
 
-  public function add($id){
-    $anggota = $this->anggota_model->detailAnggota($id);
-    $peminjaman = $this->peminjaman_model->anggota($id);
+  public function add($id_anggota){
+    $anggota = $this->anggota_model->detail($id_anggota);
+    $peminjaman = $this->peminjaman_model->anggota($id_anggota);
     $buku = $this->buku_model->listing();
     $konfigurasi = $this->konfigurasi_model->listing();
-    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id_anggota);
 
     $valid = $this->form_validation;
     $valid->set_rules('id_buku','Pilih judul buku', 'required',
@@ -66,13 +52,13 @@ class Peminjaman extends CI_Controller{
 
     if ($valid->run() === FALSE) {
 
-      $data = array('title' => 'Peminjaman Buku atas nama: '.$anggota->nama,
+      $data = array('title' => 'Peminjaman Buku atas nama: '.$anggota->nama_anggota,
                     'anggota' => $anggota,
                     'peminjaman' => $peminjaman,
                     'buku' => $buku,
                     'konfigurasi' => $konfigurasi,
                     'limit' => $limit,
-                    'isi' => 'admin/peminjaman/add'
+                    'isi' => 'admin/peminjaman/tambah'
               );
       $this->load->view('admin/layout/file', $data, false);
     }else {

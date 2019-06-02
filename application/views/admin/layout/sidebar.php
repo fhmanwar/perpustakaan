@@ -118,7 +118,16 @@
           </a>
           <div class="collapse" id="tag">
             <ul class="nav nav-collapse">
-              <li><a href="<?php echo base_url('admin/peminjaman') ?>"><span class="sub-item">Peminjaman Buku</span></a></li>
+              <li>
+                <a data-toggle="collapse" href="#subnav1"><span class="sub-item">Peminjaman Buku</span><span class="caret"></span></a>
+                <div class="collapse" id="subnav1">
+                  <ul class="nav nav-collapse subnav">
+                    <li><a href="<?php echo base_url('admin/peminjaman') ?>"><span class="sub-item">Data Peminjaman</span></a></li>
+                    <li><a href="<?php echo base_url('admin/peminjaman/dataPeminjam') ?>"><span class="sub-item">Anggota Peminjam</span></a></li>
+                  </ul>
+                </div>
+              </li>
+
               <li><a href="<?php echo base_url('admin/usulan') ?>"><span class="sub-item">Usulan Buku</span></a></li>
             </ul>
           </div>

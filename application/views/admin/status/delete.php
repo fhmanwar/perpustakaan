@@ -14,9 +14,9 @@
 				</button>
 			</div>
 			<div class="modal-body">
-                <div class="alert alert-warning" role="alert">
-                    Are you sure want to delete this data?
-                </div>
+				<div class="alert alert-warning" role="alert">
+						Are you sure want to delete this data?
+				</div>
 			</div>
 			<div class="modal-footer">
 				<a href="<?php echo base_url('admin/status/delete/'.$status->id_status) ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Yes. Delete this Data</a>

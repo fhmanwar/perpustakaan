@@ -35,26 +35,11 @@
 </div>
 
 <?php
-// Session
-if($this->session->flashdata('success')) {
-	echo '<div class="alert alert-success">';
-	echo $this->session->flashdata('success');
-	echo '</div>';
-}
-
-// cetak error kalau ada salah input
-echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
-
 echo form_open(base_url('admin/link/edit/'.$link->id_link));
 ?>
 
 <div class="row">
 	<div class="col-lg-8 ml-auto mr-auto">
-
-	<div class="form-group form-group-lg">
-		<input type="submit" name="Submit" class="btn btn-primary btn-md" value="Save Data">
-		<input type="reset" name="reset" class="btn btn-default btn-md" value="Reset">
-	</div>
 
 	<div class="card">
       <div class="card-header">
@@ -63,18 +48,18 @@ echo form_open(base_url('admin/link/edit/'.$link->id_link));
       <div class="card-body">
   
         <div class="form-group form-floating-label group-lg">
-          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="nama_link" value="<?php echo $link->nama_link ?>" >
+          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="nama_link" value="<?php echo $link->nama_link ?>" >
           <label for="inputFloatingLabel" class="placeholder">Nama Link</label>
           <?php echo form_error('nama_link','<small class="text-danger" >','</small>') ?>
         </div>
   
         <div class="form-group form-floating-label">
-          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="url" value="<?php echo $link->url ?>">
+          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="url" value="<?php echo $link->url ?>">
           <label for="inputFloatingLabel" class="placeholder">URL/Website</label>
         </div>
 
 		<div class="form-group form-floating-label">
-			<select class="form-control " id="selectFloatingLabel2" name="target" required>
+			<select class="form-control " id="selectFloatingLabel2" name="target" required="">
 				<option value="">&nbsp;</option>
 				<option value="_blank" <?php if($link->target=="_blank"){ echo "selected";} ?>>_blank</option>
 				<option value="_self" <?php if($link->target=="_self"){ echo "selected";} ?>>_self</option>
@@ -86,7 +71,7 @@ echo form_open(base_url('admin/link/edit/'.$link->id_link));
 
 		</div>
 		<div class="card-action text-right">
-			<button class="btn btn-success btn-border btn-round"><i class="fa fa-save"> </i> simpan</button>
+			<button class="btn btn-success btn-border btn-round"><i class="fas fa-save"> </i> simpan</button>
 		</div>
     </div>
 

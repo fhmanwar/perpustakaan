@@ -49,10 +49,7 @@
 
     <!-- Azzara JS -->
     <script src="<?php echo base_url() ?>assets/admin/assets/js/ready.min.js"></script>
-
-    <!-- Azzara DEMO methods, don't include it in your project! -->
-    <!-- <script src="<?php echo base_url() ?>assets/admin/assets/js/setting-demo.js"></script> -->
-    <!-- <script src="<?php echo base_url() ?>assets/admin/assets/js/demo.js"></script> -->
+    
     <script>
         $(document).ready(function(){
             $('#basic-datatables').DataTable();

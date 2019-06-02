@@ -8,6 +8,11 @@ class Status_Model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
     }
+
+    public function getStatus()
+    {
+        return $this->db->get('status');
+    }
     
     private function autoIncrement()
     {

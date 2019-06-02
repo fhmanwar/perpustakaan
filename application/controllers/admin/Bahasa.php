@@ -5,7 +5,13 @@ class Bahasa extends CI_Controller
 {
 
     public function __construct() {
-      parent::__construct();
+			parent::__construct();
+			//proteksi halaman
+			if($this->session->userdata('username') == "" && $this->session->userdata('level') != "Admin" ){
+				$this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+				redirect(base_url('login'),'refresh');
+			}
+			
       // $this->load->model('home_model');
       $this->load->model('bahasa_model');
     }
@@ -78,11 +84,6 @@ class Bahasa extends CI_Controller
 
   // Delete Bahasa
 	public function delete($id_bahasa) {
-    //proteksi halaman
-    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
-      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
-      redirect(base_url('login'),'refresh');
-    }
 
 		$data = array('id_bahasa'=> $id_bahasa);
 		$this->bahasa_model->delete($data);

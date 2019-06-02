@@ -42,6 +42,7 @@ class Auth extends CI_Controller {
                         */
                         if ($cek['id_level'] == 1) {
                             $data = [
+                                'id_user' => $cek['id_user'],
                                 'username' => $cek['username'],
                                 'email' => $cek['email'],
                                 'level' => 'Admin'
@@ -51,6 +52,7 @@ class Auth extends CI_Controller {
                         }
                         elseif ($cek['id_level'] == 2) {
                             $data = [
+                                'id_user' => $cek['id_user'],
                                 'username' => $cek['username'],
                                 'email' => $cek['email'],
                                 'level' => 'Admin'

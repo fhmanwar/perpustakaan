@@ -74,7 +74,7 @@ echo form_open_multipart(base_url('admin/konfigurasi/icon'));
         
       </div>
       <div class="card-action text-right">
-        <button class="btn btn-secondary btn-border btn-round btn-lg"><i class="fa fa-upload"> </i> Simpan Konfigurasi</button>
+        <button class="btn btn-secondary btn-border btn-round btn-lg"><i class="fa fa-upload"> </i> Save</button>
       </div>
     </div>
   
