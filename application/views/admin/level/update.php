@@ -1,62 +1,44 @@
 <!-- Button trigger modal -->
-<p>
-	<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add">
-		<span class="btn-label">
-			<i class="fas fa-plus"></i>
-			Tambah
-		</span>
-	</button>
-</p>
+<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?php echo $level->id_level ?>">
+    <i class="fas fa-edit"></i>
+</button>
 
 
 <!-- Modal -->
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="edit<?php echo $level->id_level ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Link</h5>
+				<h5 class="modal-title" id="exampleModalLongTitle">Edit Data Status</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			
+            <?php echo form_open(base_url('admin/level/edit/'.$level->id_level)); ?>
 			<div class="modal-body">
 				
-				<?php echo form_open(base_url('admin/link')); ?>
-				<div class="form-group form-floating-label group-lg">
-          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="nama_link" value="<?php echo set_value('nama_link') ?>" >
-          <label for="inputFloatingLabel" class="placeholder">Nama Link</label>
-          <?php echo form_error('nama_link','<small class="text-danger" >','</small>') ?>
-				</div>
+                <div class="form-group">
+                    <label >Kode Status</label>
+                    <input type="text" class="form-control" name="kode_level" value="<?php echo $level->kode_level ?>" required readonly disabled>
+                    <?php echo form_error('kode_level','<small class="text-danger" >','</small>') ?>
+                </div>
+
 				
 				<div class="form-group form-floating-label">
-          <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="url" value="<?php echo set_value('url') ?>">
-          <label for="inputFloatingLabel" class="placeholder">URL/Website</label>
-        </div>
+                    <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" name="level" value="<?php echo $level->level ?>">
+                    <label for="inputFloatingLabel" class="placeholder">Nama Status</label>
+                </div>
 
-				<div class="form-group form-floating-label">
-					<select class="form-control " id="selectFloatingLabel2" name="target" required>
-						<option value="">&nbsp;</option>
-						<option value="_blank">_blank</option>
-						<option value="_self">_self</option>
-						<option value="_parent">_parent</option>
-						<option value="_top">_top</option>
-					</select>
-					<label for="selectFloatingLabel2" class="placeholder">Target</label>
-				</div>
-
-				<div class="modal-footer ">
-					<input type="submit" name="submit" class="btn btn-success btn-border btn-round" value="Save">
-					<input type="reset" class="btn btn-warning btn-border btn-round" value="Reset">
-				</div>
-				<?php echo form_close() ?>
-			
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			</div>
+            </div>
+            
+            <div class="modal-footer ">
+                <input type="submit" name="submit" class="btn btn-success btn-border btn-round" value="Save">
+                <input type="reset" class="btn btn-warning btn-border btn-round" value="Reset">
+                <button type="button" class="btn btn-secondary btn-border btn-round" data-dismiss="modal">Close</button>
+            </div>
+            <?php echo form_close() ?>
 
 		</div>
 	</div>

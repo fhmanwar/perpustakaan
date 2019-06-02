@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Berita_model extends CI_Model
+class Berita_Model extends CI_Model
 {
 
     // Load database

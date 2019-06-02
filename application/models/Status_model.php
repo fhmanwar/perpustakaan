@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Status_model extends CI_Model {
+class Status_Model extends CI_Model {
 
     // Load database
 	public function __construct() {
@@ -16,21 +16,21 @@ class Status_model extends CI_Model {
         return $data['kode_status']+1;
     }
 
-    public function detail($id) {
-        $this->db->select('*');
-        $this->db->from('status');
-        $this->db->where('id_status',$id);
-        $this->db->order_by('kode_status','ASC');
-        $query = $this->db->get();
-        return $query->row();
-    }
+    // public function detail($id) {
+    //     $this->db->select('*');
+    //     $this->db->from('status');
+    //     $this->db->where('id_status',$id);
+    //     $this->db->order_by('kode_status','ASC');
+    //     $query = $this->db->get();
+    //     return $query->row();
+    // }
 
-    public function get()
-    {
-        $query = $this->db->get('status');
-        return $query->result_array();
-        // return $query->row();
-    }
+    // public function get()
+    // {
+    //     $query = $this->db->get('status');
+    //     return $query->result_array();
+    //     // return $query->row();
+    // }
 
     public function create()
     {
@@ -54,10 +54,12 @@ class Status_model extends CI_Model {
         return $this->db->update('status', $data);
     }
 
-    public function delete($data)
+    public function delete($id)
     {
+        $data = [
+            'id_status' => $id
+        ];
         $this->db->where('id_status',$data['id_status']);
-        // $this->db->where('kode_status', $where);
         return $this->db->delete('status');
     }
 

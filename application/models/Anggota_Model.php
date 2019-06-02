@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Anggota_model extends CI_Model {
+class Anggota_Model extends CI_Model {
 
 	// Load database
 	public function __construct() {

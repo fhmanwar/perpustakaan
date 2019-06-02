@@ -8,7 +8,7 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Delete Data Link</h5>
+				<h5 class="modal-title" id="exampleModalLongTitle">Delete Data Link <?php echo $status->status ?> </h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -20,7 +20,6 @@
 			</div>
 			<div class="modal-footer">
 				<a href="<?php echo base_url('admin/status/delete/'.$status->id_status) ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Yes. Delete this Data</a>
-				<a href="<?php echo base_url('admin/status/edit/'.$status->id_status) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit this Data</a>
 				<button type="button" class="btn btn-success" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
 			</div>
 		</div>

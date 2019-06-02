@@ -35,7 +35,7 @@
 </div>
 
 <?php
-include('tambah.php');
+include('create.php');
 
 //cetak notifikasi
 echo $this->session->flashdata('success');
@@ -53,9 +53,8 @@ echo $this->session->flashdata('success');
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>URL</th>
-                  <th>Target</th>
+                  <th>Kode Status</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -70,19 +69,18 @@ echo $this->session->flashdata('success');
                 </tr>
               </tfoot> -->
               <tbody>
-              <?php $i=1; foreach($link as $link) { ?>
+              <?php $i=1; foreach($level as $level) { ?>
                 <tr>
                     <td><?php echo $i ?></td>
-                    <td><?php echo $link->nama_link ?></td>
-                    <td><?php echo $link->url ?></td>
-                    <td><?php echo $link->target ?></td>
+                    <td><?php echo $level->kode_level ?></td>
+                    <td><?php echo $level->level ?></td>
                     <td>
-                    <!-- <a href="<?php echo base_url('admin/link/edit/'.$link->id_link) ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a> -->
+                    <!-- <a href="<?php //echo base_url('admin/link/edit/'.$link->id_link) ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a> -->
                     <?php
                       //update
-                      include('update.php')
+                      include('update.php');
                       //Delete
-                      include('delete.php')
+                      include('delete.php');
                     ?>
                     </td>
                 </tr>

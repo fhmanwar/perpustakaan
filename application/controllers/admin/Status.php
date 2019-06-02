@@ -1,4 +1,6 @@
 <?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Status extends CI_Controller
 {
     public function __construct() {
@@ -46,7 +48,7 @@ class Status extends CI_Controller
 
     public function edit($id)
     {
-        $status = $this->status_model->detail($id);
+        $status = $this->status_model->listing();
         $valid = $this->form_validation;
         $valid->set_rules('status', 'Status', 'trim|required|xss_clean');
 
