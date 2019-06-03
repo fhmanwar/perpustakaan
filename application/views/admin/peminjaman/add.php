@@ -131,7 +131,7 @@
               });
 							</script>
 							
-              <?php echo form_open(base_url('admin/peminjaman/add/'.$anggota->id_anggota)); ?>
+              <?php echo form_open(base_url('admin/peminjaman/add/'.$anggota->id_user)); ?>
 
               <div class="row">
 
@@ -152,7 +152,7 @@
 
               	<div class="form-group">
               		<label>Nama Peminjam</label>
-              		<input type="text" name="nama_peminjaman" class="form-control" placeholder="Nama Peminjam" value="<?php echo $anggota->nama_anggota ?>" readonly disabled>
+              		<input type="text" name="nama_peminjaman" class="form-control" placeholder="Nama Peminjam" value="<?php echo $anggota->nama ?>" readonly disabled>
               	</div>
               	<div class="form-group">
               		<label>Status Peminjam</label>
@@ -187,15 +187,15 @@
 
               <div class="col-md-12 text-center">
               	<button type="submit" name="Submit" class="btn btn-primary btn-lg">
-              		<i class="fa fa-save"></i>
+              		<i class="fas fa-save"></i>
               		Simpan Data Peminjaman
               	</button>
               	<button type="reset" name="reset" class="btn btn-default btn-lg">
-              		<i class="fa fa-times"></i>
+              		<i class="fas fa-times"></i>
               		Reset
               	</button>
               	<a href="<?php echo base_url('admin/peminjaman') ?>" class="btn btn-danger btn-lg">
-              		<i class="fa fa-backward"></i>
+              		<i class="fas fa-backward"></i>
               		Kembali
               	</a>
               </div>
