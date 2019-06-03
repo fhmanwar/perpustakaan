@@ -35,16 +35,18 @@
 </div>
 
 <?php if(count($limit) >= $konfigurasi->max_jumlah) { ?>
-  <div class="alert alert-warning text-center">
-    <i class="fa fa-warning fa-3x"></i>
-    <p>Mohon maaf, limit peminjaman buku baru tidak dapat dilakukan. Buku yang dipinjam harus dikembalikan terlebih dahulu jika ingin menambah peminjaman baru.</p>
-  </div>
-
+	<p>
+		<div class="alert alert-warning text-center">
+			<i class="fa fa-warning fa-3x"></i>
+			<p>Mohon maaf, limit peminjaman buku baru tidak dapat dilakukan. Buku yang dipinjam harus dikembalikan terlebih dahulu jika ingin menambah peminjaman baru.</p>
+		</div>
+	</p>
 <?php }else{ ?>
-<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#Tambah">
-  <i class="fa fa-plus"></i> <b>Tambah Peminjaman Buku</b>
-</button>
-
+	<p>
+		<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#Tambah">
+			<i class="fa fa-plus"></i> <b>Tambah Peminjaman Buku</b>
+		</button>
+	</p>
 <div class="modal fade" id="Tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -154,12 +156,12 @@
               		<label>Nama Peminjam</label>
               		<input type="text" name="nama_peminjaman" class="form-control" placeholder="Nama Peminjam" value="<?php echo $anggota->nama ?>" readonly disabled>
               	</div>
-              	<div class="form-group">
+              	<!-- <div class="form-group">
               		<label>Status Peminjam</label>
               		<select class="form-control" name="status_kembali">
               			<option value="Belum">Belum (Baru Pinjam)</option>
               		</select>
-              	</div>
+              	</div> -->
 
               </div>
 
@@ -179,11 +181,13 @@
               	</div>
               </div>
 
-              <div class="form-group">
-              	<label>Keterangan</label>
-              	<input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="<?php echo set_value('keterangan') ?>" >
-              </div>
-              </div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Keterangan</label>
+								<input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="<?php echo set_value('keterangan') ?>" >
+							</div>
+						</div>
 
               <div class="col-md-12 text-center">
               	<button type="submit" name="Submit" class="btn btn-primary btn-lg">
@@ -227,7 +231,7 @@ echo $this->session->flashdata('success');
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Buku yang di Pinjam</h4>
+        <h4 class="card-title">Peminjaman Atas Nama : <?php echo $anggota->nama ?></h4> 
       </div>
       <div class="card-body">
         <div class="table-responsive">

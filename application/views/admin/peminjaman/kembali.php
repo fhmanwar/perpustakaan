@@ -19,7 +19,7 @@
         			<p class="alert alert-success"><i class="fas fa-check"></i> Yakin buku ini dikembalikan</p>
             </div>
             <div class="modal-footer">
-              <a href="<?php echo base_url('admin/peminjaman/delete/'.$peminjaman->id_peminjaman) ?>" class="btn btn-success"><i class="fa fa-check"></i> Yes. Buku Sudah Dikembalikan</a>
+              <a href="<?php echo base_url('admin/peminjaman/kembali/'.$peminjaman->id_peminjaman) ?>" class="btn btn-success"><i class="fa fa-check"></i> Yes. Buku Sudah Dikembalikan</a>
               <a href="<?php echo base_url('admin/peminjaman/edit/'.$peminjaman->id_peminjaman) ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit this Data</a>
               <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
             </div>

@@ -34,17 +34,18 @@
 
 </div>
 
-<?php if($this->uri->segment(3) == "") {?>
+<?php
+if($this->uri->segment(3) == "") {?>
 <p>
   <a href="<?php echo base_url('admin/peminjaman/add/'.$this->session->userdata('id_user')) ?>" class="btn btn-success">
-  <!-- <a href="<?php //echo base_url('admin/peminjaman/dataPeminjam') ?>" class="btn btn-success"> -->
+  <!-- <a href="<?php echo base_url('admin/peminjaman/dataPeminjam') ?>" class="btn btn-success"> -->
     <i class="fa fa-plus"></i> Tambah
   </a>
 </p>
 <?php
 }
 //cetak notifikasi
-echo $this->session->flashdata('success');
+echo $this->session->flashdata('pesan');
 ?>
 <div class="row">
   <div class="col-md-12">
@@ -70,11 +71,11 @@ echo $this->session->flashdata('success');
             <?php $i=1; foreach($peminjaman as $peminjaman) { ?>
               <tr>
                 <td><?php echo $i ?></td>
-                <td>
-                  <a href="<?php echo base_url('admin/peminjaman/add/'.$peminjaman->id_user) ?>">
-                    <?php echo $peminjaman->nama ?> <sup><i class="fa fa-link"></i> </sup>
-                  </a>
-                </td>
+                  <td>
+                    <a href="<?php echo base_url('admin/peminjaman/add/'.$peminjaman->id_user) ?>">
+                      <?php echo $peminjaman->nama ?> <sup><i class="fa fa-link"></i> </sup>
+                    </a>
+                  </td>
                 <td><?php echo $peminjaman->judul_buku ?> - <?php echo $peminjaman->kode_buku ?></td>
                 <td><?php echo date('d-m-Y', strtotime($peminjaman->tanggal_pinjam)) ?></td>
                 <td><?php echo date('d-m-Y', strtotime($peminjaman->tanggal_kembali)) ?></td>
@@ -83,13 +84,14 @@ echo $this->session->flashdata('success');
                 <?php include('kembali.php') ?>
                 <a href="<?php echo base_url('admin/peminjaman/edit/'.$peminjaman->id_peminjaman) ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                 <?php include('delete.php') ?>
-                </td>
-              </tr>
+                <!-- <button class="btn btn-danger btn-sm" id="del">Show me</button>	 -->
+              </td>
+            </tr>
             <?php $i++; } ?>
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
 </div>

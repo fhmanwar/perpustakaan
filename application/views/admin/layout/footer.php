@@ -13,8 +13,7 @@
     <script src="<?php echo base_url() ?>assets/admin/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-    <!-- jQuery Scrollbar -->
-    <script src="<?php echo base_url() ?>assets/admin/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    
 
     <!-- Moment JS -->
     <script src="<?php echo base_url() ?>assets/admin/assets/js/plugin/moment/moment.min.js"></script>
@@ -49,8 +48,11 @@
 
     <!-- Azzara JS -->
     <script src="<?php echo base_url() ?>assets/admin/assets/js/ready.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="<?php echo base_url() ?>assets/admin/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
     
-    <script>
+    <script>        
         $(document).ready(function(){
             $('#basic-datatables').DataTable();
             
@@ -74,8 +76,45 @@
 					alert('You clicked in this marker');
 				}
             });
-            
+
         });
-	</script>
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#del').click(function(e) {
+                swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    buttons:{
+                        cancel: {
+                            visible: true,
+                            text : 'No, cancel!',
+                            className: 'btn btn-danger'
+                        },        			
+                        confirm: {
+                            text : 'Yes, delete it!',
+                            className : 'btn btn-success'
+                        }
+                    }
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                            buttons : {
+                                confirm : {
+                                    className: 'btn btn-success'
+                                }
+                            }
+                        });
+                    } else {
+                        swal.close();
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
 </body>
 </html>

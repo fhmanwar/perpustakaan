@@ -233,7 +233,6 @@ INSERT INTO `link` (`id_link`, `nama_link`, `url`, `target`, `tanggal`) VALUES
 CREATE TABLE IF NOT EXISTS `peminjaman` (
   `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT,
   `id_buku` int(11) NOT NULL,
-  `id_anggota` int(11) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
@@ -241,13 +240,22 @@ CREATE TABLE IF NOT EXISTS `peminjaman` (
   `status_kembali` enum('Belum','Sudah','Hilang','') CHARACTER SET utf8 NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_peminjaman`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.peminjaman: ~2 rows (approximately)
+-- Dumping data for table db_perpus.peminjaman: ~11 rows (approximately)
 /*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
-INSERT INTO `peminjaman` (`id_peminjaman`, `id_buku`, `id_anggota`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `keterangan`, `status_kembali`, `tanggal`) VALUES
-	(2, 7, 0, 3, '2019-04-27', '2019-05-11', 'asdweqwe', 'Belum', '2019-06-03 01:12:19'),
-	(5, 7, 4, 4, '2019-04-01', '2019-05-02', 'asdweqwe', 'Belum', '2019-04-01 19:45:27');
+INSERT INTO `peminjaman` (`id_peminjaman`, `id_buku`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `keterangan`, `status_kembali`, `tanggal`) VALUES
+	(2, 7, 1, '2019-04-27', '2019-05-11', 'asdweqwe', 'Sudah', '2019-06-03 19:24:51'),
+	(5, 7, 1, '2019-04-01', '2019-05-02', 'asdweqwe', 'Sudah', '2019-06-03 19:25:33'),
+	(12, 9, 1, '2019-06-03', '2019-06-10', 'asdasd', 'Sudah', '2019-06-03 12:39:58'),
+	(13, 11, 1, '2019-06-03', '2019-06-10', 'asdasd', 'Belum', '2019-06-03 12:42:39'),
+	(14, 9, 1, '2019-06-03', '2019-06-10', 'asdweqwe656546', 'Belum', '2019-06-03 12:47:28'),
+	(15, 10, 1, '2019-06-03', '2019-06-10', 'qweert3242134', 'Belum', '2019-06-03 12:59:36'),
+	(16, 5, 1, '2019-06-03', '2019-06-10', 'asdasd', 'Belum', '2019-06-03 13:02:23'),
+	(17, 9, 36, '2019-06-03', '2019-06-10', 'qweert3242134', 'Sudah', '2019-06-03 19:26:53'),
+	(18, 8, 1, '2019-06-03', '2019-06-10', 'qweert3242134', 'Belum', '2019-06-03 19:22:04'),
+	(20, 10, 4, '2019-06-03', '2019-06-10', 'asdweqwe656546', 'Belum', '2019-06-03 16:28:22'),
+	(21, 8, 4, '2019-06-03', '2019-06-10', 'qweert3242134', 'Belum', '2019-06-03 16:28:27');
 /*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.status
@@ -260,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `status` (
   UNIQUE KEY `kode_status` (`kode_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.status: ~2 rows (approximately)
+-- Dumping data for table db_perpus.status: ~3 rows (approximately)
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
 INSERT INTO `status` (`id_status`, `kode_status`, `status`, `timestamp`) VALUES
 	(1, 1, 'Actived', '2019-06-02 18:52:00'),
@@ -285,9 +293,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.user: ~6 rows (approximately)
+-- Dumping data for table db_perpus.user: ~8 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, `token`, `nama`, `email`, `j_kel`, `tlp`, `alamat`, `avatar`, `tanggal`) VALUES
 	(1, 1, 1, 'admin', '$argon2id$v=19$m=1024,t=2,p=2$RUgzUXJzcUFwRk5hWmVZdg$sG0ZtGcvH3pLX7BQWtxj8lFlGdAvatJ15rYdfijBoxs', '5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA', 'Admin', 'admin@admin.com', NULL, NULL, NULL, 'default.png', '2019-06-01 19:46:39'),
@@ -295,7 +303,9 @@ INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, 
 	(3, 2, 1, 'jon', 'd164b39e9ec43f65376629da9ccf41780775f656', '', 'Jhon', 'jhonmub@gmail.com', NULL, NULL, NULL, NULL, '2019-06-01 02:01:56'),
 	(4, 2, 1, 'jon1', 'd164b39e9ec43f65376629da9ccf41780775f656', 'asdsafagagq234r5tq3tgqergf7ftafg7aff78taat7sdftg78q2tgfsfd]', 'Jhon1', 'jhonmu1b@gmail.com', NULL, NULL, NULL, NULL, '2019-06-01 02:01:56'),
 	(36, 2, 2, 'jango', '$argon2id$v=19$m=1024,t=2,p=2$MkZQZjl3dHNiTWdHdU8wSA$dk7BBC/BhfY8shfJN3Z7m03+3N59KXK7xJIC+WOGNM4', 'WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3WUKoeVxCZFJH0mL8yQtRApaTEMX6guj9qc2ld5k_-I4shBOv7fYD1nSNrzbGiPw3', 'De Jango', 'jonbray@mail.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 02:59:22'),
-	(38, 1, 1, '2', '$argon2id$v=19$m=1024,t=2,p=2$dWJXRGxZUjNUOGZQck1TNg$ccQsqTQ+VGvz+3u4OyR7eyrftZroLZJ2R+8rRcpx/lY', 'favRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjN', 'wik weka', 'mike@example.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 02:36:57');
+	(38, 1, 1, '2', '$argon2id$v=19$m=1024,t=2,p=2$dWJXRGxZUjNUOGZQck1TNg$ccQsqTQ+VGvz+3u4OyR7eyrftZroLZJ2R+8rRcpx/lY', 'favRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjN', 'wik weka', 'mike@example.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 02:36:57'),
+	(40, 2, 2, '123', '$argon2id$v=19$m=1024,t=2,p=2$OVBPbjBrekNpbkJFbHB6bA$9sbtFzSbrcZN2dHbRvzBfEqWa2o99wjgY+oT/uCeBlo', '4ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C9', 'Super Admin', 'wacacuseva@hotelnextmail.net', NULL, NULL, NULL, 'default.jpg', '2019-06-03 23:07:44'),
+	(41, 2, 2, 'asdasd', '$argon2id$v=19$m=1024,t=2,p=2$QUc5dThWdEJmMFExdE1yYg$Qg5Eyr9eINXkRN1i2onRvRhL8vlvt0zK1Wv0iOuoJH4', '9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A', 'asdasd', 'asd@asd.ner', NULL, NULL, NULL, 'default.jpg', '2019-06-03 23:08:14');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.usulan

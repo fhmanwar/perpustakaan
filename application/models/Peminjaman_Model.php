@@ -22,48 +22,30 @@ class Peminjaman_Model extends CI_Model {
 		$this->db->from('peminjaman');
 		$this->db->join('user','user.id_user = peminjaman.id_user','LEFT');
         $this->db->join('buku','buku.id_buku = peminjaman.id_buku','LEFT');
-        $this->db->like('user.id_level','2');
+        // $this->db->like('user.id_level','2');
 		$this->db->order_by('id_peminjaman','ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-  //Listing
-  public function listing() {
-    $this->db->select('
-        peminjaman.*,
-        anggota.nama_anggota,
-        buku.judul_buku,
-        buku.kode_buku,
-        buku.no_seri,
-        buku.penerbit
-    ');
-    $this->db->from('peminjaman');
-		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
-		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
-    $this->db->order_by('id_peminjaman','ASC');
-    $query = $this->db->get();
-    return $query->result();
-  }
-
 	//Listing peminjaman anggota
-  public function anggota($id_anggota) {
-    $this->db->select('
-        peminjaman.*,
-        anggota.nama_anggota,
-        buku.judul_buku,
-        buku.kode_buku,
-        buku.no_seri,
-        buku.penerbit
-    ');
-    $this->db->from('peminjaman');
-		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
-		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
-		$this->db->where('peminjaman.id_anggota', $id_anggota);
-    $this->db->order_by('id_peminjaman','ASC');
-    $query = $this->db->get();
-    return $query->result();
-  }
+    public function anggota($id) {
+        $this->db->select('
+            peminjaman.*,
+            user.*,
+            buku.judul_buku,
+            buku.kode_buku,
+            buku.no_seri,
+            buku.penerbit
+        ');
+        $this->db->from('peminjaman');
+        $this->db->join('user', 'user.id_user = peminjaman.id_user','LEFT');
+        $this->db->join('buku', 'buku.id_buku = peminjaman.id_buku','LEFT');
+        $this->db->where('peminjaman.id_user', $id);
+        $this->db->order_by('id_peminjaman','ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 	//Listing peminjaman anggota
   public function limit_peminjaman_anggota($id_anggota) {

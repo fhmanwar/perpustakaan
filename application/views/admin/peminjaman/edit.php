@@ -1,3 +1,39 @@
+<ul class="breadcrumbs">
+	<li class="nav-home">
+		<a href="#">
+			<i class="flaticon-home"></i>
+		</a>
+  </li>
+  <li class="separator">
+		<i class="flaticon-right-arrow"></i>
+	</li>
+	<li class="nav-item">
+		<a href="#">Reservasi</a>
+  </li>
+  <li class="separator">
+		<i class="flaticon-right-arrow"></i>
+	</li>
+	<li class="nav-item">
+		<a href="#">Peminjaman</a>
+  </li>
+</ul>
+
+  <div class="btn-group btn-group-page-header ml-auto">
+    <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-ellipsis-h"></i>
+    </button>
+    <div class="dropdown-menu">
+      <div class="arrow"></div>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+
+</div>
+
 <script type="text/javascript">
 // Set default datepicker options
 $.datepicker.setDefaults({
@@ -83,86 +119,82 @@ $('#fbooking').submit(function() {
 </script>
 <?php
 // Session
-if($this->session->flashdata('success')) {
-	echo '<div class="alert alert-success">';
-	echo $this->session->flashdata('success');
-	echo '</div>';
-}
-
-// cetak error kalau ada salah input
-echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i>','</div>');
+echo $this->session->flashdata('pesan');
 
 echo form_open(base_url('admin/peminjaman/edit/'.$peminjaman->id_peminjaman));
 ?>
 
 <div class="row">
+	<div class="col-lg-10 ml-auto mr-auto">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Basic Create</div>
+			</div>
+			<div class="card-body row">
+				<div class="col-md-12">
+					<div class="form-group form-floating-label">
+						<select class="form-control " id="selectFloatingLabel2" name="id_buku" required="">
+							<option value="">&nbsp;</option>
+							<option value="">Pilih Buku</option>
+							<?php foreach ($buku as $buku) {?>
+								<option value="<?php echo $buku->id_buku ?>" <?php if($buku->id_buku == $peminjaman->id_buku) {echo "selected";} ?>>
+									<?php echo $buku->judul_buku ?> - <?php echo $buku->kode_buku ?>
+								</option>
+							<?php } ?>
+						</select>
+						<label for="selectFloatingLabel2" class="placeholder">Judul Buku yang akan dipinjam</label>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Nama Peminjam</label>
+						<input type="text" class="form-control" required="" name="nama_peminjaman" value="<?php echo $anggota->nama ?>"  readonly disabled>
+					</div>
 
-<div class="col-md-12">
-	<div class="form-group">
-		<label>Judul Buku yang akan dipinjam</label><br>
-		<select name="id_buku" class="form-control js-example-basic-single" style="width: 100%; padding: 10px 20px !important;">
-			<option value="">Pilih Buku</option>
-			<?php foreach ($buku as $buku) {?>
-				<option value="<?php echo $buku->id_buku ?>" <?php if($buku->id_buku == $peminjaman->id_buku) {echo "selected";} ?>>
-					 <?php echo $buku->judul_buku ?> - <?php echo $buku->kode_buku ?>
-				</option>
-			<?php } ?>
-		</select>
-	</div>
-</div>
-<div class="col-md-4">
+					<div class="form-group">
+						<label for="defaultSelect" >Status Peminjam</label>
+						<select class="form-control " id="selectFloatingLabel2" name="status_kembali" required="">
+							<option value="Belum">Belum (Baru Pinjam)</option>
+							<option value="Sudah">Sudah dikembalikan</option>
+							<option value="Hilang">Buku Hilang</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-sm-6"> 
+							<div class="form-group">
+								<label>Tanggl Peminjaman</label>
+								<input type="date" class="form-control" required="" name="tanggal_pinjam" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo $peminjaman->tanggal_pinjam; }else{ echo date('Y-m-d');} ?>" >
+							</div>
+						</div>
+						<div class="col-sm-6"> 
+							<div class="form-group">
+								<label>Tanggl Harus Kembali</label>
+								<input type="date" class="form-control" required="" name="tanggal_kembali" id="tanggal_kembali" value="<?php echo $peminjaman->tanggal_kembali ?>" >
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label>Keterangan</label>
+						<input type="text" class="form-control" required="" name="keterangan" value="<?php echo $peminjaman->keterangan ?>" >
+					</div>
 
-	<div class="form-group">
-		<label>Nama Peminjam</label>
-		<input type="text" name="nama_peminjaman" class="form-control" placeholder="Nama Peminjam" value="<?php echo $anggota->nama_anggota ?>" readonly disabled>
-	</div>
-	<div class="form-group">
-		<label>Status Peminjam</label>
-		<select class="form-control" name="status_kembali">
-      <option value="Belum">Belum (Baru Pinjam)</option>
-      <option value="Sudah">Sudah dikembalikan</option>
-			<option value="Hilang">Buku Hilang</option>
-		</select>
-	</div>
-
-</div>
-
-<div class="col-md-8">
-<div class="row">
-	<div class="col-md-6">
-		<div class="form-group ">
-			<label>Tanggl Peminjaman</label>
-			<input type="text" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo $peminjaman->tanggal_pinjam; }else{ echo date('Y-m-d');} ?>" required>
+				</div>
+				
+				
+			</div>
+			<div class="card-action text-right">
+				<button class="btn btn-success btn-border btn-round btn-md"><span class="btn-label"><i class="fas fa-save"></i></span> Submit</button>
+				<button type="reset" class="btn btn-danger btn-border btn-round btn-md"><span class="btn-label"><i class="fas fa-times"></i></span> Reset</button>
+				<a href="<?php echo base_url('admin/peminjaman') ?>" class="btn btn-info btn-border btn-round btn-md"><i class="fa fa-backward"></i> Kembali</a>
+			</div>
 		</div>
+		
 	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<label>Tanggl Harus Kembali</label>
-			<input type="text" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo $peminjaman->tanggal_kembali ?>" required>
-		</div>
-	</div>
-</div>
-
-<div class="form-group">
-	<label>Keterangan</label>
-	<input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="<?php echo $peminjaman->keterangan ?>" >
-</div>
-</div>
-
-<div class="col-md-12 text-center">
-	<button type="submit" name="Submit" class="btn btn-primary btn-lg">
-		<i class="fa fa-save"></i>
-		Simpan Data Peminjaman
-	</button>
-	<button type="reset" name="reset" class="btn btn-default btn-lg">
-		<i class="fa fa-times"></i>
-		Reset
-	</button>
-	<a href="<?php echo base_url('admin/peminjaman') ?>" class="btn btn-danger btn-lg">
-		<i class="fa fa-backward"></i>
-		Kembali
-	</a>
-</div>
 
 </div>
 <?php echo form_close(); ?>
