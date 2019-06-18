@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `bahasa` (
   UNIQUE KEY `nama_bhs` (`nama_bahasa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.bahasa: ~2 rows (approximately)
+-- Dumping data for table db_perpus.bahasa: ~1 rows (approximately)
 /*!40000 ALTER TABLE `bahasa` DISABLE KEYS */;
 INSERT INTO `bahasa` (`id_bahasa`, `kode_bahasa`, `nama_bahasa`, `keterangan`, `urutan`, `tanggal`) VALUES
 	(1, 'K01', 'Bahasa Kalbu', '  ', 1, '2019-03-23 01:44:01'),
@@ -72,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_berita`),
   UNIQUE KEY `judul_berita` (`judul_berita`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.berita: ~6 rows (approximately)
+-- Dumping data for table db_perpus.berita: ~7 rows (approximately)
 /*!40000 ALTER TABLE `berita` DISABLE KEYS */;
 INSERT INTO `berita` (`id_berita`, `id_user`, `slug_berita`, `judul_berita`, `isi`, `gambar`, `status_berita`, `jenis_berita`, `tanggal`) VALUES
 	(1, 4, 'iwak-e-nyebur-sumur-tandas', 'iwak e nyebur sumur tandas', '<p>asdasdasd asd</p>', 'kandang-ternak-kenari-siste5.jpg', 'Publish', 'Berita', '2019-03-25 20:24:14'),
@@ -106,9 +106,9 @@ CREATE TABLE IF NOT EXISTS `buku` (
   `tanggal_entri` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_buku`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.buku: ~8 rows (approximately)
+-- Dumping data for table db_perpus.buku: ~9 rows (approximately)
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
 INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
 	(5, 0, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', 'Sekolah Menengah Kejuruan', 'IPSJD1', 11, 'Buku Sekolah Elektronik (BSE)', '2004', '123xr3', 'Publish', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\r\n\r\nA small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.', 'ips.jpg', 20, '2019-03-22 20:14:19', '2019-03-28 15:58:55'),
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `file` (
   `urutan` int(11) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_file`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.file: ~2 rows (approximately)
 /*!40000 ALTER TABLE `file` DISABLE KEYS */;
@@ -152,9 +152,9 @@ CREATE TABLE IF NOT EXISTS `jenis` (
   PRIMARY KEY (`id_jenis`),
   UNIQUE KEY `kode_jenis` (`kode_jenis`),
   UNIQUE KEY `nama_jenis` (`nama_jenis`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.jenis: ~2 rows (approximately)
+-- Dumping data for table db_perpus.jenis: ~3 rows (approximately)
 /*!40000 ALTER TABLE `jenis` DISABLE KEYS */;
 INSERT INTO `jenis` (`id_jenis`, `kode_jenis`, `nama_jenis`, `keterangan`, `urutan`, `tanggal`) VALUES
 	(3, 'I01', 'Ilmu sosial', '', 1, '2019-03-23 01:44:32'),
@@ -202,9 +202,9 @@ CREATE TABLE IF NOT EXISTS `level` (
   PRIMARY KEY (`id_level`),
   UNIQUE KEY `kode_level` (`kode_level`),
   UNIQUE KEY `level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.level: ~3 rows (approximately)
+-- Dumping data for table db_perpus.level: ~4 rows (approximately)
 /*!40000 ALTER TABLE `level` DISABLE KEYS */;
 INSERT INTO `level` (`id_level`, `kode_level`, `level`, `timestamp`) VALUES
 	(1, '1', 'Admin', '2019-05-30 02:57:53'),
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `link` (
   `target` varchar(20) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_link`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_perpus.link: ~2 rows (approximately)
 /*!40000 ALTER TABLE `link` DISABLE KEYS */;
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `status` (
   UNIQUE KEY `kode_status` (`kode_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.status: ~3 rows (approximately)
+-- Dumping data for table db_perpus.status: ~2 rows (approximately)
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
 INSERT INTO `status` (`id_status`, `kode_status`, `status`, `timestamp`) VALUES
 	(1, 1, 'Actived', '2019-06-02 18:52:00'),
@@ -322,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `usulan` (
   `tanggal_usulan` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_usulan`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_perpus.usulan: ~3 rows (approximately)
 /*!40000 ALTER TABLE `usulan` DISABLE KEYS */;
