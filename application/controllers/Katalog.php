@@ -108,5 +108,53 @@ class Katalog extends CI_Controller {
                   'isi'    			=> 'katalog/read');
 
     $this->load->view('layout/file',$data,FALSE);
-	}
+  }
+  
+  public function pinjam($id)
+  {
+    $anggota = $this->anggota_model->detailAnggota($id);
+    $peminjaman = $this->peminjaman_model->anggota($id);
+    $buku = $this->buku_model->listing();
+    $konfigurasi = $this->konfigurasi_model->listing();
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+
+    $valid = $this->form_validation;
+    $valid->set_rules('id_buku','Pilih judul buku', 'required',
+                    array('required' => 'Pilih judul buku' ));
+
+    if ($valid->run() == FALSE) {
+
+    $data = array(
+        'title' => 'Peminjaman Buku ',
+        'anggota' => $anggota,
+        'peminjaman' => $peminjaman,
+        'buku' => $buku,
+        'konfigurasi' => $konfigurasi,
+        'limit' => $limit,
+        'isi' => 'admin/peminjaman/add',
+    );
+    $this->load->view('layout/file', $data, false);
+    }else {
+    $i = $this->input;
+    $data = array(
+        // 'id_user' => $this->session->userdata('id_user'),
+        'id_user' => $id,
+        'id_buku ' => $i->post('id_buku'),
+        // 'id_anggota' => $id,
+        'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
+        'tanggal_kembali'  => $i->post('tanggal_kembali'),
+        'keterangan'  => $i->post('keterangan'),
+        // 'status_kembali'  => $i->post('status_kembali')
+        'status_kembali'  => 'Belum'
+    );
+    $this->peminjaman_model->tambah($data);
+    $this->session->set_flashdata(
+        'pesan',
+        '<div class="alert alert-success" role="alert">
+            Data Peminjaman Telah ditambahkan
+        </div>'
+    );
+    redirect(base_url('peminjaman/add/'.$id),'refresh');
+    }
+  }
 }

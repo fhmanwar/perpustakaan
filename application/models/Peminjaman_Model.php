@@ -51,16 +51,16 @@ class Peminjaman_Model extends CI_Model {
   public function limit_peminjaman_anggota($id_anggota) {
     $this->db->select('
         peminjaman.*,
-        anggota.nama_anggota,
+        user.nama,
         buku.judul_buku,
         buku.kode_buku,
         buku.no_seri,
         buku.penerbit
     ');
     $this->db->from('peminjaman');
-		$this->db->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota');
+		$this->db->join('user', 'user.id_user = peminjaman.id_user');
 		$this->db->join('buku', 'buku.id_buku = peminjaman.id_buku');
-		$this->db->where(array(	'peminjaman.id_anggota'	=> $id_anggota,
+		$this->db->where(array(	'peminjaman.id_user'	=> $id_anggota,
 														'peminjaman.status_kembali <>' => 'Sudah'
 										));
     $this->db->order_by('id_peminjaman','ASC');

@@ -46,17 +46,7 @@
             <a href="<?php echo base_url('usulan') ?>">Usulan</a>
           </li>
 
-          <li class="dropdown">
-            <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
-            <span class="fa fa-user nav-icon" aria-hidden="true"></span>
-            <!-- <span class="fa fa-user"></span> -->
-            </a>
-            <!-- <ul class="dropdown-menu">
-              <li>
-                <a href="<?php echo base_url()?>assets/front/shop.html">register</a>
-              </li>
-            </ul> -->
-          </li>
+          
         </ul>
         <!-- search-bar -->
         <div class="search-bar-agileits">
@@ -95,6 +85,19 @@
         <!-- //shopping cart ends here -->
         <?php //}?>
         
+        <ul class="nav navbar-nav navbar-left cl-effect-15">
+          <li class="dropdown">
+              <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
+              <span class="fa fa-user nav-icon" aria-hidden="true"></span>
+              <!-- <span class="fa fa-user"></span> -->
+              </a>
+              <!-- <ul class="dropdown-menu">
+                <li>
+                  <a href="<?php echo base_url()?>assets/front/shop.html">register</a>
+                </li>
+              </ul> -->
+            </li>
+        </ul>
       </div>
       <!-- /.navbar-collapse -->
     <div class="clearfix"></div>

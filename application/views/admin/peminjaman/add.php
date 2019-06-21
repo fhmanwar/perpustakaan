@@ -170,13 +170,13 @@
               	<div class="col-md-6">
               		<div class="form-group ">
               			<label>Tanggl Peminjaman</label>
-              			<input type="text" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo set_value('tanggal_pinjam'); }else{ echo date('Y-m-d');} ?>" required>
+              			<input type="date" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo set_value('tanggal_pinjam'); }else{ echo date('Y-m-d');} ?>" required>
               		</div>
               	</div>
               	<div class="col-md-6">
               		<div class="form-group">
               			<label>Tanggl Harus Kembali</label>
-              			<input type="text" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo set_value('tanggal_kembali') ?>" required>
+              			<input type="date" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo set_value('tanggal_kembali') ?>" required>
               		</div>
               	</div>
               </div>

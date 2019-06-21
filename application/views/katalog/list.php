@@ -40,12 +40,12 @@
         <div class="product-sec1">
           <?php $i; foreach ($buku as $buku) {?>
           <!-- row1-->
-          <div class="col-md-3 product-men">
+          <div class="col-md-3 text-center" >
             <div class="product-chr-info chr">
               <div class="thumbnail">
                 <?php if($buku->cover_buku != ""){ ?>
                 <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
-                  <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
+                  <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="" style="width:200px; height:250px;">
                 </a>
                 <?php }else{ echo 'Tidak ada';} ?>
               </div>
