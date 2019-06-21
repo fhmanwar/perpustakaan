@@ -12,6 +12,7 @@
       <h1>
         <a class="navbar-brand" href="<?php echo base_url() ?> "><?php echo $konfigurasi->namaweb ?></a>
       </h1>
+        
     </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse nav-right">
@@ -19,8 +20,9 @@
           <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
           <li class="hidden"><a class="page-scroll" href="#page-top"></a></li>
 
-          <li><a href="<?php echo base_url()?>">Home</a></li>
+          <!-- <li><a href="<?php echo base_url()?>">Home</a></li> -->
           <li><a href="<?php echo base_url('katalog')?>">Katalog Buku</a></li>
+          
 
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">shop
@@ -45,22 +47,22 @@
           <li>
             <a href="<?php echo base_url('usulan') ?>">Usulan</a>
           </li>
-
           
         </ul>
+        
         <!-- search-bar -->
         <div class="search-bar-agileits">
           <div class="cd-main-header">
-          <ul class="cd-header-buttons">
-            <li>
-              <a class="cd-search-trigger" href="#cd-search">
-              <!-- <a class="fa fa-search nav-icon" href="#cd-search"> -->
-                <span></span>
-              </a>
-            </li>
-          </ul>
-          <!-- cd-header-buttons -->
+            <ul class="cd-header-buttons">
+              <li>
+                <a class="cd-search-trigger" href="#cd-search">
+                  <span></span>
+                </a>
+              </li>
+            </ul>
           </div>
+        <!-- //cd-header-buttons -->
+
           <div id="cd-search" class="cd-search">
             <form action="<?php echo base_url('katalog') ?>" method="post">
               <input name="cari" type="search" placeholder="Type and Hit Enter...">
@@ -69,27 +71,16 @@
         </div>
         <!-- //search-bar ends here -->
 
-        <?php //if(!$_SESSION['username'] == ''){?>
-        <!-- shopping cart -->
-        <div class="cart-mainf">
-          <div class="chrcart chrcart2 cart cart box_1">
-            <form action="#" method="post" class="last">
-              <input type="hidden" name="cmd" value="_cart">
-              <input type="hidden" name="display" value="1">
-              <button class="top_chr_cart" type="submit" name="submit" value="">
-                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        <!-- //shopping cart ends here -->
-        <?php //}?>
-        
         <ul class="nav navbar-nav navbar-left cl-effect-15">
+          <li>
+              <a  href="<?php echo base_url('cart')?>">
+                <span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span>
+              </a>
+          </li>
           <li class="dropdown">
               <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
-              <span class="fa fa-user nav-icon" aria-hidden="true"></span>
-              <!-- <span class="fa fa-user"></span> -->
+                <!-- <span class="fa fa-user nav-icon" aria-hidden="true"></span> -->
+                <i class="fa fa-user" style="font-size:20px;"></i>
               </a>
               <!-- <ul class="dropdown-menu">
                 <li>

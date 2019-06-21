@@ -108,8 +108,8 @@ button.top_chr_cart {
 }
 
 i.fa.fa-cart-arrow-down {
-    width: 41px;
-    height: 41px;
+    width: 30px;
+    height: 30px;
     color: #fff;
     font-size: 2em;
     line-height: 42px;
@@ -126,7 +126,8 @@ span.nav-icon {
 /*-- search --*/
 
 .search-bar-agileits {
-    float: left;
+    /* float: left; */
+    float: right;
 }
 
 .cd-main-header {
@@ -204,13 +205,13 @@ span.nav-icon {
 }
 
 .cd-search-trigger::before {
-    top: 13px;
-    left: 11px;
-    width: 18px;
-    height: 18px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    border-radius: 100%;
     border: 3px solid #fff;
 }
 
@@ -412,7 +413,8 @@ nav.navbar.navbar-default.navbar-fixed-top.top-nav-collapse {
 }
 
 .navbar-nav>li {
-    margin: 0 0.5em 0;
+    /* margin: 0 0.5em 0; */
+    margin: 1px;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -425,7 +427,7 @@ nav.navbar.navbar-default.navbar-fixed-top.top-nav-collapse {
     -moz-transition: .5s all;
     transition: .5s all;
     text-shadow: none;
-    padding: 15px 17px;
+    /* padding: 15px 17px; */
 }
 
 .navbar-nav>li.active a {

@@ -39,13 +39,7 @@
     <div class="col-md-3 col-sm-6 footv3-left">
       <h3>Latest releases</h3>
       <ul class="info">
-        <li><a href="<?php echo base_url()?>assets/front/shop.html">Biography</a></li>
-        <li><a href="<?php echo base_url()?>assets/front/shop.html">Fiction </a></li>
-        <li><a href="<?php echo base_url()?>assets/front/shop.html">Literature</a></li>
-        <li><a href="<?php echo base_url()?>assets/front/shop.html">Business</a></li>
-        <li><a href="<?php echo base_url()?>assets/front/shop.html">Finance</a></li>
-        <li><a href="shop.html">audio books</a></li>
-        <li><a href="shop.html">e-books</a></li>
+        <li><a href="<?php echo base_url()?>shop.html">e-books</a></li>
       </ul>
     </div>
     <div class="col-md-3 col-sm-6 footv3-left">
