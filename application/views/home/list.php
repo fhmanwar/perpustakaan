@@ -275,7 +275,7 @@
           <img src="<?php echo base_url() ?>assets/upload/profile/ira.png" class="img-responsive imgtst" alt="" >
           <div class="imgtxt">
             <h5>Rika Wulandari</h5>
-            <p>Database</p>
+            <p>Desain Database</p>
             <a href="#" class="hovicon effect-1 twitter"><i class="fa fa-twitter"></i></a>
             <a href="#" class="hovicon effect-1 facebook"><i class="fa fa-facebook"></i></a>
             <a href="#" class="hovicon effect-1 google"><i class="fa fa-google-plus"></i></a>
@@ -287,7 +287,7 @@
           <img src="<?php echo base_url() ?>assets/upload/profile/fandi.png" class="img-responsive imgtst" alt="" >
           <div class="imgtxt">
             <h5>Muhammad Alif Azzumardi</h5>
-            <p>Project Manager</p>
+            <p>Developer</p>
             <a href="#" class="hovicon effect-1 twitter"><i class="fa fa-twitter"></i></a>
             <a href="#" class="hovicon effect-1 facebook"><i class="fa fa-facebook"></i></a>
             <a href="#" class="hovicon effect-1 google"><i class="fa fa-google-plus"></i></a>

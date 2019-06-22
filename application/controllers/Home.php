@@ -18,24 +18,24 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		// $site = $this->home_model->listing();
 		$buku	= $this->buku_model->buku();
-		// $new	= $this->produk_model->new();
 		$berita = $this->berita_model->berita();
-    $slide = $this->berita_model->slide();
-    $site = $this->konfigurasi_model->listing();
-		$link = $this->link_model->listing();
+		$slide = $this->berita_model->slide();
+		$site = $this->konfigurasi_model->listing();
+			$link = $this->link_model->listing();
 
-    $data = array('title'  			=> $site->namaweb.' | '.$site->tagline,
-									// 'produk'			=> $produk,,,,,
-									'site'					=> $site,
-                  'buku'  		  => $buku,
-									'berita'  		=> $berita,
-                  'slide'  			=> $slide,
-									'link'  			=> $link,
-                  'isi'    			=> 'home/list');
+		$data = array(
+			'title'  			=> $site->namaweb.' | '.$site->tagline,
+			// 'produk'			=> $produk,,,,,
+			'site'					=> $site,
+			'buku'  		  => $buku,
+			'berita'  		=> $berita,
+			'slide'  			=> $slide,
+			'link'  			=> $link,
+			'isi'    			=> 'home/list'
+		);
 
-    $this->load->view('layout/file',$data,FALSE);
+		$this->load->view('layout/file',$data,FALSE);
 	}
 	
 }

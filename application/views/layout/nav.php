@@ -44,9 +44,7 @@
             </ul>
           </li> -->
 
-          <li> 
-            <a href="<?php echo base_url('usulan') ?>">Usulan</a>
-          </li>
+          <li><a href="<?php echo base_url('usulan') ?>">Usulan</a></li>
 
           <li class="search-bar-agileits">
             <div class="cd-main-header">
@@ -58,22 +56,18 @@
             </div>
           </li>
 
-          <li>
-              <a  href="<?php echo base_url('cart')?>">
-                <span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span>
-              </a>
-          </li>
+          <li><a  href="<?php echo base_url('cart')?>"><span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span></a></li>
+
+          <li><a href="#"><span class="nav-icon" style="font-size:30px" aria-hidden="true"> | </span></a></li>
 
           <li class="dropdown">
-              <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
-                <!-- <span class="fa fa-user nav-icon" aria-hidden="true"></span> -->
+              <a href="#" id="#dropdown-menu" title="SignIn & SignUp" class="dropdown-toggle effect-3">
                 <i class="fa fa-user" style="font-size:20px;"></i>
+                <b class="caret"></b>
               </a>
-              <!-- <ul class="dropdown-menu">
-                <li>
-                  <a href="<?php echo base_url()?>assets/front/shop.html">register</a>
-                </li>
-              </ul> -->
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo base_url('login') ?>">Login</a></li>
+              </ul>
             </li>
           
         </ul>
@@ -87,7 +81,7 @@
           </div>
         </div>
         <!-- //search-bar ends here -->
-        
+
       </div>
       <!-- /.navbar-collapse -->
     <div class="clearfix"></div>
