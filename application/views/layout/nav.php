@@ -44,39 +44,26 @@
             </ul>
           </li> -->
 
-          <li>
+          <li> 
             <a href="<?php echo base_url('usulan') ?>">Usulan</a>
           </li>
-          
-        </ul>
-        
-        <!-- search-bar -->
-        <div class="search-bar-agileits">
-          <div class="cd-main-header">
-            <ul class="cd-header-buttons">
-              <li>
+
+          <li class="search-bar-agileits">
+            <div class="cd-main-header">
+              <div class="cd-header-buttons">
                 <a class="cd-search-trigger" href="#cd-search">
                   <span></span>
                 </a>
-              </li>
-            </ul>
-          </div>
-        <!-- //cd-header-buttons -->
+              </div>
+            </div>
+          </li>
 
-          <div id="cd-search" class="cd-search">
-            <form action="<?php echo base_url('katalog') ?>" method="post">
-              <input name="cari" type="search" placeholder="Type and Hit Enter...">
-            </form>
-          </div>
-        </div>
-        <!-- //search-bar ends here -->
-
-        <ul class="nav navbar-nav navbar-left cl-effect-15">
           <li>
               <a  href="<?php echo base_url('cart')?>">
                 <span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span>
               </a>
           </li>
+
           <li class="dropdown">
               <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
                 <!-- <span class="fa fa-user nav-icon" aria-hidden="true"></span> -->
@@ -88,7 +75,19 @@
                 </li>
               </ul> -->
             </li>
+          
         </ul>
+        
+        <!-- search-bar -->
+        <div class="search-bar-agileits">
+          <div id="cd-search" class="cd-search">
+            <form action="<?php echo base_url('katalog') ?>" method="post">
+              <input name="cari" type="search" placeholder="Type and Hit Enter...">
+            </form>
+          </div>
+        </div>
+        <!-- //search-bar ends here -->
+        
       </div>
       <!-- /.navbar-collapse -->
     <div class="clearfix"></div>
