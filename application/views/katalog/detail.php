@@ -109,7 +109,38 @@
         </tr>
       </table>
     </div>
-  </div>
+    <div class="clearfix"> </div>
+    <hr>
+    <div class="col-md-12">
+
+    <div class="occasion-cart col-md-6">
+      <div class="chr single-item single_page_b">
+        <form action="#" method="post">
+          <input type="hidden" name="cmd" value="_cart">
+          <input type="hidden" name="add" value="1">
+          <input type="hidden" name="chr_item" value="Single book">
+          <input type="hidden" name="amount" value="100.00">
+          <button type="submit" class="chr-cart pchr-cart">
+            <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+            <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+          </form>
+        </div>
+      </div>
+      <div class="occasion-cart col-md-6">
+        <div class="chr single-item single_page_b">
+          <form action="#" method="post">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="chr_item" value="Single book">
+            <input type="hidden" name="amount" value="100.00">
+            <button type="submit" class="chr-cart pchr-cart">
+              <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+              <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   <div class="clearfix"> </div>
   </div>
 </div>

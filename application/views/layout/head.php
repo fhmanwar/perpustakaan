@@ -24,6 +24,8 @@
     <!-- shop css -->
     <link href="<?php echo base_url()?>assets/front/css/shop.css" type="text/css" rel="stylesheet" media="all">
     <!-- footer stylesheet -->
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/front/css/easy-responsive-tabs.css" type="text/css" media="all" />
+    <link href="<?php echo base_url()?>assets/front/css/checkout.css" type="text/css" rel="stylesheet" media="all">
     <link href="<?php echo base_url()?>assets/front/css/footer3.css" type="text/css" rel="stylesheet" media="all">
     <link href="<?php echo base_url()?>assets/front/css/style.css" type="text/css" rel="stylesheet" media="all">
     <!-- font-awesome icons -->

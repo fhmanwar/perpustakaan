@@ -63,6 +63,7 @@
           <li class="dropdown">
               <a href="#" id="#dropdown-menu" title="SignIn & SignUp" class="dropdown-toggle effect-3">
                 <i class="fa fa-user" style="font-size:20px;"></i>
+                <?php echo $data['user']['nama']; ?>
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
