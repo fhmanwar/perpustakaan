@@ -120,8 +120,8 @@
           <input type="hidden" name="add" value="1">
           <input type="hidden" name="chr_item" value="Single book">
           <input type="hidden" name="amount" value="100.00">
-          <button type="submit" class="chr-cart pchr-cart">
-            <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+          <button type="submit" class="btn btn-lg btn-success">
+            <i class="fa fa-cart-plus" aria-hidden="true"></i> Beli</button>
             <a href="#" data-toggle="modal" data-target="#myModal1"></a>
           </form>
         </div>
@@ -132,10 +132,7 @@
             <input type="hidden" name="cmd" value="_cart">
             <input type="hidden" name="add" value="1">
             <input type="hidden" name="chr_item" value="Single book">
-            <input type="hidden" name="amount" value="100.00">
-            <button type="submit" class="chr-cart pchr-cart">
-              <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-              <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+            <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-book" aria-hidden="true"></i> Pinjam</button>
             </form>
           </div>
         </div>

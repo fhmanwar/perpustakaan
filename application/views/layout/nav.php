@@ -68,6 +68,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a href="<?php echo base_url('login') ?>">Login</a></li>
+                <li><a href="<?php echo base_url('logout') ?>">Logout</a></li>
               </ul>
             </li>
           

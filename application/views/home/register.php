@@ -136,13 +136,26 @@
                             </div> -->
                             <input type="submit" value="Register" class="btn btn-info btn-lg">
                         </div>
-                        <div style="border-top: 1px solid #999; padding-top:20px" class="form-group col-lg-12">
+
+                        <div class="form-group col-lg-12">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                    have an account!
+                                    <!-- <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"> -->
+                                    <a href="<?php echo base_url('login') ?>">
+                                        Sign In Here
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div style="border-top: 1px solid #999; padding-top:20px" class="form-group col-lg-12">
                             <div class="f-btn">
                                 <button id="btn-fbsignup" type="button" class="btn btn-primary btn-lg">
                                     <i class="icon-facebook"></i>   Sign Up with Facebook
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     <!-- </form> -->
                     <?php echo form_close(); ?>
                 </div>

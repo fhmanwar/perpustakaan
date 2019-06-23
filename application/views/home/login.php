@@ -90,7 +90,7 @@
                             <div class="col-sm-12 controls">
                                 <!-- <a id="btn-login" href="#" class="btn btn-success">Login </a> -->
                                 <input type="submit" value="Login" class="btn btn-success">
-                                <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
+                                <!-- <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a> -->
                             </div>
                         </div>
 
