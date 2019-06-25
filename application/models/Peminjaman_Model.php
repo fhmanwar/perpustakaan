@@ -55,7 +55,8 @@ class Peminjaman_Model extends CI_Model {
         buku.judul_buku,
         buku.kode_buku,
         buku.no_seri,
-        buku.penerbit
+        buku.penerbit,
+        buku.cover_buku
     ');
     $this->db->from('peminjaman');
 		$this->db->join('user', 'user.id_user = peminjaman.id_user');

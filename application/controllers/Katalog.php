@@ -12,8 +12,14 @@ class Katalog extends CI_Controller {
     $this->load->model('file_model');
 		$this->load->model('link_model');
     $this->load->model('peminjaman_model');
-    
-	}
+  }
+  
+  public function test()
+  {
+    $x = $this->session->userdata('id_user');
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($x);
+    var_dump($limit);
+  }
 
 	public function index()
 	{
@@ -72,6 +78,7 @@ class Katalog extends CI_Controller {
     $bukus	= $this->buku_model->buku_baru();
     $buku	= $this->buku_model->detaill($id_buku);
     $file	= $this->file_model->buku($id_buku);
+    $dUser	= $this->user_model->getUser('user',['username' => $this->session->userdata('username')]);
 
     $data = array('title'  			=> $buku->judul_buku,//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
@@ -79,6 +86,7 @@ class Katalog extends CI_Controller {
                   'buku'  		  => $buku,
                   'bukus'  		  => $bukus,
                   'file'  		  => $file,
+                  'user'        => $dUser,
                   // 'keywords'  	=> $keywords,
 									// 'berita'  		=> $berita,
 									// 'slide'  			=> $slide,
@@ -113,48 +121,40 @@ class Katalog extends CI_Controller {
   
   public function addPinjam($id)
   {
-    
-    // $valid = $this->form_validation;
-    // $valid->set_rules('id_buku','Pilih judul buku', 'required',
-    //                 array('required' => 'Pilih judul buku' ));
-    
-    // if ($valid->run() == FALSE) {
-      
-    //   // $data = array(
-    //     //     'title' => 'Peminjaman Buku ',
-    //     //     'anggota' => $anggota,
-    //     //     
-    //     //     
-    //     //     
-    //     //     
-    //     //     'isi' => 'admin/peminjaman/add',
-    //     // );
-    
-    //   redirect(base_url('katalog/detail/'.$id),'refresh');
-    // }else {
-      $i = $this->input;
-      $data = [
-        'id_user' => $this->session->userdata('id_user'),
-        'id_buku ' => $i->post('id_buku'),
-        'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
-        'tanggal_kembali'  => $i->post('tanggal_kembali'),
-        'keterangan'  => $i->post('keterangan'),
-        'status_kembali'  => 'Belum'
-      ];
-      $this->peminjaman_model->tambah($data);
-      $this->session->set_flashdata(
-          'pesan',
-          '<div class="alert alert-success" role="alert">
-              Data Peminjaman Telah ditambahkan
-          </div>'
-      );
-      redirect(base_url('katalog/addPinjam/'.$id),'refresh');
-    // }
+    //proteksi halaman
+    if($this->session->userdata('username') == ""){
+      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+      redirect(base_url('login'),'refresh');
+    }
+
+    $i = $this->input;
+    $data = [
+      'id_user' => $this->session->userdata('id_user'),
+      'id_buku' => $i->post('id_buku'),
+      'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
+      'tanggal_kembali'  => $i->post('tanggal_kembali'),
+      'keterangan'  => $i->post('keterangan'),
+      'status_kembali'  => 'Belum'
+    ];
+    $this->peminjaman_model->tambah($data);
+    $this->session->set_flashdata(
+        'pesan',
+        '<div class="alert alert-success" role="alert">
+            Data Peminjaman Telah ditambahkan
+        </div>'
+    );
+    redirect(base_url('katalog/detail/'.$id),'refresh');
 
   }
 
   public function listPinjam()
   {
+    //proteksi halaman
+    if($this->session->userdata('username') == ""){
+      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+      redirect(base_url('login'),'refresh');
+    }
+    $id = $this->session->userdata('id_user');
     $peminjaman = $this->peminjaman_model->anggota($id);
     $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
     // $anggota = $this->anggota_model->detailAnggota($id);
@@ -166,7 +166,7 @@ class Katalog extends CI_Controller {
       'limit' => $limit,
       'konfigurasi' => $konfigurasi,
       'buku' => $buku,
-      'isi' => 'katalog/list'
+      'isi' => 'katalog/pinjam'
     ];
     $this->load->view('layout/file', $data, FALSE);
   }

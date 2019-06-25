@@ -110,7 +110,8 @@
       </table>
     </div>
     <div class="clearfix"> </div>
-    
+
+    <?php if(!$this->session->userdata('username')==''){ ?>
     <hr>
     <div class="col-md-12">
       <div class="occasion-cart col-md-6">
@@ -131,13 +132,16 @@
             <form action="<?php echo base_url('katalog/addPinjam/'.$buku->id_buku)?>" method="post">
               <!-- <input type="hidden" name="cmd" value="_cart">
               <input type="hidden" name="add" value="1">
-              <input type="hidden" name="chr_item" value="Single book"> -->
-              <!-- <input type="hidden" name="cmd" value="_cart"> -->
+              <input type="hidden" name="chr_item" value="Single book">
+              <input type="hidden" name="cmd" value="_cart"> -->
               <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-book" aria-hidden="true"></i> Pinjam</button>
             </form>
           </div>
         </div>
       </div>
+    <?php }?>
+
+
 
     </div>
   <div class="clearfix"> </div>

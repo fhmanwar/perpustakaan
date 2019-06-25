@@ -165,44 +165,44 @@
 
               </div>
 
-              <div class="col-md-8">
-              <div class="row">
-              	<div class="col-md-6">
-              		<div class="form-group ">
-              			<label>Tanggl Peminjaman</label>
-              			<input type="date" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo set_value('tanggal_pinjam'); }else{ echo date('Y-m-d');} ?>" required>
-              		</div>
-              	</div>
-              	<div class="col-md-6">
-              		<div class="form-group">
-              			<label>Tanggl Harus Kembali</label>
-              			<input type="date" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo set_value('tanggal_kembali') ?>" required>
-              		</div>
-              	</div>
-              </div>
-
+				<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group ">
+							<label>Tanggl Peminjaman</label>
+							<input type="date" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo set_value('tanggal_pinjam'); }else{ echo date('Y-m-d');} ?>" required>
 						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Keterangan</label>
-								<input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="<?php echo set_value('keterangan') ?>" >
-							</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Tanggl Harus Kembali</label>
+							<input type="date" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo set_value('tanggal_kembali') ?>" required>
 						</div>
+					</div>
+				</div>
 
-              <div class="col-md-12 text-center">
-              	<button type="submit" name="Submit" class="btn btn-primary btn-lg">
-              		<i class="fas fa-save"></i>
-              		Simpan Data Peminjaman
-              	</button>
-              	<button type="reset" name="reset" class="btn btn-default btn-lg">
-              		<i class="fas fa-times"></i>
-              		Reset
-              	</button>
-              	<a href="<?php echo base_url('admin/peminjaman') ?>" class="btn btn-danger btn-lg">
-              		<i class="fas fa-backward"></i>
-              		Kembali
-              	</a>
-              </div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Keterangan</label>
+						<input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="<?php echo set_value('keterangan') ?>" >
+					</div>
+				</div>
+
+				<div class="col-md-12 text-center">
+					<button type="submit" name="Submit" class="btn btn-primary btn-lg">
+						<i class="fas fa-save"></i>
+						Simpan Data Peminjaman
+					</button>
+					<button type="reset" name="reset" class="btn btn-default btn-lg">
+						<i class="fas fa-times"></i>
+						Reset
+					</button>
+					<a href="<?php echo base_url('admin/peminjaman') ?>" class="btn btn-danger btn-lg">
+						<i class="fas fa-backward"></i>
+						Kembali
+					</a>
+				</div>
 
               </div>
               <?php echo form_close(); ?>
