@@ -11,7 +11,8 @@ class Katalog extends CI_Controller {
     $this->load->model('bahasa_model');
     $this->load->model('file_model');
 		$this->load->model('link_model');
-
+    $this->load->model('peminjaman_model');
+    
 	}
 
 	public function index()
@@ -110,60 +111,64 @@ class Katalog extends CI_Controller {
     $this->load->view('layout/file',$data,FALSE);
   }
   
-  public function pinjam()
+  public function addPinjam($id)
   {
-    // $anggota = $this->anggota_model->detailAnggota($id);
-    // $peminjaman = $this->peminjaman_model->anggota($id);
-    // $buku = $this->buku_model->listing();
-    // $konfigurasi = $this->konfigurasi_model->listing();
-    // $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
-
+    
     // $valid = $this->form_validation;
     // $valid->set_rules('id_buku','Pilih judul buku', 'required',
     //                 array('required' => 'Pilih judul buku' ));
-
+    
     // if ($valid->run() == FALSE) {
-
-    // $data = array(
-    //     'title' => 'Peminjaman Buku ',
-    //     'anggota' => $anggota,
-    //     'peminjaman' => $peminjaman,
-    //     'buku' => $buku,
-    //     'konfigurasi' => $konfigurasi,
-    //     'limit' => $limit,
-    //     'isi' => 'admin/peminjaman/add',
-    // );
-    // $this->load->view('layout/file', $data, false);
+      
+    //   // $data = array(
+    //     //     'title' => 'Peminjaman Buku ',
+    //     //     'anggota' => $anggota,
+    //     //     
+    //     //     
+    //     //     
+    //     //     
+    //     //     'isi' => 'admin/peminjaman/add',
+    //     // );
+    
+    //   redirect(base_url('katalog/detail/'.$id),'refresh');
     // }else {
-    // $i = $this->input;
-    // $data = array(
-    //     // 'id_user' => $this->session->userdata('id_user'),
-    //     'id_user' => $id,
-    //     'id_buku ' => $i->post('id_buku'),
-    //     // 'id_anggota' => $id,
-    //     'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
-    //     'tanggal_kembali'  => $i->post('tanggal_kembali'),
-    //     'keterangan'  => $i->post('keterangan'),
-    //     // 'status_kembali'  => $i->post('status_kembali')
-    //     'status_kembali'  => 'Belum'
-    // );
-    // $this->peminjaman_model->tambah($data);
-    // $this->session->set_flashdata(
-    //     'pesan',
-    //     '<div class="alert alert-success" role="alert">
-    //         Data Peminjaman Telah ditambahkan
-    //     </div>'
-    // );
-    // redirect(base_url('peminjaman/add/'.$id),'refresh');
+      $i = $this->input;
+      $data = [
+        'id_user' => $this->session->userdata('id_user'),
+        'id_buku ' => $i->post('id_buku'),
+        'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
+        'tanggal_kembali'  => $i->post('tanggal_kembali'),
+        'keterangan'  => $i->post('keterangan'),
+        'status_kembali'  => 'Belum'
+      ];
+      $this->peminjaman_model->tambah($data);
+      $this->session->set_flashdata(
+          'pesan',
+          '<div class="alert alert-success" role="alert">
+              Data Peminjaman Telah ditambahkan
+          </div>'
+      );
+      redirect(base_url('katalog/addPinjam/'.$id),'refresh');
     // }
 
+  }
+
+  public function listPinjam()
+  {
+    $peminjaman = $this->peminjaman_model->anggota($id);
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+    // $anggota = $this->anggota_model->detailAnggota($id);
+    $buku = $this->buku_model->listing();
+    $konfigurasi = $this->konfigurasi_model->listing();
     $data = [
-      'title'  			=> 'Pinjam Buku',
-      'isi' => 'katalog/peminjaman'
+      'title'  			=> 'Peminjaman Buku',
+      'peminjaman' => $peminjaman,
+      'limit' => $limit,
+      'konfigurasi' => $konfigurasi,
+      'buku' => $buku,
+      'isi' => 'katalog/list'
     ];
     $this->load->view('layout/file', $data, FALSE);
-    
-
   }
 
   public function bayar()
