@@ -129,13 +129,65 @@
         </div>
         <div class="occasion-cart col-md-6">
           <div class="chr single-item single_page_b">
-            <form action="<?php echo base_url('katalog/addPinjam/'.$buku->id_buku)?>" method="post">
-              <!-- <input type="hidden" name="cmd" value="_cart">
-              <input type="hidden" name="add" value="1">
-              <input type="hidden" name="chr_item" value="Single book">
-              <input type="hidden" name="cmd" value="_cart"> -->
-              <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-book" aria-hidden="true"></i> Pinjam</button>
-            </form>
+            <!-- <form action="#" method="post"> -->
+              
+              <!-- <input type="hidden" name="tanggal_pinjam" value="Single book">
+              <input type="hidden" name="tanggal_kembali" value="100.00"> -->
+              <!-- <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-book" aria-hidden="true"></i> Pinjam</button> -->
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#detail<?php echo $buku->id_buku ?>">
+                <i class="fa fa-book" aria-hidden="true"></i> Pinjam
+              </button>
+              <div class="modal fade" id="detail<?php echo $buku->id_buku ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="exampleModalLongTitle" aria-hidden="true">Masukkan Tanggal</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row">
+                            <?php echo form_open(base_url('katalog/addPinjam/'.$buku->id_buku)); ?>
+                            <input type="hidden" name="id_buku" value="<?php echo $buku->id_buku?>">
+                            <div class="col-md-12">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group ">
+                                    <label>Tanggl Peminjaman</label>
+                                    <input type="date" name="tanggal_pinjam" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_pinjam" value="<?php if(isset($_POST['tanggal_pinjam'])){ echo set_value('tanggal_pinjam'); }else{ echo date('Y-m-d');} ?>" required>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Tanggl Harus Kembali</label>
+                                    <input type="date" name="tanggal_kembali" class="form-control" placeholder="YYYY-MM-DD" id="tanggal_kembali" value="<?php echo set_value('tanggal_kembali') ?>" required>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                            <!-- <input type="date" name="tanggal_kembali" value="<?php echo $buku->id_buku?>"> -->
+                            <br>
+                            <br>
+                            <br>
+                            <div class="col-md-12 text-center">
+                            <button type="submit" name="Submit" class="btn btn-primary btn-md">
+                              <i class="fa fa-save"></i>
+                               Pinjam
+                            </button>
+                              </div>
+                              <?php echo form_close(); ?>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                              <!-- <a href="<?php echo base_url('katalog/addPinjam/'.$buku->id_buku)?>" class="btn btn-success"><i class="fa fa-trash-o"></i> Pinjam</a> -->
+                              <!-- <button type="button" class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i> Pinjam</button> -->
+                              <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                          </div>
+                            
+                      </div>
+                  </div>
+              </div>
+            <!-- </form> -->
           </div>
         </div>
       </div>

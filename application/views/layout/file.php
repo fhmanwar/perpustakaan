@@ -7,6 +7,9 @@ $konfigurasi = $this->konfigurasi_model->listing();
     ['username' => $this->session->userdata('username') ]
   );
 
+  $id = $this->session->userdata('id_user');
+  $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+
 require_once('head.php');
 require_once('nav.php');
 require_once('content.php');

@@ -78,7 +78,7 @@ class Katalog extends CI_Controller {
     $bukus	= $this->buku_model->buku_baru();
     $buku	= $this->buku_model->detaill($id_buku);
     $file	= $this->file_model->buku($id_buku);
-    $dUser	= $this->user_model->getUser('user',['username' => $this->session->userdata('username')]);
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id_buku);
 
     $data = array('title'  			=> $buku->judul_buku,//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
@@ -86,10 +86,7 @@ class Katalog extends CI_Controller {
                   'buku'  		  => $buku,
                   'bukus'  		  => $bukus,
                   'file'  		  => $file,
-                  'user'        => $dUser,
-                  // 'keywords'  	=> $keywords,
-									// 'berita'  		=> $berita,
-									// 'slide'  			=> $slide,
+                  'limit'       =>  $limit,
                   'judul'       => 'Detail Buku',
                   'isi'    			=> 'katalog/detail');
 
@@ -179,5 +176,17 @@ class Katalog extends CI_Controller {
     ];
     $this->load->view('layout/file', $data, FALSE);
   }
+
+  public function delete($id_peminjaman) {
+		$data = array('id_peminjaman'=> $id_peminjaman);
+		$this->peminjaman_model->delete($data);
+		$this->session->set_flashdata(
+            'pesan',
+            '<div class="alert alert-success" role="alert">
+                Peminjaman Deleted successfully
+            </div>'
+        );
+		redirect (base_url('katalog'),'refresh');
+	}
 
 }

@@ -13,7 +13,6 @@ class Home extends CI_Controller {
 		$this->load->model('link_model');
 		$this->load->model('user_model');
 		$this->load->model('konfigurasi_model');
-
 	}
 
 	public function index()

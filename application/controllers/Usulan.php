@@ -13,7 +13,6 @@ class Usulan extends CI_Controller {
     $this->load->model('file_model');
 		$this->load->model('link_model');
 		$this->load->model('usulan_model');
-
 	}
 
 	public function index()

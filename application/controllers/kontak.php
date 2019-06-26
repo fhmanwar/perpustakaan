@@ -11,7 +11,6 @@ class Kontak extends CI_Controller {
     $this->load->model('bahasa_model');
     $this->load->model('file_model');
 		$this->load->model('link_model');
-
 	}
 
 	public function index()
