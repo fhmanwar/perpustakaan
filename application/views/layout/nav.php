@@ -55,9 +55,9 @@
               </div>
             </div>
           </li>
-
+          <?php if(!$this->session->userdata('username')==''){ ?>
           <li><a  href="<?php echo base_url('katalog/listPinjam')?>"><span class="fa fa-book nav-icon" style="font-size:20px" aria-hidden="true">[<?php echo count($limit)?>]</span></a></li>
-          <li><a  href="<?php echo base_url('cart')?>"><span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span></a></li>
+          <!-- <li><a  href="<?php echo base_url('cart')?>"><span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?= $this->cart->total_items() ?>]</span></a></li> -->
 
           <li><a href="#"><span class="nav-icon" style="font-size:30px" aria-hidden="true"> | </span></a></li>
 
@@ -68,10 +68,16 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url('login') ?>">Login</a></li>
                 <li><a href="<?php echo base_url('logout') ?>">Logout</a></li>
               </ul>
             </li>
+          <?php }else{?>
+            <li>
+              <a href="<?php echo base_url('login') ?>" title="SignIn & SignUp" class="dropdown-toggle effect-3">
+                <i class="fa fa-user" style="font-size:20px;"></i>
+              </a>
+            </li>
+          <?php }?>
           
         </ul>
         
