@@ -183,6 +183,13 @@ class Auth extends CI_Controller {
             $isi .= '<tr><td><p>Terima Kasih, Salam Hormat</p></td></tr>';
             $isi .= '</table>';
             $this->email->message($isi);
+        }elseif ($type == 'forgot') {
+            $this->email->subject('Reset Password');
+            $isi = 'Click this link to reset your password : ';
+            $isi .= '<a href="'.base_url().'auth/reset?email='.$email.'&token='.urlencode($token).'">';
+            $isi .= 'Reset Password';
+            $isi .= '</a>';
+            $this->email->message($isi);
         }
         
         if ($this->email->send()) {
@@ -200,9 +207,9 @@ class Auth extends CI_Controller {
         $token = $this->input->get('token');
 
         $user = $this->db->get_where('user',['email' => $email])->row_array();
-        $user_token = $this->db->get_where('user',['token' => $token])->row_array();
-
+        
         if ($user) {
+            $user_token = $this->db->get_where('user',['token' => $token])->row_array();
             if ($user_token) {
                 if (time() - $user['verify'] <(60*60*24)) {
                     $this->db->set('id_status',1);
@@ -267,6 +274,139 @@ class Auth extends CI_Controller {
         );
         redirect(base_url('login'),'refresh');
         $this->session->sess_destroy();
+    }
+
+    public function forgot()
+    {
+        $valid = $this->form_validation;
+        
+        $valid->set_rules('email', 'Email Address', 'trim|required|xss_clean|valid_email');
+
+        // PESAN VALIDASI
+        $valid->set_message([
+            'required' => 'Maaf! <b>%s</b> Tidak Boleh Kosong!',
+            'valid_email' => 'Maaf! <b>%s</b> Tidak Valid',
+        ]);
+
+        if($valid->run() == FALSE)
+        {
+            $data = [
+                'title' => 'Forgot Password',
+                'isi' => 'home/forgot'
+            ];
+            $this->load->view('layout/file', $data, FALSE);
+        }else {
+            $email = $this->input->post('email');
+            $user = $this->db->get_where('user',[
+                'email' => $email,
+                'id_status' => 1
+            ])->row_array();
+
+            if ($user) {
+                $token = base64_encode(random_bytes(190));
+
+                $data = [
+                    'email' => $email,
+                    'token' => $token,
+                    'verify' => time()
+                ];
+                $this->auth_model->forgot($data);
+                $this->_sendMail($token,'forgot');
+                $this->session->set_flashdata(
+                    'pesan', 
+                    '<div class="alert alert-success" role-"alert">
+                        Please check your email to reset Password!
+                    </div>'
+                );
+                redirect(base_url('forgot'),'refresh');
+                
+            } else {
+                $this->session->set_flashdata(
+                    'pesan', 
+                    '<div class="alert alert-success" role-"alert">
+                        E-mail tidak terdaftar atau belum aktif
+                    </div>'
+                );
+                redirect(base_url('forgot'),'refresh');
+            }
+            
+        }
+        
+    }
+
+    public function reset()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+        
+        $user = $this->db->get_where('user',['email' => $email])->row_array();
+
+        if ($user) {
+            $user_token = $this->db->get_where('user',['token' => $token])->row_array();
+            if ($user_token) {
+                $this->session->set_userdata('reset_email',$email);
+                $this->changePass();
+            } else {
+                $this->session->set_flashdata(
+                    'pesan', 
+                    '<div class="alert alert-danger" role-"alert">
+                    Reset Password failed! Wrong token.
+                    </div>'
+                );
+                redirect(base_url('login'),'refresh');
+            }
+            
+        } else {
+            $this->session->set_flashdata(
+                'pesan', 
+                '<div class="alert alert-danger" role-"alert">
+                Reset Password failed! Wrong email.
+                </div>'
+            );
+            redirect(base_url('login'),'refresh');
+        }
+        
+        
+    }
+
+    public function changePass()
+    {
+        if (!$this->session->userdata('reset_email')) {
+            redirect(base_url('login'),'refresh');
+        }
+        $valid = $this->form_validation;
+        $valid->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[8]|matches[password1]');
+        $valid->set_rules('password1', 'Konfirmasi Password', 'trim|required|xss_clean|matches[password]');
+
+        // PESAN VALIDASI
+        $valid->set_message([
+            'required' => 'Maaf! <b>%s</b> Tidak Boleh Kosong!',
+            'matches' => 'Maaf! <b>%s</b> Tidak Sama.',
+            'min_length' => 'Maaf! <b>%s</b> Minimal <b>%s</b> Karakter.'
+        ]);
+
+        if ($valid->run() == FALSE) {
+            $data = [
+                'title' => 'Change Password',
+                'isi' => 'home/changePass'
+            ];
+            $this->load->view('layout/file', $data, FALSE);
+        }else {
+            $password = password_hash($this->input->post('password'),PASSWORD_ARGON2ID);
+            $email = $this->session->userdata('reset_email');
+
+            $this->auth_model->reset($password,$email);
+
+            $this->session->unset_userdata('reset_email');
+            
+            $this->session->set_flashdata(
+                'pesan', 
+                '<div class="alert alert-success" role-"alert">
+                Password has been changed! Please Login
+                </div>'
+            );
+            redirect(base_url('login'),'refresh');
+        }
     }
 
     public function test()

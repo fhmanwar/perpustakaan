@@ -19,6 +19,19 @@ class Auth_Model extends CI_Model {
         $this->db->insert('user', $data);
     }
 
+    public function forgot($data)
+    {
+        $this->db->where('email',$data['email']);
+        $this->db->update('user', $data);
+    }
+
+    public function reset($pass,$email)
+    {
+        $this->db->set('password',$pass);
+        $this->db->where('email', $email);
+        $this->db->update('user');
+    }
+
 }
 
 /* End of file Auth_Model.php */

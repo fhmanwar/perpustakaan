@@ -43,7 +43,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">Sign Up</div>
                     <div class="fpassword">
-                        <a href="<?php echo base_url('login') ?>">Sign in</a>
+                        <a href="<?php echo base_url('forgot') ?>">Forgot password?</a>
                     </div>
                 </div>
                 <div class="panel-body" style="padding-top:30px">

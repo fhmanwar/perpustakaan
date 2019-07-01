@@ -57,6 +57,9 @@ $route['aktivasi/(:any)'] = 'Auth/aktivasi/$1';
 $route['login'] = 'Auth';
 $route['register'] = 'Auth/register';
 $route['logout'] = 'Auth/logout';
+$route['forgot'] = 'Auth/forgot';
+$route['reset'] = 'Auth/reset';
+$route['changePass'] = 'Auth/changePass';
 
 /**
  * ADMIN

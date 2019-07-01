@@ -42,9 +42,10 @@
         <div style="margin-top:30px;" class="mainbox  loginbox">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Sign In</div>
+                    <div class="panel-title"><h3>Change Password</h3></div>
+                    <div class="panel-title"><h5><?php echo $this->session->userdata('reset_email');?></h5></div>
                     <div class="fpassword">
-                        <a href="<?php echo base_url('forgot') ?>">Forgot password?</a>
+                        <a href="<?php echo base_url('login') ?>">Sign in</a>
                     </div>
                 </div>
                 <div style="padding-top:30px" class="panel-body">
@@ -53,59 +54,45 @@
                     // cetak error
                     echo $this->session->flashdata('pesan');
 
-                    echo form_open(base_url('login'));
+                    echo form_open(base_url('changePass'));
 
                     ?>
-                    <!-- <form id="loginform" class="form-horizontal" action="<?php echo base_url('login') ?>" method="post"> -->
-                    <div class="form-group col-lg-12">
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-user"></i>
-                            </span>
-                            <input id="login-username" type="text" class="form-control" name="username" value="<?php echo set_value('username'); ?>" placeholder="Username" >
-                        </div>
-                        <?php echo form_error('username','<small class="text-danger" >','</small>') ?>
-                    </div>
-
                     <div class="form-group col-lg-12">
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-lock"></i>
                             </span>
-                            <input id="login-password" type="password" class="form-control" name="password" placeholder="Password" >
+                            <input id="login-username" type="password" class="form-control" name="password" placeholder="Password" >
                         </div>
                         <?php echo form_error('password','<small class="text-danger" >','</small>') ?>
                     </div>
+                    <div class="form-group col-lg-12">
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            <input id="login-username" type="password" class="form-control" name="password1" placeholder="Konfirmasi Password" >
+                        </div>
+                        <?php echo form_error('password1','<small class="text-danger" >','</small>') ?>
+                    </div>
 
-                        <div class="input-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                </label>
+                    <div  class="form-group col-lg-12">
+                        <div class="col-sm-12 controls">
+                            <input type="submit" value="Submit" class="btn btn-success">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                Don't have an account!
+                                <!-- <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"> -->
+                                <a href="<?php echo base_url('register') ?>">
+                                    Sign Up Here
+                                </a>
                             </div>
                         </div>
-
-                        <div  class="form-group col-lg-12">
-                            <!-- Button -->
-                            <div class="col-sm-12 controls">
-                                <!-- <a id="btn-login" href="#" class="btn btn-success">Login </a> -->
-                                <input type="submit" value="Login" class="btn btn-success">
-                                <!-- <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a> -->
-                            </div>
-                        </div>
-
-                        <div class="form-group col-lg-12">
-                            <div class="col-md-12 control">
-                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                                    Don't have an account!
-                                    <!-- <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"> -->
-                                    <a href="<?php echo base_url('register') ?>">
-                                        Sign Up Here
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- </form> -->
+                    </div>
                     <?php echo form_close(); ?>
                 </div>
             </div>

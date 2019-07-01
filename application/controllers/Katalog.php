@@ -191,6 +191,7 @@ class Katalog extends CI_Controller {
   
   public function sendTrans()
   {
+    
     $mpdf = new \Mpdf\Mpdf();
     $html = $this->load->view('layout/file',$data,true);
     $mpdf->WriteHTML($html);
