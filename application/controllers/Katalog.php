@@ -187,6 +187,16 @@ class Katalog extends CI_Controller {
             </div>'
         );
 		redirect (base_url('katalog'),'refresh');
-	}
+  }
+  
+  public function sendTrans()
+  {
+    $mpdf = new \Mpdf\Mpdf();
+    $html = $this->load->view('layout/file',$data,true);
+    $mpdf->WriteHTML($html);
+    // $mpdf->Output(APPPATH.'../assets/upload/files/'.$file['nama_file']); 
+    $mpdf->Output(); // opens in browser
+    //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+  }
 
 }

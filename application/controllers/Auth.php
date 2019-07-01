@@ -100,8 +100,8 @@ class Auth extends CI_Controller {
 
     public function register()
     {
-        $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'; 
-        $random = str_repeat(str_shuffle($str),4);
+        // $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'; 
+        // $random = str_repeat(str_shuffle($str),4);
         // $num = "10".rand(1,9).date('dmY').time();
 
         // VALIDASI
@@ -131,23 +131,123 @@ class Auth extends CI_Controller {
         }
         else
         {
+            $token = base64_encode(random_bytes(190));
+            $email = $this->input->post('email',true);
             $data = [
-                'id_level' => 1,
-                'id_status' => 1,
+                'id_level' => 2,
+                'id_status' => 2,
                 'username' => htmlspecialchars($this->input->post('username',true)),
                 'password' => password_hash($this->input->post('password'),PASSWORD_ARGON2ID),
-                'token' => $random,
+                'token' => $token,
                 'nama' => htmlspecialchars($this->input->post('nama',true)),
-                'email' => htmlspecialchars($this->input->post('email',true)),
+                'email' => htmlspecialchars($email),
                 'avatar' => 'default.jpg',
-                
+                'verify' => time()
             ];
+
+            // var_dump($data);
+            $this->_sendMail($token,'verify');
+
             $this->auth_model->register($data);
-            // $this->Auth_model->daftarAkun();
-            // $this->session->set_userdata('emailregister', $this->input->post('email'));
+            // // $this->session->set_userdata('emailregister', $this->input->post('email'));
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role-"alert">Berhasil Melakukan Registrasi! Silahkan Cek Email. </div>');
             redirect(base_url('login'));
         }
+    }
+
+    private function _sendMail($token,$type)
+    {
+        $email = $this->input->post('email');
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com', // ssl://smtp.googlemail.com
+            'smtp_user' => 'testingemailmahasiswa@gmail.com',
+            'smtp_pass' => 'akusayangkamu123',
+            'smtp_port'=> '465',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline'=> "\r\n"
+        ];
+        $this->email->initialize($config);
+        $this->load->library('email', $config);
+
+        
+        $this->email->from('no-reply@eLiibrary.com', 'noreply');
+        $this->email->to($email);
+        if($type == 'verify'){
+            $this->email->subject('Account Verification');
+            $isi = '<table>';
+            $isi .= '<tr><td><h4>Aktifkan Akun Perpustakaan!</h4></td></tr>';
+            $isi .= '<tr><td><p>Halo <b>' . $email . '</b> terima kasih telah melakukan pendaftaran di Perpustakaan. Kami beritahukan kepada Anda untuk <b>Segera</b> melakukan aktivasi akun agar bisa digunakan.</p></td></tr>';
+            $isi .= '<tr><td><a href="'.base_url().'auth/verify?email='.$email.'&token='.urlencode($token).'">AKTIVASI AKUN</a></td></tr>';
+            $isi .= '<tr><td><p>Terima Kasih, Salam Hormat</p></td></tr>';
+            $isi .= '</table>';
+            $this->email->message($isi);
+        }
+        
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+        
+    }
+
+    public function verify()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $user = $this->db->get_where('user',['email' => $email])->row_array();
+        $user_token = $this->db->get_where('user',['token' => $token])->row_array();
+
+        if ($user) {
+            if ($user_token) {
+                if (time() - $user['verify'] <(60*60*24)) {
+                    $this->db->set('id_status',1);
+                    $this->db->where('email', $email);
+                    $this->db->update('user');
+                    
+                    $this->session->set_flashdata(
+                        'pesan', 
+                        '<div class="alert alert-success" role-"alert">
+                        '.$email.' Sudah teraktivasi
+                        </div>'
+                    );
+                    redirect(base_url('login'),'refresh');
+                }
+                else {
+                    $this->db->delete('user', ['email'=> $email]);
+                    $this->session->set_flashdata(
+                        'pesan', 
+                        '<div class="alert alert-warning" role-"alert">
+                        Activation failed! token expired.
+                        </div>'
+                    );
+                    redirect(base_url('login'),'refresh');
+                }
+            } else {
+                $this->session->set_flashdata(
+                    'pesan', 
+                    '<div class="alert alert-danger" role-"alert">
+                    Activation failed! Wrong token.
+                    </div>'
+                );
+                redirect(base_url('login'),'refresh');
+            }
+            
+        } else {
+            $this->session->set_flashdata(
+                'pesan', 
+                '<div class="alert alert-danger" role-"alert">
+                Activation failed! Wrong email.
+                </div>'
+            );
+            redirect(base_url('login'),'refresh');
+        }
+        
+        
     }
 
     public function logout()
@@ -177,6 +277,19 @@ class Auth extends CI_Controller {
         echo password_hash('12345678', PASSWORD_BCRYPT);
         echo "<br><br>";
         echo password_hash('12345678', PASSWORD_ARGON2I);
+        echo "<br><br>";
+
+        $token = base64_encode(random_bytes(190));
+        var_dump($token);
+        echo "<br><br>";
+        
+        $str = "9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A";
+        $str1 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'; 
+        $random = str_repeat(str_shuffle($str1),4);
+        echo strlen($random);
+        echo "<br><br>";
+
+        echo urlencode($str1);
     }
 
 }

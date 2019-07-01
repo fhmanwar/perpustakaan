@@ -47,6 +47,24 @@
             </h4>
 
             <div class="checkout-right">
+                <div class="col-md-3 checkout-left-basket">
+                    <h4>Total Peminjaman</h4>
+                    <ul>
+                        <li>Buku <span><?php echo count($limit)?> </span></li>
+                        <li>
+                            Print Bukti Peminjaman 
+                            <span>
+                            <form action="<?php echo base_url('katalog/sendTrans') ?>" method="post">
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                    <i class="fa fa-send" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
                 <h4>Buku yang anda pinjam :
                     <span><?php echo count($limit)?> Products</span>
                 </h4>
@@ -65,9 +83,9 @@
                         <?php $i=1; foreach ($limit as $lmt ) {?>
                         <tr class="rem1">
                             <td class="invert"><?php echo $i ?></td>
-                            <td class="invert-image">
+                            <td class="invert-image" style="width:250px;height:150px">
                                 <a href="<?php echo base_url('katalog/detail/'.$lmt->id_buku)?>">
-                                    <img src="<?php echo base_url('assets/upload/buku/'.$lmt->cover_buku) ?>" alt=" " class="img-responsive">
+                                    <img src="<?php echo base_url('assets/upload/buku/'.$lmt->cover_buku) ?>" alt=" " class="img-responsive" style="width:130px;height:150px">
                                 </a>
                             </td>
                             <td class="invert"><?php echo $lmt->judul_buku?></td>
@@ -88,7 +106,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                        <p class="alert alert-warning">Are you sure want to delete this data?</p>
+                                                    <p class="alert alert-warning">Are you sure want to delete this data?</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a href="<?php echo base_url('katalog/delete/'.$lmt->id_peminjaman) ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Yes. Delete this Data</a>
@@ -104,9 +122,8 @@
                             <!-- <pre><?php print_r($limit)?></pre> -->
                     </tbody>
                 </table>
+                </div>
             </div>
-            
-
         </div>
 
     </div>
