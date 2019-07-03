@@ -172,7 +172,7 @@ class Auth extends CI_Controller {
         $this->load->library('email', $config);
 
         
-        $this->email->from('no-reply@eLiibrary.com', 'noreply');
+        $this->email->from('no-reply@eLibrary.com', 'noreply');
         $this->email->to($email);
         if($type == 'verify'){
             $this->email->subject('Account Verification');

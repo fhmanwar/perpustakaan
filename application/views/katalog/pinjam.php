@@ -46,6 +46,12 @@
                 <span class="abtext">Pinjaman</span>
             </h4>
 
+            <?php
+            // cetak error
+            echo $this->session->flashdata('pesan');
+
+            ?>
+
             <div class="checkout-right">
                 <div class="col-md-3 checkout-left-basket">
                     <h4>Total Peminjaman</h4>
@@ -54,7 +60,7 @@
                         <li>
                             Print Bukti Peminjaman 
                             <span>
-                            <form action="<?php echo base_url('katalog/sendTrans') ?>" method="post">
+                            <form action="<?php echo base_url('katalog/invoice') ?>" method="post">
                                 <button type="submit" class="btn btn-sm btn-success">
                                     <a href="#" data-toggle="modal" data-target="#myModal1"></a>
                                     <i class="fa fa-send" aria-hidden="true"></i>

@@ -189,15 +189,61 @@ class Katalog extends CI_Controller {
 		redirect (base_url('katalog'),'refresh');
   }
   
-  public function sendTrans()
+  public function invoice()
   {
+    $email = $this->session->userdata('email');
+    $id = $this->session->userdata('id_user');
+    $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+    // var_dump($id);
+
     
     $mpdf = new \Mpdf\Mpdf();
-    $html = $this->load->view('layout/file',$data,true);
-    $mpdf->WriteHTML($html);
+
+    $data = [
+      'title'  			=> 'Invoice Peminjaman',
+      'limit' => $limit
+    ];
+    $html = $this->load->view('katalog/invoice',$data,true);
+
+    $file = $mpdf->WriteHTML($html);
     // $mpdf->Output(APPPATH.'../assets/upload/files/'.$file['nama_file']); 
-    $mpdf->Output(); // opens in browser
+    // $mpdf->Output(); // opens in browser
     //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+    $config = [
+      'protocol' => 'smtp',
+      'smtp_host' => 'ssl://smtp.gmail.com', // ssl://smtp.googlemail.com
+      'smtp_user' => 'testingemailmahasiswa@gmail.com',
+      'smtp_pass' => 'akusayangkamu123',
+      'smtp_port'=> '465',
+      'mailtype' => 'html',
+      'charset' => 'utf-8',
+      'newline'=> "\r\n"
+      ];
+      $this->email->initialize($config);
+      $this->load->library('email', $config);
+
+      
+      $this->email->from('no-reply@eLibrary.com', 'noreply');
+      $this->email->to($email);
+      $this->email->subject('Invoice');
+      $this->email->message('Your Invoice :');
+      $this->email->attach($file);
+      
+      if ($this->email->send()) {
+        return true;
+      } else {
+        echo $this->email->print_debugger();
+        die;
+      }
+
+      $this->session->set_flashdata(
+        'pesan',
+        '<div class="alert alert-success" role="alert">
+            Invoice telah dikirim ke email
+        </div>'
+      );
+      redirect (base_url('katalog/listPinjam'),'refresh');
+
   }
 
 }
