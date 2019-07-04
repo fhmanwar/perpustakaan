@@ -127,6 +127,7 @@
             </form>
           </div>
         </div>
+        
         <div class="occasion-cart col-md-6">
           <div class="chr single-item single_page_b">
             <!-- <form action="#" method="post"> -->
