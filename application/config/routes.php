@@ -61,6 +61,7 @@ $route['forgot'] = 'Auth/forgot';
 $route['reset'] = 'Auth/reset';
 $route['changePass'] = 'Auth/changePass';
 
+
 /**
  * ADMIN
  */

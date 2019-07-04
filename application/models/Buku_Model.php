@@ -96,6 +96,29 @@ class Buku_Model extends CI_Model {
     return $query->result();
   }
 
+  //kategori buku
+  public function kategori($id_jenis) {
+    $this->db->select('buku.*,
+                      jenis.nama_jenis,
+                      user.nama
+                      ');
+    $this->db->from('buku');
+    //JDin 4 table
+    $this->db->join('jenis','jenis.id_jenis = buku.id_jenis','LEFT');
+    $this->db->join('user','user.id_user = buku.id_user','LEFT');
+    //end join
+    if ($id_jenis>0){
+      $this->db->where(array(	
+        'buku.id_jenis' => $id_jenis,
+        'buku.status_buku' => 'Publish'
+      ));
+    }
+    $this->db->order_by('id_buku','DESC');
+    // $this->db->limit(4);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
 	//detail buku
   public function detaill($id_buku) {
     $this->db->select('buku.*,
@@ -146,15 +169,5 @@ class Buku_Model extends CI_Model {
 		$this->db->delete('buku',$data);
 	}
 
-	public function login($bukuname, $password) {
-		$this->db->select('*');
-		$this->db->from('buku');
-		$this->db->where(array('bukuname'		=> $bukuname,
-													 'password'  	=> sha1($password)
-										));
-		$this->db->order_by('id_buku','DESC');
-		$query = $this->db->get();
-		return $query->row();
-	}
 
 }

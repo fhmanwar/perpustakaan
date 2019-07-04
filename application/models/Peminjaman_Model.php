@@ -95,16 +95,5 @@ class Peminjaman_Model extends CI_Model {
 		$this->db->delete('peminjaman',$data);
 	}
 
-	// public function login($username, $password) {
-	// 	$this->db->select('*');
-	// 	$this->db->from('peminjaman');
-    //     $this->db->where(array('
-    //         username'		=> $username,
-    //         'password'  	=> sha1($password)
-    //     ));
-	// 	$this->db->order_by('id_peminjaman','DESC');
-	// 	$query = $this->db->get();
-	// 	return $query->row();
-	// }
 
 }

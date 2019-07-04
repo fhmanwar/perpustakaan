@@ -36,31 +36,28 @@
   <div class="container-cart">
     <!-- product left -->
     <div class="side-bar col-md-3">
+      
       <!--preference -->
       <div class="left-side">
-        <h3 class="shopf-sear-headits-sear-head">
-          Categories</h3>
-        <ul>
-          <li>
-            <input type="checkbox" class="checked">
-            <span class="span">Biographies</span>
-          </li>
-          <li>
-            <input type="checkbox" class="checked">
-            <span class="span">Fiction</span>
-          </li>
-          <li>
-            <input type="checkbox" class="checked">
-            <span class="span">Management</span>
-          </li>
-          <li>
-            <input type="checkbox" class="checked">
-            <span class="span">Business</span>
-          </li>
-
-        </ul>
+        <h3 class="shopf-sear-headits-sear-head">Categories</h3>
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Buku</a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <ul>
+              <li>- <a href="<?php echo base_url('katalog')?>" class="span">All</a></li>
+            <?php foreach ($jenis as $row) {?>
+              <li>- <a href="<?php echo base_url('katalog/index/'.$row->id_jenis)?>" class="span"><?php echo $row->nama_jenis?></a></li>
+            <?php }?>
+            </ul>
+          </div>
+        </div>
       </div>
       <!-- // preference -->
+
       <div class="search-hotel">
         <h3 class="shopf-sear-headits-sear-head">
           <span>author</span> in focus</h3>
@@ -70,9 +67,9 @@
         </form>
       </div>
 
-
     </div>
     <!-- //product left -->
+    
     <!-- product right -->
     <div class="left-ads-display col-md-9">
       <div class="wrapper_top_shop">
@@ -120,11 +117,8 @@
                       </a>
                     </li>
                   </ul>
-                  <ul class="price-list">
-                    <li>$ 100.00</li>
-                    <li>
-                      $200.00
-                    </li>
+                  <ul class="text-success">
+                    <li><b>$ 100.00</b></li>
                   </ul>
 
                   <div class="clearfix"> </div>

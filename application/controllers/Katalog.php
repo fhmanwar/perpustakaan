@@ -16,18 +16,19 @@ class Katalog extends CI_Controller {
   
   public function test()
   {
-    $x = $this->session->userdata('id_user');
-    $limit = $this->peminjaman_model->limit_peminjaman_anggota($x);
-    var_dump($limit);
+    // $x = $this->session->userdata('id_user');
+    // $limit = $this->peminjaman_model->limit_peminjaman_anggota($x);
+    // var_dump($limit);
+    // $x = $this->jenis_model->listing();
+    // var_dump($x);
   }
 
 	public function index()
 	{
-		// $site = $this->home_model->listing();
-		$buku	= $this->buku_model->buku();
-		// $new	= $this->produk_model->new();
-		// $berita = $this->berita_model->berita();
-		// $slide = $this->berita_model->slide();
+    // $buku	= $this->buku_model->buku();
+    $jenis = $this->jenis_model->listing();
+    $url = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $buku = $this->buku_model->kategori($url);
 
     $valid = $this->form_validation;
     $valid->set_rules('cari','Keywords','required',
@@ -41,8 +42,9 @@ class Katalog extends CI_Controller {
 
     $data = array('title'  			=> 'Katalog Buku',//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
-									// 'new'					=> $new,
+                  // 'new'					=> $new,
                   'buku'  		  => $buku,
+                  'jenis' => $jenis,
 									// 'berita'  		=> $berita,
 									// 'slide'  			=> $slide,
                   'isi'    			=> 'katalog/list');
@@ -52,12 +54,8 @@ class Katalog extends CI_Controller {
 
   public function cari($keywords)
 	{
-		// $site = $this->home_model->listing();
     $keywords = str_replace(' ','-',strip_tags($keywords));
     $buku	= $this->buku_model->cari($keywords);
-		// $new	= $this->produk_model->new();
-		// $berita = $this->berita_model->berita();
-		// $slide = $this->berita_model->slide();
 
 
     $data = array('title'  			=> 'Hasil Pencarian "'.$keywords.'" ('.count($buku).')',//$site['namaweb'].' | '.$site['tagline']
@@ -79,6 +77,7 @@ class Katalog extends CI_Controller {
     $buku	= $this->buku_model->detaill($id_buku);
     $file	= $this->file_model->buku($id_buku);
     $limit = $this->peminjaman_model->limit_peminjaman_anggota($id_buku);
+    $cart = $this->cart->contents();
 
     $data = array('title'  			=> $buku->judul_buku,//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
@@ -86,6 +85,7 @@ class Katalog extends CI_Controller {
                   'buku'  		  => $buku,
                   'bukus'  		  => $bukus,
                   'file'  		  => $file,
+                  'cart'        => $cart,
                   'limit'       =>  $limit,
                   'judul'       => 'Detail Buku',
                   'isi'    			=> 'katalog/detail');
@@ -168,15 +168,6 @@ class Katalog extends CI_Controller {
     $this->load->view('layout/file', $data, FALSE);
   }
 
-  public function bayar()
-  {
-    $data = [
-      'title'  			=> 'Bayar Buku',
-      'isi' => 'katalog/pembayaran'
-    ];
-    $this->load->view('layout/file', $data, FALSE);
-  }
-
   public function delete($id_peminjaman) {
 		$data = array('id_peminjaman'=> $id_peminjaman);
 		$this->peminjaman_model->delete($data);
@@ -246,6 +237,20 @@ class Katalog extends CI_Controller {
 
   }
 
+  public function addCart($id)
+  {
+    $buku	= $this->buku_model->detaill($id);
+    $data = [
+      'id' => $id,
+      'name' => $buku->judul_buku,
+      'price' => $buku->harga,
+      'qty' => 1,
+      'image' => $buku->cover_buku
+    ];
+    $this->cart->insert($data);
+    redirect(base_url('katalog'));
+  }
+
   public function cart()
   {
     $cart = $this->cart->contents();
@@ -256,5 +261,37 @@ class Katalog extends CI_Controller {
     ];
     $this->load->view('layout/file', $data, FALSE);
   }
+
+  public function update()
+  {
+    $cart_info = $this->input->post('cart');
+    foreach ($$cart_info as $id => $cart) {
+      $rowid = $cart['rowid'];
+			$price = $cart['price'];
+			$image = $cart['image'];
+			$amount = $price * $cart['qty'];
+			$qty = $cart['qty'];
+			$data = [
+        'rowid' => $rowid,
+        'price' => $price,
+        'image' => $image,
+        'amount' => $amount,
+        'qty' => $qty
+      ];
+			$this->cart->update($data);
+    }
+    redirect(base_url('katalog/cart'));
+  }
+
+  public function bayar()
+  {
+    $data = [
+      'title'  			=> 'Bayar Buku',
+      'isi' => 'katalog/pembayaran'
+    ];
+    $this->load->view('layout/file', $data, FALSE);
+  }
+  
+  
 
 }
