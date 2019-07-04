@@ -103,22 +103,23 @@ CREATE TABLE IF NOT EXISTS `buku` (
   `ringkasan` mediumtext,
   `cover_buku` varchar(255) DEFAULT NULL,
   `jumlah_buku` int(11) DEFAULT NULL,
+  `harga` int(20) DEFAULT NULL,
   `tanggal_entri` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_buku`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_perpus.buku: ~8 rows (approximately)
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
-INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
-	(5, 0, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', 'Sekolah Menengah Kejuruan', 'IPSJD1', 11, 'Buku Sekolah Elektronik (BSE)', '2004', '123xr3', 'Publish', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\r\n\r\nA small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.', 'ips.jpg', 20, '2019-03-22 20:14:19', '2019-03-28 15:58:55'),
-	(6, 0, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 20:33:09'),
-	(7, 0, 3, 1, 'PHP Modul', 'Teguh Wahyono', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212145310.jpg', 0, '2019-03-25 18:10:31', '2019-03-26 00:10:31'),
-	(8, 0, 3, 1, 'Pengantar Teknologi Informasi', 'Eddy Sutanta', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209044244.jpg', 0, '2019-03-25 18:11:29', '2019-03-26 00:11:29'),
-	(9, 0, 3, 1, 'Kamus Istilah Internet', 'wang cun', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212080423.jpg', 0, '2019-03-25 18:12:13', '2019-03-26 00:12:13'),
-	(10, 0, 3, 1, 'Kamus Matematika', 'ario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170207102926.jpg', 0, '2019-03-25 18:12:56', '2019-03-26 00:12:56'),
-	(11, 0, 3, 1, 'E-Learning', 'mario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209050821.jpg', 0, '2019-03-25 18:13:39', '2019-03-26 00:13:39'),
-	(12, 0, 3, 1, 'Algoritma C++', 'niawarti', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209045014.jpg', 0, '2019-03-25 18:14:22', '2019-03-26 00:14:22');
+INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `harga`, `tanggal_entri`, `tanggal`) VALUES
+	(5, 0, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', 'Sekolah Menengah Kejuruan', 'IPSJD1', 11, 'Buku Sekolah Elektronik (BSE)', '2004', '123xr3', 'Publish', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\r\n\r\nA small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.', 'ips.jpg', 20, 90000, '2019-03-22 20:14:19', '2019-07-04 20:36:36'),
+	(6, 0, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212035154.jpg', 0, 50000, '2019-03-23 14:33:09', '2019-07-04 20:36:44'),
+	(7, 0, 2, 1, 'PHP Modul', 'Teguh Wahyono', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212145310.jpg', 0, 198000, '2019-03-25 18:10:31', '2019-07-04 20:37:57'),
+	(8, 0, 1, 1, 'Pengantar Teknologi Informasi', 'Eddy Sutanta', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209044244.jpg', 0, 100000, '2019-03-25 18:11:29', '2019-07-04 20:36:58'),
+	(9, 0, 1, 1, 'Kamus Istilah Internet', 'wang cun', '', '', 0, '', '0000', '', 'Publish', '  ', '20170212080423.jpg', 0, 145000, '2019-03-25 18:12:13', '2019-07-04 20:37:05'),
+	(10, 0, 3, 1, 'Kamus Matematika', 'ario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170207102926.jpg', 0, 110000, '2019-03-25 18:12:56', '2019-07-04 20:37:24'),
+	(11, 0, 4, 1, 'E-Learning', 'mario', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209050821.jpg', 0, 125000, '2019-03-25 18:13:39', '2019-07-04 20:37:32'),
+	(12, 0, 2, 1, 'Algoritma C++', 'niawarti', '', '', 0, '', '0000', '', 'Publish', '  ', '20170209045014.jpg', 0, 150000, '2019-03-25 18:14:22', '2019-07-04 20:37:44');
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.file
@@ -154,9 +155,11 @@ CREATE TABLE IF NOT EXISTS `jenis` (
   UNIQUE KEY `nama_jenis` (`nama_jenis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.jenis: ~3 rows (approximately)
+-- Dumping data for table db_perpus.jenis: ~4 rows (approximately)
 /*!40000 ALTER TABLE `jenis` DISABLE KEYS */;
 INSERT INTO `jenis` (`id_jenis`, `kode_jenis`, `nama_jenis`, `keterangan`, `urutan`, `tanggal`) VALUES
+	(1, 'IT', 'Informatika ', NULL, NULL, '2019-07-04 19:59:35'),
+	(2, 'Alg', 'Algoritma', NULL, NULL, '2019-07-04 20:00:11'),
 	(3, 'I01', 'Ilmu sosial', '', 1, '2019-03-23 01:44:32'),
 	(4, 'bio', 'buku biologi', '  buku ini tentang biologi dalam tumbuhan dan hewan\r\njika ada tambahan, kemungkinan tentang kamasutra', 2, '2019-03-20 00:46:05');
 /*!40000 ALTER TABLE `jenis` ENABLE KEYS */;
@@ -229,6 +232,22 @@ INSERT INTO `link` (`id_link`, `nama_link`, `url`, `target`, `tanggal`) VALUES
 	(2, 'github', 'https://github.com', '_self', '2019-06-02 13:20:51');
 /*!40000 ALTER TABLE `link` ENABLE KEYS */;
 
+-- Dumping structure for table db_perpus.order
+CREATE TABLE IF NOT EXISTS `order` (
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `id_buku` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `harga` int(20) DEFAULT NULL,
+  `keterangan` text,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table db_perpus.order: ~0 rows (approximately)
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+
 -- Dumping structure for table db_perpus.peminjaman
 CREATE TABLE IF NOT EXISTS `peminjaman` (
   `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT,
@@ -240,9 +259,9 @@ CREATE TABLE IF NOT EXISTS `peminjaman` (
   `status_kembali` enum('Belum','Sudah','Hilang','') CHARACTER SET utf8 NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_peminjaman`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_perpus.peminjaman: ~14 rows (approximately)
+-- Dumping data for table db_perpus.peminjaman: ~17 rows (approximately)
 /*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
 INSERT INTO `peminjaman` (`id_peminjaman`, `id_buku`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`, `keterangan`, `status_kembali`, `tanggal`) VALUES
 	(2, 7, 1, '2019-04-27', '2019-05-11', 'asdweqwe', 'Sudah', '2019-06-03 19:24:51'),
@@ -258,7 +277,10 @@ INSERT INTO `peminjaman` (`id_peminjaman`, `id_buku`, `id_user`, `tanggal_pinjam
 	(23, 10, 1, '2019-06-06', '2019-06-24', 'asdasd', 'Belum', '2019-06-19 22:40:41'),
 	(25, 5, 40, '2019-06-26', '2019-06-14', NULL, 'Belum', '2019-06-26 08:30:46'),
 	(26, 5, 40, '2019-06-21', '2019-06-16', NULL, 'Belum', '2019-06-26 08:49:02'),
-	(27, 7, 40, '2019-06-12', '2019-06-29', NULL, 'Belum', '2019-06-28 09:35:15');
+	(27, 7, 40, '2019-06-12', '2019-06-29', NULL, 'Belum', '2019-06-28 09:35:15'),
+	(28, 6, 40, '2019-07-02', '2019-07-16', NULL, 'Belum', '2019-07-02 01:51:00'),
+	(29, 5, 42, '2019-07-02', '2019-07-12', NULL, 'Belum', '2019-07-02 02:01:23'),
+	(30, 5, 52, '2019-07-02', '2019-07-19', NULL, 'Belum', '2019-07-02 02:15:14');
 /*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.status
@@ -297,9 +319,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_perpus.user: ~7 rows (approximately)
+-- Dumping data for table db_perpus.user: ~6 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, `token`, `nama`, `email`, `j_kel`, `tlp`, `alamat`, `avatar`, `verify`, `tanggal`) VALUES
 	(1, 1, 1, 'admin', '$argon2id$v=19$m=1024,t=2,p=2$RUgzUXJzcUFwRk5hWmVZdg$sG0ZtGcvH3pLX7BQWtxj8lFlGdAvatJ15rYdfijBoxs', '5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA5E6PIgBkcSJQqOZ8yGLpTfhUlb-uvFormN0nDtYX1_wC2i7s4xVR3KWeM9jHzadA', 'Admin', 'admin@admin.com', NULL, NULL, NULL, 'default.png', 123123, '2019-06-01 12:46:39'),
@@ -307,7 +329,8 @@ INSERT INTO `user` (`id_user`, `id_level`, `id_status`, `username`, `password`, 
 	(38, 1, 1, '2', '$argon2id$v=19$m=1024,t=2,p=2$dWJXRGxZUjNUOGZQck1TNg$ccQsqTQ+VGvz+3u4OyR7eyrftZroLZJ2R+8rRcpx/lY', 'favRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjNfavRbIixW0o2qYpuGnK8h5OeFlrt7AdBS6_19JLVTEU3-msMwkzyZQcPCXD4gHjN', 'wik weka', 'mike@example.net', NULL, NULL, NULL, 'default.jpg', 123123, '2019-06-02 19:36:57'),
 	(40, 2, 1, '123', '$argon2id$v=19$m=1024,t=2,p=2$RUgzUXJzcUFwRk5hWmVZdg$sG0ZtGcvH3pLX7BQWtxj8lFlGdAvatJ15rYdfijBoxs', '4ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C94ELhfQMi-BFdDcN1TSGvolxymA0UXeIOJ_P6WjZnp8us3kYHg75VqRbtaKrwz2C9', 'Super Admin', 'wacacuseva@hotelnextmail.net', NULL, NULL, NULL, 'default.jpg', 123123, '2019-06-19 15:45:40'),
 	(41, 2, 1, 'asdasd', '$argon2id$v=19$m=1024,t=2,p=2$QUc5dThWdEJmMFExdE1yYg$Qg5Eyr9eINXkRN1i2onRvRhL8vlvt0zK1Wv0iOuoJH4', '9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A9NzJyMW5iFn2ldUHgqushjcRBEPkwb3tT7-oLfZ4QmIYSOCKDxXp6avV8G10er_A', 'asdasd', 'asd@asd.ner', NULL, NULL, NULL, 'default.jpg', 123123, '2019-06-19 15:45:08'),
-	(42, 2, 1, 'zxcasd', '$argon2id$v=19$m=1024,t=2,p=2$ZnRFbTQ0QnRHNGFrY3A4Wg$BYlaaD9oMPCbmHGyWdmr4ugiw3aiZ8mVVrDSo4vtNvI', 'CbDAnvTeno1sliwg6WIKrB0Q+2MoK4RgG3AA9e2wwG24Mp3MohyG6u7KTbUCWV/qzrOf/nmzuAZ/3STCMCMyo3UHpmK6fT8apSTUfw3tsqy7IkX1jpGg+jhksaM7D4lCoy3ebtdt2Kg1LACikiy4Ldjbn5GRgJ05TF7D3XYuujNcARBODqHPg6wCSP3u7GpU4dwUJL5YEktcCSDgTtoqsv1ho7N2NxTMYkudVul2C0CgW5TEYvedUKKZ6qVyCg==', 'wik wik', 'greenmr@hi2.in', NULL, NULL, NULL, 'default.jpg', 1562002111, '2019-07-02 00:39:23');
+	(42, 2, 1, 'zxcasd', '$argon2id$v=19$m=1024,t=2,p=2$ZnRFbTQ0QnRHNGFrY3A4Wg$BYlaaD9oMPCbmHGyWdmr4ugiw3aiZ8mVVrDSo4vtNvI', 'CbDAnvTeno1sliwg6WIKrB0Q+2MoK4RgG3AA9e2wwG24Mp3MohyG6u7KTbUCWV/qzrOf/nmzuAZ/3STCMCMyo3UHpmK6fT8apSTUfw3tsqy7IkX1jpGg+jhksaM7D4lCoy3ebtdt2Kg1LACikiy4Ldjbn5GRgJ05TF7D3XYuujNcARBODqHPg6wCSP3u7GpU4dwUJL5YEktcCSDgTtoqsv1ho7N2NxTMYkudVul2C0CgW5TEYvedUKKZ6qVyCg==', 'wik wik', 'greenmr@hi2.in', NULL, NULL, NULL, 'default.jpg', 1562002111, '2019-07-02 00:39:23'),
+	(52, 2, 1, 'qwe', '$argon2id$v=19$m=1024,t=2,p=2$Ry9KRjFHVU1rVnRsQ3RGYg$vvdGjJOMVX6cPyYc/1kEnVsSdLYbCNx7uTa2/1NptyY', 'Yy+2b2vs444yjeSGRyK7x+mzwm8Crw+HSZVqeF+l9sJxyMQuIeXNeJiDX8/bY1d7NcXFEdGQtSVremRIf9fmVxJ6o9xDl3TjikJuEl823lgUooZgwdy92Nw9HXkyTM9LHavNIJnhkKYHERGw7oB2d7AnZAVVCyGPLEbq51TbGVyBFnYMgkklcxAydi0TGUsOUYxG4qRT/XuoE7dnVICEjBP+7omZfq4ZTlVknDJxBXZAqXdwA5qTbwOLUxhARQ==', 'wik weka', 'testingemailmahasiswa@gmail.com', NULL, NULL, NULL, 'default.jpg', 1562008477, '2019-07-02 02:14:48');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table db_perpus.usulan
