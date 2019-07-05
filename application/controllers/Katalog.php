@@ -16,9 +16,9 @@ class Katalog extends CI_Controller {
       'order_model'
     ];
     $this->load->model($data);
-    
+
   }
-  
+
   public function test()
   {
     // $x = $this->session->userdata('id_user');
@@ -125,7 +125,7 @@ class Katalog extends CI_Controller {
 
     $this->load->view('layout/file',$data,FALSE);
   }
-  
+
   public function addPinjam($id)
   {
     //proteksi halaman
@@ -189,7 +189,7 @@ class Katalog extends CI_Controller {
         );
 		redirect (base_url('katalog'),'refresh');
   }
-  
+
   public function invoice()
   {
     $email = $this->session->userdata('email');
@@ -206,7 +206,7 @@ class Katalog extends CI_Controller {
     $html = $this->load->view('katalog/invoice',$data,true);
 
     $mpdf->WriteHTML($html);
-    // $mpdf->Output(APPPATH.'../assets/upload/files/'.$file['nama_file']); 
+    // $mpdf->Output(APPPATH.'../assets/upload/files/'.$file['nama_file']);
     // $mpdf->Output(); // opens in browser
     $file = $mpdf->Output('','S'); // D sebagai Download it downloads the file into the user system, with give name
 
@@ -223,13 +223,13 @@ class Katalog extends CI_Controller {
     $this->email->initialize($config);
     $this->load->library('email', $config);
 
-    
+
     $this->email->from('no-reply@eLibrary.com', 'no-reply');
     $this->email->to($email);
     $this->email->subject('Invoice');
     $this->email->message('Your Invoice :');
     $this->email->attach($file, 'attachment', 'report.pdf', 'application/pdf');
-    
+
     if ($this->email->send()) {
       return true;
     } else {
@@ -327,7 +327,7 @@ class Katalog extends CI_Controller {
     ];
     $this->load->view('layout/file', $data, FALSE);
   }
-  
-  
+
+
 
 }

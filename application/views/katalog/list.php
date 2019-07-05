@@ -36,7 +36,7 @@
   <div class="container-cart">
     <!-- product left -->
     <div class="side-bar col-md-3">
-      
+
       <!--preference -->
       <div class="left-side">
         <h3 class="shopf-sear-headits-sear-head">Categories</h3>
@@ -69,22 +69,24 @@
 
     </div>
     <!-- //product left -->
-    
+
     <!-- product right -->
     <div class="left-ads-display col-md-9">
-      <div class="wrapper_top_shop">
+      <!-- <div class="wrapper_top_shop"> -->
         <!-- product-sec1 -->
-        <div class="product-sec1">
+        <!-- <div class="product-sec1"> -->
           <?php $i; foreach ($buku as $buku) {?>
           <!-- row1-->
           <div class="col-md-3 product-men">
             <div class="product-chr-info chr">
               <div class="thumbnail">
-              <?php if($buku->cover_buku != ""){ ?>
+              <?php if ($buku->cover_buku != "") { ?>
                 <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
                   <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="" style="width:200px; height:250px;">
                 </a>
-              <?php }else{ echo 'Tidak ada';} ?>
+              <?php } else {
+                  echo 'Tidak ada';
+              } ?>
               </div>
               <div class="caption">
                 <h4><?php echo $buku->judul_buku ?></h4>
@@ -139,13 +141,13 @@
           </div>
           <!-- //row1 -->
           <?php } ?>
-          <div class="clearfix"></div>
+          <!-- <div class="clearfix"></div>
 
-        </div>
+        </div> -->
 
         <!-- //product-sec1 -->
-        <div class="clearfix"></div>
-      </div>
+        <!-- <div class="clearfix"></div>
+      </div> -->
     </div>
     <div class="clearfix"></div>
 
