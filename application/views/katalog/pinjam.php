@@ -74,6 +74,7 @@
                 <h4>Buku yang anda pinjam :
                     <span><?php echo count($limit)?> Products</span>
                 </h4>
+                
                 <table class="timetable_sub table-responsive">
                     <thead>
                         <tr>
@@ -86,7 +87,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i=1; foreach ($limit as $lmt ) {?>
+                        <?php 
+                            $i=1; 
+                            if(count($limit) > 0){
+                                foreach ($limit as $lmt ) { 
+                        ?>
                         <tr class="rem1">
                             <td class="invert"><?php echo $i ?></td>
                             <td class="invert-image" style="width:250px;height:150px">
@@ -124,8 +129,18 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php $i++;} ?>
-                            <!-- <pre><?php print_r($limit)?></pre> -->
+                        <?php 
+                                    $i++;
+                                } 
+                            }else {
+                                echo ' <tr>
+                                        <td colspan="6" class="col-md-12 text-center">
+                                            <h3>Keranjang Belanja Kosong.</h3>
+                                        </td>
+                                        </tr>';
+                            }
+                        ?>
+                        <!-- <pre><?php print_r($limit)?></pre> -->
                     </tbody>
                 </table>
                 </div>

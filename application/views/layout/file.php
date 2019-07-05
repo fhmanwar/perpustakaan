@@ -9,6 +9,7 @@ $konfigurasi = $this->konfigurasi_model->listing();
 
   $id = $this->session->userdata('id_user');
   $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
+  $order = $this->order_model->order_anggota($id);
 
 require_once('head.php');
 require_once('nav.php');

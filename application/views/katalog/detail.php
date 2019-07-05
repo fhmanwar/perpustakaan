@@ -121,14 +121,11 @@
     <div class="col-md-12">
       <div class="occasion-cart col-md-6">
         <div class="chr single-item single_page_b">
-           <!-- <?php // echo form_open(base_url('katalog/addCart'))?>
-             <input type="hidden" name="id" value="<?php // echo $buku->id_buku ?>" />
-              <input type="hidden" name="name" value="<?php // echo $buku->judul_buku ?>" />
-              <input type="hidden" name="price" value="<?php // echo $buku->harga ?>" />
-              <input type="hidden" name="image" value="<?php // echo $buku->cover_buku ?>" />
+           <?php echo form_open(base_url('katalog/addCart/'.$buku->id_buku))?>
+              <input type="hidden" name="id_buku" value="<?php echo $buku->id_buku?>">
+              <input type="hidden" name="harga" value="<?php echo $buku->harga ?>" >
               <button class="btn btn-lg btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Beli</button>
-              <?php // echo form_close();?>  -->
-              <a href="<?php echo base_url('katalog/addCart/'.$buku->id_buku) ?>"  class="btn btn-success btn-lg"><i class="fa fa-cart-plus" aria-hidden="true"></i> Beli</a></p>
+              <?php echo form_close();?> 
           </div>
         </div>
         

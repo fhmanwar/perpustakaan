@@ -57,7 +57,7 @@
           </li>
           <?php if(!$this->session->userdata('username')==''){ ?>
           <li><a  href="<?php echo base_url('katalog/listPinjam')?>"><span class="fa fa-book nav-icon" style="font-size:20px" aria-hidden="true">[<?php echo count($limit)?>]</span></a></li>
-          <li><a  href="<?php echo base_url('katalog/cart')?>"><span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?php echo $this->cart->total_items() ?>]</span></a></li>
+          <li><a  href="<?php echo base_url('katalog/cart')?>"><span class="fa fa-cart-arrow-down nav-icon" style="font-size:20px" aria-hidden="true">[<?php echo count($order) ?>]</span></a></li>
 
           <li><a href="#"><span class="nav-icon" style="font-size:30px" aria-hidden="true"> | </span></a></li>
 

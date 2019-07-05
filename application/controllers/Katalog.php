@@ -5,13 +5,18 @@ class Katalog extends CI_Controller {
 
   public function __construct(){
 		parent::__construct();
-    $this->load->model('berita_model');
-    $this->load->model('buku_model');
-    $this->load->model('jenis_model');
-    $this->load->model('bahasa_model');
-    $this->load->model('file_model');
-		$this->load->model('link_model');
-    $this->load->model('peminjaman_model');
+    $data = [
+      'berita_model',
+      'buku_model',
+      'jenis_model',
+      'bahasa_model',
+      'file_model',
+      'link_model',
+      'peminjaman_model',
+      'order_model'
+    ];
+    $this->load->model($data);
+    
   }
   
   public function test()
@@ -24,6 +29,7 @@ class Katalog extends CI_Controller {
     $cart = $this->cart->contents();
     echo '<pre>';
     print_r($cart);
+    echo CI_VERSION;
     echo '</pre>';
   }
 
@@ -159,14 +165,14 @@ class Katalog extends CI_Controller {
     $peminjaman = $this->peminjaman_model->anggota($id);
     $limit = $this->peminjaman_model->limit_peminjaman_anggota($id);
     // $anggota = $this->anggota_model->detailAnggota($id);
-    $buku = $this->buku_model->listing();
-    $konfigurasi = $this->konfigurasi_model->listing();
+    // $buku = $this->buku_model->listing();
+    // $konfigurasi = $this->konfigurasi_model->listing();
     $data = [
       'title'  			=> 'Peminjaman Buku',
       'peminjaman' => $peminjaman,
       'limit' => $limit,
-      'konfigurasi' => $konfigurasi,
-      'buku' => $buku,
+      // 'konfigurasi' => $konfigurasi,
+      // 'buku' => $buku,
       'isi' => 'katalog/pinjam'
     ];
     $this->load->view('layout/file', $data, FALSE);
@@ -201,7 +207,7 @@ class Katalog extends CI_Controller {
 
     $mpdf->WriteHTML($html);
     // $mpdf->Output(APPPATH.'../assets/upload/files/'.$file['nama_file']); 
-    $mpdf->Output(); // opens in browser
+    // $mpdf->Output(); // opens in browser
     $file = $mpdf->Output('','S'); // D sebagai Download it downloads the file into the user system, with give name
 
     $config = [
@@ -237,65 +243,79 @@ class Katalog extends CI_Controller {
           Invoice telah dikirim ke email
       </div>'
     );
-    redirect (base_url('katalog/listPinjam'),'refresh');
+    redirect(base_url('katalog/listPinjam'),'refresh');
 
   }
 
   public function addCart($id)
   {
-    $buku	= $this->buku_model->detailCart($id);
+    //proteksi halaman
+    if($this->session->userdata('username') == ""){
+      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+      redirect(base_url('login'),'refresh');
+    }
 
-    $data = array(
-      'id' => $buku->id_buku,
-      'name' => $buku->judul_buku,
-      'price' => $buku->harga,
-      'qty' => 1
-      // 'image' => $buku->cover_buku,
+    $i = $this->input;
+    $data = [
+      'id_user' => $this->session->userdata('id_user'),
+      'id_buku' => $id,
+      'qty' => 1,
+      'subtotal' => $i->post('harga'),
+    ];
+    $this->order_model->tambah($data);
+    $this->session->set_flashdata(
+        'pesan',
+        '<div class="alert alert-success" role="alert">
+            Barang Telah ditambahkan
+        </div>'
     );
-    $this->cart->insert($data);
-    // redirect(base_url('katalog'));
-    echo '<pre>';
-    // print_r($this->cart->contents());
-    print_r($data);
-    // print_r($buku);
-    echo '</pre>';
+    // redirect(base_url('katalog/detail/'.$id),'refresh');
+    redirect(base_url('katalog/cart'),'refresh');
   }
 
   public function cart()
   {
-    $cart = $this->cart->contents();
+    $id = $this->session->userdata('id_user');
+    $order = $this->order_model->order_anggota($id);
     $data = [
       'title' => 'Keranjang Buku',
-      'cart' => $cart,
+      'order' => $order,
       'isi' => 'katalog/keranjang'
     ];
     $this->load->view('layout/file', $data, FALSE);
   }
 
-  public function updateCart()
+  public function updateCart($id)
   {
-    $cart_info = $this->input->post('cart');
-    foreach ($cart_info as $id => $cart) {
-      $rowid = $cart['rowid'];
-			$price = $cart['price'];
-			$image = $cart['image'];
-			$amount = $price * $cart['qty'];
-			$qty = $cart['qty'];
-			$data = [
-        'rowid' => $rowid,
-        'price' => $price,
-        'image' => $image,
-        'amount' => $amount,
-        'qty' => $qty
-      ];
-			$this->cart->update($data);
+    //proteksi halaman
+    if($this->session->userdata('username') == ""){
+      $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
+      redirect(base_url('login'),'refresh');
     }
-    redirect(base_url('katalog/cart'));
+
+    $i = $this->input;
+    $data = [
+      'id_order' => $id,
+      'id_user' => $this->session->userdata('id_user'),
+      'id_buku' => $i->post('id_buku'),
+      'qty' => $i->post('qty'),
+      'subtotal' => $i->post('harga')*$i->post('qty'),
+    ];
+    $this->order_model->edit($data);
+    redirect(base_url('katalog/cart'),'refresh');
+    // var_dump($data);
   }
 
   public function delCart($id)
   {
-    $this->cart->remove($id);
+    $data = ['id_order'=> $id];
+		$this->order_model->delete($data);
+		$this->session->set_flashdata(
+        'pesan',
+        '<div class="alert alert-success" role="alert">
+            Hapus barang berhasil
+        </div>'
+    );
     redirect(base_url('katalog/cart'),'refresh');
   }
 

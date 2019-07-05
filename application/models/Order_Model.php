@@ -48,22 +48,20 @@ class Order_Model extends CI_Model {
     }
 
 	//Listing order anggota
-  public function limit_order_anggota($id_anggota) {
+  public function order_anggota($id_anggota) {
     $this->db->select('
         order.*,
         user.nama,
         buku.judul_buku,
         buku.kode_buku,
-        buku.no_seri,
         buku.penerbit,
-        buku.cover_buku
+        buku.cover_buku,
+        buku.harga
     ');
     $this->db->from('order');
 		$this->db->join('user', 'user.id_user = order.id_user');
 		$this->db->join('buku', 'buku.id_buku = order.id_buku');
-		$this->db->where(array(	'order.id_user'	=> $id_anggota,
-														'order.status_kembali <>' => 'Sudah'
-										));
+		$this->db->where('order.id_user', $id_anggota);
     $this->db->order_by('id_order','ASC');
     $query = $this->db->get();
     return $query->result();
