@@ -80,6 +80,7 @@
                     </ul>
                 </div>
                 <div class="col-md-9">
+                    <?php ?>
                 <table class="timetable_sub table-responsive">
                     <thead>
                         <tr>
@@ -93,8 +94,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            echo form_open_multipart(base_url('katalog/update'));
+                        <?php
+                            
                             $i=1;
                             $total = 0;
                             $discount = 200000;
@@ -114,6 +115,7 @@
 
                             <td class="invert">Rp. <?php echo number_format($item['price'],'0',',','.'); ?></td>
 
+                            <?php echo form_open_multipart(base_url('katalog/update'));?>
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
@@ -129,13 +131,14 @@
                                 </div>
                             </td>
                             <td class="invert">Rp <?php echo number_format($item['subtotal'],0,',','.'); ?></td>
-
+                            <?php echo form_close();?>
+                            
                             <td class="invert">
                                 <div class="rem">
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete<?php echo $item['id']; ?>">
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete<?php echo $item['rowid']; ?>">
                                         <i class="fa fa-trash-o"></i>
                                     </button>
-                                    <div class="modal fade" id="Delete<?php echo $item['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="Delete<?php echo $item['rowid'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -146,7 +149,7 @@
                                                     <p class="alert alert-warning">Are you sure want to delete this data?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="<?php echo base_url('katalog/delete/'.$item['rowid']); ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Yes. Delete this Data</a>
+                                                    <a href="<?php echo base_url('katalog/delCart/'.$item['rowid']); ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Yes. Delete this Data</a>
                                                     <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                                                 </div>
                                             </div>
@@ -165,12 +168,13 @@
                                                 <h3>Keranjang Belanja Kosong.</h3>
                                             </div>
                                         </div>';
-                            } 
-                            echo form_close();
+                            }
+                            
                         ?>
                     </tbody>
                 </table>
-                </div>
+                <?php  ?>
+            </div>
             </div>
         </div>
 

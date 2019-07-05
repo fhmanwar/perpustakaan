@@ -21,6 +21,10 @@ class Katalog extends CI_Controller {
     // var_dump($limit);
     // $x = $this->jenis_model->listing();
     // var_dump($x);
+    $cart = $this->cart->contents();
+    echo '<pre>';
+    print_r($cart);
+    echo '</pre>';
   }
 
 	public function index()
@@ -239,16 +243,22 @@ class Katalog extends CI_Controller {
 
   public function addCart($id)
   {
-    $buku	= $this->buku_model->detaill($id);
-    $data = [
-      'id' => $id,
+    $buku	= $this->buku_model->detailCart($id);
+
+    $data = array(
+      'id' => $buku->id_buku,
       'name' => $buku->judul_buku,
       'price' => $buku->harga,
-      'qty' => 1,
-      'image' => $buku->cover_buku
-    ];
+      'qty' => 1
+      // 'image' => $buku->cover_buku,
+    );
     $this->cart->insert($data);
-    redirect(base_url('katalog'));
+    // redirect(base_url('katalog'));
+    echo '<pre>';
+    // print_r($this->cart->contents());
+    print_r($data);
+    // print_r($buku);
+    echo '</pre>';
   }
 
   public function cart()
@@ -262,10 +272,10 @@ class Katalog extends CI_Controller {
     $this->load->view('layout/file', $data, FALSE);
   }
 
-  public function update()
+  public function updateCart()
   {
     $cart_info = $this->input->post('cart');
-    foreach ($$cart_info as $id => $cart) {
+    foreach ($cart_info as $id => $cart) {
       $rowid = $cart['rowid'];
 			$price = $cart['price'];
 			$image = $cart['image'];
@@ -281,6 +291,12 @@ class Katalog extends CI_Controller {
 			$this->cart->update($data);
     }
     redirect(base_url('katalog/cart'));
+  }
+
+  public function delCart($id)
+  {
+    $this->cart->remove($id);
+    redirect(base_url('katalog/cart'),'refresh');
   }
 
   public function bayar()

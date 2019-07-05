@@ -9,6 +9,7 @@ class Buku_Model extends CI_Model {
 		$this->load->database();
 	}
 
+  //----------- user ------------
   //Listing
   public function listing() {
     $this->db->select('buku.*,
@@ -137,7 +138,7 @@ class Buku_Model extends CI_Model {
 		$this->db->where(array(	'buku.status_buku' => 'Publish',
 														'id_buku' => $id_buku
 													));
-    $this->db->order_by('id_buku','DESC');
+    // $this->db->order_by('id_buku','DESC');
 		// $this->db->limit(4);
     $query = $this->db->get();
     return $query->row();
@@ -167,7 +168,12 @@ class Buku_Model extends CI_Model {
 	public function delete ($data){
 		$this->db->where('id_buku',$data['id_buku']);
 		$this->db->delete('buku',$data);
-	}
+  }
+  
+  public function detailCart($id)
+  {
+    return $this->db->get_where('buku',['id_buku' => $id])->row(); 
+  }
 
 
 }
