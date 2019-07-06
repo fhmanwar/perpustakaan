@@ -18,21 +18,18 @@
         <div class="row">
             <ul class="btn-group btn-breadcrumb bc-list">
                 <li class="btn btn1">
-                    <a href="index.html">
+                    <a href="<?php echo base_url(); ?>">
                         <i class="glyphicon glyphicon-home"></i>
                     </a>
                 </li>
                 <li class="btn btn2">
-                    <a href="shop.html">Product Catalogue</a>
+                    <a href="<?php echo base_url('katalog') ?>">katalog buku</a>
                 </li>
                 <li class="btn btn3 btn3a">
-                    <a href="single_product.html">Single product</a>
+                    <a href="<?php echo base_url('katalog/cart') ?>">Keranjang</a>
                 </li>
-                <li class="btn btn4 btn4a">
-                    <a href="checkout.html">Checkout</a>
-                </li>
-                <li class="btn btn5">
-                    <a href="payment.html">Payment Details</a>
+                <li class="btn btn4">
+                    <a href="<?php echo base_url('katalog/bayar') ?>">Checkout</a>
                 </li>
             </ul>
         </div>

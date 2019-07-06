@@ -11,9 +11,9 @@
       <p><?php echo $konfigurasi->deskripsi ?></p>
       <!-- <br><h3>Link Perpustakaan</h3>
       <ul class="info">
-        <?php foreach ($link as $link ) {?>
-        <li><a href="<?php echo $link->url ?>" title="<?php echo $link->nama_link ?>" target="<?php echo $link->target ?>"><?php echo $link->nama_link ?></a></li>
-      <?php } ?>
+        <?php //foreach ($link as $link ) {?>
+        <li><a href="<?php // echo $link->url ?>" title="<?php // echo $link->nama_link ?>" target="<?php //echo $link->target ?>"><?php //echo $link->nama_link ?></a></li>
+      <?php //} ?>
       </ul> -->
     </div>
     <div class="col-md-3 col-sm-6 footv3-left">
@@ -69,38 +69,7 @@
 <!--search jQuery-->
 <script src="<?php echo base_url()?>assets/front/js/main.js"></script>
 <!--search jQuery-->
-<!-- cart-js -->
-<script src="<?php echo base_url()?>assets/front/js/minicart.js"></script>
-<script>
-chr.render();
 
-chr.cart.on('new_checkout', function (evt) {
-    var items, len, i;
-
-    if (this.subtotal() > 0) {
-        items = this.items();
-
-        for (i = 0, len = items.length; i < len; i++) {}
-    }
-});
-</script>
-<!-- //cart-js -->
-
-<!--quantity-->
-<script>
-    $('.value-plus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-        divUpd.text(newVal);
-    });
-
-    $('.value-minus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-        if (newVal >= 1) divUpd.text(newVal);
-    });
-</script>
-<!--quantity-->
 <!-- FadeOut-Script -->
 <script>
     $(document).ready(function (c) {
@@ -140,7 +109,7 @@ chr.cart.on('new_checkout', function (evt) {
 	<script>
 		$(document).ready(function () {
 			$('#horizontalTab').easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion           
+				type: 'default', //Types: default, vertical, accordion
 				width: 'auto', //auto or any width like 600px
 				fit: true, // 100% fit in a container
 				closed: 'accordion', // Start closed if in accordion view

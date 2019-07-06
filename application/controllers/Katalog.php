@@ -45,40 +45,43 @@ class Katalog extends CI_Controller {
                 array('required' => 'Keywords harus diisi' ));
 
     if($valid->run()){
-      $cari = strip_tags($this->input->post('cari'));
-      $keywords = str_replace(' ','-',$cari);
-      redirect(base_url('katalog/cari/'.$keywords),'refresh');
+      $keywordspost = $this->input->post('cari');
+      $keywords = str_replace(' ','-',strip_tags($keywordspost));
+      $cari	= $this->buku_model->cari($keywords);
+      // redirect(base_url('katalog/cari/'.$keywords),'refresh');
+      $data = array('title'  			=> 'Hasil Pencarian "'.$keywords.'" ('.count($cari).')',
+                    'loop'  		  => $cari,
+                    'jenis' => $jenis,
+                    'isi'    			=> 'katalog/list');
+
+      $this->load->view('layout/file',$data,FALSE);
+    }else {
+      $data = array('title'  			=> 'Katalog Buku',
+                    'loop'  		  => $buku,
+                    'jenis' => $jenis,
+                    'isi'    			=> 'katalog/list');
+
+      $this->load->view('layout/file',$data,FALSE);
     }
-
-    $data = array('title'  			=> 'Katalog Buku',//$site['namaweb'].' | '.$site['tagline']
-									// 'produk'			=> $produk,
-                  // 'new'					=> $new,
-                  'buku'  		  => $buku,
-                  'jenis' => $jenis,
-									// 'berita'  		=> $berita,
-									// 'slide'  			=> $slide,
-                  'isi'    			=> 'katalog/list');
-
-    $this->load->view('layout/file',$data,FALSE);
 	}
 
-  public function cari($keywords)
-	{
-    $keywords = str_replace(' ','-',strip_tags($keywords));
-    $buku	= $this->buku_model->cari($keywords);
-
-
-    $data = array('title'  			=> 'Hasil Pencarian "'.$keywords.'" ('.count($buku).')',//$site['namaweb'].' | '.$site['tagline']
-									// 'produk'			=> $produk,
-									// 'new'					=> $new,
-                  'buku'  		  => $buku,
-                  'keywords'  	=> $keywords,
-									// 'berita'  		=> $berita,
-									// 'slide'  			=> $slide,
-                  'isi'    			=> 'katalog/cari');
-
-    $this->load->view('layout/file',$data,FALSE);
-	}
+  // public function cari($keywords)
+	// {
+  //   $keywords = str_replace(' ','-',strip_tags($keywords));
+  //   $cari	= $this->buku_model->cari($keywords);
+  //
+  //
+  //   $data = array('title'  			=> 'Hasil Pencarian "'.$keywords.'" ('.count($cari).')',
+	// 								// 'produk'			=> $produk,
+	// 								// 'new'					=> $new,
+  //                 'cari'  		  => $cari,
+  //                 'keywords'  	=> $keywords,
+	// 								// 'berita'  		=> $berita,
+	// 								// 'slide'  			=> $slide,
+  //                 'isi'    			=> 'katalog/cari');
+  //
+  //   $this->load->view('layout/file',$data,FALSE);
+	// }
 
   public function detail($id_buku)
 	{
@@ -326,6 +329,25 @@ class Katalog extends CI_Controller {
       'isi' => 'katalog/pembayaran'
     ];
     $this->load->view('layout/file', $data, FALSE);
+  }
+
+  public function complete()
+  {
+    //proteksi halaman
+    if($this->session->userdata('username') == ""){
+      $this->session->set_flashdata('Success','Silahkan pesan terlebih dahulu');
+      redirect(base_url('katalog/cart'),'refresh');
+    }
+    $buku	= $this->buku_model->buku_baru();
+
+    $cart = $this->cart->contents();
+    $data = [
+      'title' => 'Order Complete',
+      'buku'  		  => $buku,
+      'cart'        => $cart,
+      'isi'=> 'katalog/complete'
+    ];
+    $this->load->view('layout/file', $data);
   }
 
 

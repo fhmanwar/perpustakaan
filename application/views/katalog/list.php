@@ -75,22 +75,25 @@
       <!-- <div class="wrapper_top_shop"> -->
         <!-- product-sec1 -->
         <!-- <div class="product-sec1"> -->
-          <?php $i; foreach ($buku as $buku) {?>
+          <?php
+            $i;
+            foreach ($loop as $get) {
+          ?>
           <!-- row1-->
           <div class="col-md-3 product-men">
             <div class="product-chr-info chr">
               <div class="thumbnail">
-              <?php if ($buku->cover_buku != "") { ?>
-                <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
-                  <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="" style="width:200px; height:250px;">
+              <?php if ($get->cover_buku != "") { ?>
+                <a href="<?php echo base_url('katalog/detail/'.$get->id_buku) ?>">
+                  <img src="<?php echo base_url('assets/upload/buku/'.$get->cover_buku) ?>" alt="" style="width:200px; height:250px;">
                 </a>
               <?php } else {
                   echo 'Tidak ada';
               } ?>
               </div>
               <div class="caption">
-                <h4><?php echo $buku->judul_buku ?></h4>
-                <p><?php echo $buku->penulis_buku ?></p>
+                <h4><?php echo $get->judul_buku ?></h4>
+                <p><?php echo $get->penulis_buku ?></p>
                 <div class="matrlf-mid">
                   <ul class="rating">
                     <li>
@@ -125,7 +128,7 @@
 
                   <div class="clearfix"> </div>
                 </div>
-                <form action="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>" method="post">
+                <form action="<?php echo base_url('katalog/detail/'.$get->id_buku) ?>" method="post">
                   <!-- <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="add" value="1">
                   <input type="hidden" name="chr_item" value="Book1">

@@ -11,7 +11,7 @@ class Buku extends CI_Controller
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }
-    
+
     // $this->load->model('home_model');
     $this->load->model('buku_model');
     $this->load->model('jenis_model');
@@ -73,7 +73,7 @@ class Buku extends CI_Controller
           $this->load->library('image_lib', $config);
           $this->image_lib->resize();
           $i = $this->input;
-          $data = array( 	
+          $data = array(
             'id_user'				  => 	$this->session->userdata('id_user'),
             'id_jenis'				=>	$i->post('id_jenis'),
             'id_bahasa'		    =>	$i->post('id_bahasa'),
@@ -89,6 +89,7 @@ class Buku extends CI_Controller
             'ringkasan'	      =>  $i->post('ringkasan'),
             'cover_buku'	    =>  $upload_data['uploads']['file_name'],
             'jumlah_buku'   	=>  $i->post('jumlah_buku'),
+            'harga'   	=>  $i->post('harga'),
             'tanggal_entri'  	=>  Date('Y-m-d H:i:s')
           );
           $this->buku_model->tambah($data);
@@ -97,7 +98,7 @@ class Buku extends CI_Controller
         }
     }else {
         $i = $this->input;
-        $data = array( 	
+        $data = array(
           'id_user'				  => 	$this->session->userdata('id_user'),
           'id_jenis'			  	=>	$i->post('id_jenis'),
           'id_bahasa'		    =>	$i->post('id_bahasa'),
@@ -112,6 +113,7 @@ class Buku extends CI_Controller
           'status_buku'	    =>  $i->post('status_buku'),
           'ringkasan'	      =>  $i->post('ringkasan'),
           'jumlah_buku'     	=>  $i->post('jumlah_buku'),
+          'harga'     	=>  $i->post('harga'),
           'tanggal_entri'  	=>  Date('Y-m-d H:i:s')
         );
       $this->buku_model->tambah($data);
@@ -193,7 +195,8 @@ class Buku extends CI_Controller
                       'status_buku'	    =>  $i->post('status_buku'),
                       'ringkasan'	      =>  $i->post('ringkasan'),
                       'cover_buku'	    =>  $upload_data['uploads']['file_name'],
-                      'jumlah_buku'   	=>  $i->post('jumlah_buku')
+                      'jumlah_buku'   	=>  $i->post('jumlah_buku'),
+                      'harga'   	=>  $i->post('harga')
                     );
       $this->buku_model->edit($data);
       $this->session->set_flashdata('success','Buku edited successfully');
@@ -215,7 +218,8 @@ class Buku extends CI_Controller
                    'no_seri'	        =>  $i->post('no_seri'),
                    'status_buku'	    =>  $i->post('status_buku'),
                    'ringkasan'	      =>  $i->post('ringkasan'),
-                   'jumlah_buku'     	=>  $i->post('jumlah_buku')
+                   'jumlah_buku'     	=>  $i->post('jumlah_buku'),
+                   'harga'     	=>  $i->post('harga')
                  );
    $this->buku_model->edit($data);
    $this->session->set_flashdata('success','Buku edited successfully');

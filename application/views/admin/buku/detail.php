@@ -69,6 +69,10 @@
               <th>: <?php echo $buku->jumlah_buku ?></th>
             </tr>
             <tr>
+              <td>Harga Buku</td>
+              <th>: Rp <?php echo number_format($buku->harga, '0', ',', '.')  ?></th>
+            </tr>
+            <tr>
               <td>Tanggal Entri</td>
               <th>: <?php echo date('d-m-Y H:i:s',strtotime($buku->tanggal_entri)) ?></th>
             </tr>

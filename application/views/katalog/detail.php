@@ -125,10 +125,10 @@
               <input type="hidden" name="id_buku" value="<?php echo $buku->id_buku?>">
               <input type="hidden" name="harga" value="<?php echo $buku->harga ?>" >
               <button class="btn btn-lg btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Beli</button>
-              <?php echo form_close();?> 
+              <?php echo form_close();?>
           </div>
         </div>
-        
+
         <div class="occasion-cart col-md-6">
           <div class="chr single-item single_page_b">
             <!-- <form action="#" method="post"> -->
@@ -163,7 +163,6 @@
                               </div>
 
                             </div>
-                            <!-- <input type="date" name="tanggal_kembali" value="<?php echo $buku->id_buku?>"> -->
                             <br>
                             <br>
                             <br>
@@ -179,7 +178,7 @@
                           <div class="modal-footer">
                               <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                           </div>
-                            
+
                       </div>
                   </div>
               </div>
@@ -213,7 +212,7 @@
         <div class="product-chr-info chr">
           <div class="thumbnail">
             <a href="<?php echo base_url('katalog/read/'.$file->id_file) ?>">
-              <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
+              <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="" style="width:200px; height:250px;">
             </a>
           </div>
           <div class="caption">
@@ -248,7 +247,7 @@
         <div class="product-chr-info chr">
           <div class="thumbnail">
             <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>">
-              <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="">
+              <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="" style="width:200px; height:250px;">
             </a>
           </div>
           <div class="caption">

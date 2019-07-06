@@ -93,16 +93,15 @@
 
                       <?php echo form_open_multipart(base_url('katalog/updateCart/'.$item->id_order)); ?>
                       <td class="invert">
-                          <div class="quantity">
-                              <div class="quantity-select">
-                                  <div class="entry value">
-                                      <input type="hidden" name="id_buku" value="<?php echo $item->id_buku?>">
-                                      <input type="hidden" name="harga" value="<?php echo $item->harga ?>" >
-                                      <input type="text" name="qty" value="<?php echo $item->qty?>" class="form-control input-number text-center" min="1" max="100">
-                                  </div>
-                              </div>
-                          </div>
-                      </td>
+                        <div class="form-group">
+                          <?php
+                            echo form_hidden('id_buku', $item->id_buku);
+                            echo form_hidden('harga', $item->harga);
+                          ?>
+                          <input type="number" name="qty" value="<?php echo $item->qty?>" class="form-control text-center" min="1" max="100"style="width:4em; margin:auto;">
+                        </div>
+                        </td>
+
                       <td class="invert">Rp <?php echo number_format($item->subtotal, '0', ',', '.'); ?></td>
                       <?php echo form_close(); ?>
 
@@ -155,18 +154,17 @@
         </div>
         <div class="row">
           <div class="col-md-8">SubTotal</div>
-          <div class="col-md-3 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($total, '0', ',', '.'); ?></div> </div>
+          <div class="col-md-4 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($total, '0', ',', '.'); ?></div> </div>
         </div>
         <br>
         <div class="row">
           <div class="col-md-8">Ongkos Kirim</div>
-          <div class="col-md-3 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($shipping, '0', ',', '.'); ?></div></div>
+          <div class="col-md-4 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($shipping, '0', ',', '.'); ?></div></div>
         </div>
-        <br>
-        <!-- <hr style="border-width: 1px 1px ;border-style: solid;"> -->
+        <hr style="border-width: 1px 1px ;border-style: solid;">
         <div class="row">
           <div class="col-md-8">Total Pembayaran</div>
-          <div class="col-md-3 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($Gtotal=$total+$shipping, '0', ',', '.'); ?></div></div>
+          <div class="col-md-4 ml-auto pull-right">Rp <div class="pull-right"><?php echo number_format($Gtotal=$total+$shipping, '0', ',', '.'); ?></div></div>
         </div>
         <hr style="border-width: 1px 1px ;border-style: solid;">
         <div class="row">

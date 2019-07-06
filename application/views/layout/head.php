@@ -4,11 +4,22 @@
 
 <head>
     <title><?php echo $title ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="<?php echo $title.' | '.$konfigurasi->keywords ?>" />
     <meta name="description" content="<?php echo $title.' | '.$konfigurasi->deskripsi ?>" />
     <meta name="author" content="<?php echo $konfigurasi->namaweb.' - '.$konfigurasi->tagline ?>" />
+
+    <!-- <script type='text/javascript' charset='utf-8'>
+        // Hides mobile browser's address bar when page is done loading.
+          window.addEventListener('load', function(e) {
+            setTimeout(function() { window.scrollTo(0, 1); }, 1);
+          }, false);
+    </script> -->
+
     <link rel="shortcut icon" href="<?php echo base_url('assets/upload/image/'.$konfigurasi->icon) ?>">
     <script>
         addEventListener("load", function () {

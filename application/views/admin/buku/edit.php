@@ -61,46 +61,46 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
         <div class="card-title">Basic Create</div>
       </div>
       <div class="card-body">
-  
+
         <div class="form-group form-floating-label group-lg">
           <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="judul_buku" value="<?php echo $buku->judul_buku ?>" >
           <label for="inputFloatingLabel" class="placeholder">Judul Buku</label>
           <?php echo form_error('judul_buku','<small class="text-danger" >','</small>') ?>
         </div>
-				
+
 				<div class="form-group form-floating-label">
 					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="penulis_buku" value="<?php echo $buku->penulis_buku ?>">
 					<label for="inputFloatingLabel" class="placeholder">Penulis Buku</label>
 					<?php echo form_error('penulis_buku','<small class="text-danger" >','</small>') ?>
 				</div>
-	
+
         <div class="form-group form-floating-label">
           <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="kode_buku" value="<?php echo $buku->kode_buku ?>">
 					<label for="inputFloatingLabel" class="placeholder">Kode Buku</label>
         </div>
-  
+
         <div class="form-group form-floating-label">
           <input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="no_seri" value="<?php echo $buku->no_seri ?>">
 					<label for="inputFloatingLabel" class="placeholder">No. Seri</label>
 				</div>
-				
+
 				<div class="form-group form-floating-label">
 					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="penerbit" value="<?php echo $buku->penerbit ?>">
 					<label for="inputFloatingLabel" class="placeholder">Penerbit Buku</label>
 				</div>
-        
+
       </div>
     </div>
-		
+
 	</div>
-	
+
 	<div class="col-lg-4">
     <div class="card">
       <div class="card-header">
         <div class="card-title">Basic Create</div>
       </div>
       <div class="card-body">
-				
+
 				<div class="form-group form-floating-label">
 					<input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="tahun_terbit" value="<?php echo $buku->tahun_terbit ?>">
 					<label for="inputFloatingLabel" class="placeholder">Tahun Terbit</label>
@@ -110,7 +110,12 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
           <input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="kolasi" value="<?php echo $buku->kolasi ?>" >
           <label for="inputFloatingLabel" class="placeholder">Kolasi Buku</label>
         </div>
-				
+
+				<div class="form-group form-floating-label group-lg">
+          <input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="harga" value="<?php echo $buku->harga ?>" >
+          <label for="inputFloatingLabel" class="placeholder">Harga</label>
+        </div>
+
 				<div class="form-group form-floating-label">
 					<select class="form-control " id="selectFloatingLabel2" name="id_jenis" required="">
 						<option value="">&nbsp;</option>
@@ -122,7 +127,7 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
 					</select>
 					<label for="selectFloatingLabel2" class="placeholder">Jenis Buku</label>
 				</div>
-					
+
 				<div class="form-group form-floating-label">
 					<select class="form-control " id="selectFloatingLabel2" name="id_bahasa" required="">
 						<option value="">&nbsp;</option>
@@ -134,7 +139,7 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
 					</select>
 					<label for="selectFloatingLabel2" class="placeholder">Bahasa Buku</label>
 				</div>
-			
+
 				<div class="form-group form-floating-label">
 					<select class="form-control " id="selectFloatingLabel2" name="status_buku" required="">
 						<option value="">&nbsp;</option>
@@ -144,29 +149,29 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
 					</select>
 					<label for="selectFloatingLabel2" class="placeholder">Status Buku</label>
 				</div>
-								
+
 				</div>
     </div>
-		
+
 	</div>
-	
+
 	<div class="col-lg-4">
     <div class="card">
       <div class="card-header">
         <div class="card-title">Basic Create</div>
       </div>
       <div class="card-body">
-				
+
 				<div class="form-group form-floating-label">
-					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="penerbit" value="<?php echo $buku->penerbit ?>">
+					<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required="" name="subjek_buku" value="<?php echo $buku->subjek_buku ?>">
 					<label for="inputFloatingLabel" class="placeholder">Subjek Buku</label>
 				</div>
 
         <div class="form-group form-floating-label group-lg">
-          <input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="kolasi" value="<?php echo $buku->kolasi ?>" >
+          <input id="inputFloatingLabel" type="number" class="form-control input-border-bottom" required="" name="jumlah_buku" value="<?php echo $buku->jumlah_buku ?>" >
           <label for="inputFloatingLabel" class="placeholder">Jumlah Buku</label>
         </div>
-				
+
 				<div class="form-group form-floating-label">
           <input id="inputFloatingLabel" type="file" class="form-control input-border-bottom" name="cover_buku" value="<?php echo $buku->cover_buku ?>">
 					<label for="inputFloatingLabel" class="placeholder">Upload Cover(<span class="text-warning">atau biarkan kosong</span>)</label>
@@ -177,29 +182,29 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
 						<img src="<?php echo base_url('assets/upload/buku/thumbs/'.$buku->cover_buku) ?>" class="img img-thumbnail" width="60">
 					<?php } ?>
 				</div>
-				
+
 				<div class="form-group form-floating-label">
 					<textarea id="inputFloatingLabel" class="form-control input-border-bottom" rows="3" name="ringkasan"><?php echo $buku->ringkasan ?></textarea>
 					<label for="inputFloatingLabel" class="placeholder">Ringkasan </label>
 				</div>
-        
+
       </div>
     </div>
-		
+
 	</div>
-	
+
 	<div class="col-lg-12 ml-auto mr-auto">
     <div class="card">
-				
+
 			<div class="card-action text-right">
 				<button class="btn btn-success btn-border btn-round btn-lg">Submit</button>
 				<button type="reset" class="btn btn-danger btn-border btn-round btn-lg">Reset</button>
 			</div>
 
     </div>
-		
+
   </div>
-	
+
 </div>
 
 <?php echo form_close() ?>

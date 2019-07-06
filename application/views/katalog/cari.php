@@ -4,7 +4,7 @@
   <div class="banner-text-inner">
     <div class="container">
       <h2 class="title-inner">
-        world of reading
+        <?php echo $title?>
       </h2>
 
     </div>
@@ -78,7 +78,7 @@
       <div class="wrapper_top_shop">
         <!-- product-sec1 -->
         <div class="product-sec1">
-          <?php $i; foreach ($buku as $buku) {?>
+          <?php $i; foreach ($cari as $buku) {?>
           <!-- row1-->
           <div class="col-md-3 product-men">
             <div class="product-chr-info chr">
@@ -158,4 +158,3 @@
   </div>
 </div>
 <!--// Shop -->
-
