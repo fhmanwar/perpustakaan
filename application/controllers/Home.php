@@ -17,12 +17,16 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$buku	= $this->buku_model->buku();
+		// $buku	= $this->buku_model->buku();
 		$berita = $this->berita_model->berita();
 		$home = $this->berita_model->home();
 		$slide = $this->berita_model->slide();
 		$site = $this->konfigurasi_model->listing();
 		$link = $this->link_model->listing();
+		
+		$jenis = $this->jenis_model->listing();
+		$url = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    	$buku = $this->buku_model->kategori($url);
 
 		$data = array(
 			'title'  			=> $site->namaweb.' | '.$site->tagline,
@@ -33,6 +37,7 @@ class Home extends CI_Controller {
 			'berita'  		=> $berita,
 			'slide'  			=> $slide,
 			'link'  			=> $link,
+			'jenis'  			=> $jenis,
 			'isi'    			=> 'home/list'
 		);
 

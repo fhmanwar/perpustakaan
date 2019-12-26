@@ -28,15 +28,17 @@
                 <p>Billed as the largest in the world,and the library's collection holds more than 3 million items.</p>
                 <h5>the library catalogue</h5>
                 <ul class="about-list">
-                    <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>magazines</li>
+                    <?php foreach ($jenis as $row) {?>
+                    <li><i class="fa fa-play-circle-o" aria-hidden="true"></i><?php echo $row->nama_jenis?></li>
+                    <!-- <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>magazines</li>
                     <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>ebooks</li>
                     <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>Fiction</li>
                     <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>scientific and Technical Information</li>
                     <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>Comic Books</li>
-                    <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>Journals</li>
-
+                    <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>Journals</li> -->
+                    <?php }?>
                 </ul>
-                <a href="#">view more</a>
+                <a href="<?php echo base_url('katalog');?>">view more</a>
             </div>
             <!-- //about left bottom - services ends here -->
         </div>
@@ -53,17 +55,33 @@
     <!-- about left bottom - services -->
     <div class="principles-grids principles-grids1">
         <div class="abt-btm agileits w3layouts aos-init aos-animate">
-            <div class="col-md-4 col-sm-4 agileits elite-services1 w3layouts bottom-gds" data-aos="fade-up">
+
+        <?php foreach ($jenis as $row) {?>
+            <div class="col-md-4 col-sm-4 agileits elite-services2 w3layouts bottom-gds" data-aos="fade-up">
+                <div class="bott-img bott-img1 agileits w3layouts">
+                    <div class="icon-holder agileits w3layouts">
+                        <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
+                    </div>
+                    <h4 class="mission agileits w3layouts"><?php echo $row->nama_jenis?></h4>
+                    <div class="description agileits w3layouts">
+                        <a href="<?php echo base_url('katalog/index/'.$row->id_jenis)?>">Read More</a>
+                    </div>
+                </div>
+            </div>
+        <?php }?>
+
+            <!-- <div class="col-md-4 col-sm-4 agileits elite-services1 w3layouts bottom-gds" data-aos="fade-down">
                 <div class="bott-img agileits w3layouts">
                     <div class="icon-holder agileits w3layouts">
                         <span class="fa fa-book agileits w3layouts service-icon" aria-hidden="true"></span>
                     </div>
-                    <h4 class="mission agileits w3layouts">e - books</h4>
+                    <h4 class="mission agileits w3layouts"><?php echo $row->nama_jenis?></h4>
                     <div class="description agileits w3layouts">
-                        <a href="#">Read More</a>
+                        <a href="<?php echo base_url('katalog/index/'.$row->id_jenis)?>">Read More</a>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4 col-sm-4 agileits elite-services2 w3layouts bottom-gds" data-aos="fade-down">
                 <div class="bott-img bott-img1 agileits w3layouts">
                     <div class="icon-holder agileits w3layouts">
@@ -120,8 +138,10 @@
                         <a href="#">Read More</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            
             <div class="clearfix"></div>
+
         </div>
     </div>
     <!-- //about left bottom - services ends here -->

@@ -86,6 +86,7 @@
           </a>
           <div class="collapse" id="user">
             <ul class="nav nav-collapse">
+              
               <li>
                 <a href="<?php echo base_url('admin/user') ?>">
                   <span class="sub-item">Data User</span>
@@ -106,6 +107,12 @@
                   <span class="sub-item">Data Anggota</span>
                 </a>
               </li>
+              <li>
+                <a href="<?php echo base_url('admin/user') ?>">
+                  <span class="sub-item">Data per Kecamatan</span>
+                </a>
+              </li>
+
             </ul>
           </div>
         </li>

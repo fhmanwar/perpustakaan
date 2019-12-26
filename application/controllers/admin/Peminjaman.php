@@ -102,38 +102,37 @@ class Peminjaman extends CI_Controller{
                         array('required' => 'Pilih judul buku' ));
 
         if ($valid->run() == FALSE) {
-
-        $data = array(
-            'title' => 'Peminjaman Buku ',
-            'anggota' => $anggota,
-            'peminjaman' => $peminjaman,
-            'buku' => $buku,
-            'konfigurasi' => $konfigurasi,
-            'limit' => $limit,
-            'isi' => 'admin/peminjaman/add',
-        );
-        $this->load->view('admin/layout/file', $data, false);
+            $data = array(
+                'title' => 'Peminjaman Buku ',
+                'anggota' => $anggota,
+                'peminjaman' => $peminjaman,
+                'buku' => $buku,
+                'konfigurasi' => $konfigurasi,
+                'limit' => $limit,
+                'isi' => 'admin/peminjaman/add',
+            );
+            $this->load->view('admin/layout/file', $data, false);
         }else {
-        $i = $this->input;
-        $data = array(
-            // 'id_user' => $this->session->userdata('id_user'),
-            'id_user' => $id,
-            'id_buku ' => $i->post('id_buku'),
-            // 'id_anggota' => $id,
-            'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
-            'tanggal_kembali'  => $i->post('tanggal_kembali'),
-            'keterangan'  => $i->post('keterangan'),
-            // 'status_kembali'  => $i->post('status_kembali')
-            'status_kembali'  => 'Belum'
-        );
-        $this->peminjaman_model->tambah($data);
-        $this->session->set_flashdata(
-            'pesan',
-            '<div class="alert alert-success" role="alert">
-                Data Peminjaman Telah ditambahkan
-            </div>'
-        );
-        redirect(base_url('admin/peminjaman/add/'.$id),'refresh');
+            $i = $this->input;
+            $data = array(
+                // 'id_user' => $this->session->userdata('id_user'),
+                'id_user' => $id,
+                'id_buku ' => $i->post('id_buku'),
+                // 'id_anggota' => $id,
+                'tanggal_pinjam'  => $i->post('tanggal_pinjam'),
+                'tanggal_kembali'  => $i->post('tanggal_kembali'),
+                'keterangan'  => $i->post('keterangan'),
+                // 'status_kembali'  => $i->post('status_kembali')
+                'status_kembali'  => 'Belum'
+            );
+            $this->peminjaman_model->tambah($data);
+            $this->session->set_flashdata(
+                'pesan',
+                '<div class="alert alert-success" role="alert">
+                    Data Peminjaman Telah ditambahkan
+                </div>'
+            );
+            redirect(base_url('admin/peminjaman/add/'.$id),'refresh');
         }
     }
 
